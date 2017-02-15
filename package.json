@@ -1,6 +1,6 @@
 {
   "name": "gee-material-ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "react material ui components",
   "main": "./src/index.js",
   "scripts": {
