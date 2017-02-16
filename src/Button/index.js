@@ -1,12 +1,11 @@
 import React from 'react';
-import is from 'is_js';
 import update from 'react-addons-update';
 import css from './button.scss';
 
 class Button extends React.Component {
   constructor(props) {
     super(props);
-    const defaultStyle = { ...props.option.style };
+    const defaultStyle = { ...props.options.style };
     this.clickResponseStyle = {
       background: defaultStyle.clickResponseColor,
     };
@@ -37,14 +36,13 @@ class Button extends React.Component {
         left: 0,
         top: 0,
       },
-      safari: is.safari(),
     };
   }
 
   componentDidMount() {
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
-    this.props.option.componentDidMountFunc();
+    this.props.options.componentDidMountFunc();
   }
 
   setTimeoutStop() {
@@ -116,7 +114,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = 'Button', iconClassBefore = '', iconClassAfter = '', onClickFunc } = this.props.option;
+    const { stateClass, content = 'Button', iconClassBefore = '', iconClassAfter = '', onClickFunc } = this.props.options;
     const { clickResponseArray } = this.state;
     return (
       <div className={`gmu-button ${stateClass}`}>
@@ -142,11 +140,11 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-  option: {},
+  options: {},
 };
 
 Button.propTypes = {
-  option: React.PropTypes.object.isRequired,
+  options: React.PropTypes.object.isRequired,
 };
 
 export default Button;
