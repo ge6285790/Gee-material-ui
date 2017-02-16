@@ -30,19 +30,18 @@ const buttonOption = {
 // ReactDOM.render(<Button option={buttonOption} />, document.getElementById('root'));
 
 const containerOption = {
-  col: 'col-6 col-768-12',
-  offset: 'col-offset-1 col-offset-768-0',
+  col: 'col-6 col-768-12', // 991 / 768 / 600 / 480
+  offset: 'col-offset-1 col-offset-768-0', // 991 / 768 / 600 / 480
   gmuContainerStyle: {
     background: '#ddd',
   },
   containerBoxStyle: {
-
   },
 };
 
 class Test extends React.Component {
   renderTest() {
-    return [<Container options={containerOption}><div>in</div><Button options={buttonOption} /></Container>, <Container options={{col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0'}} />, <Container options={{col: 'col-5', offset: 'col-offset-1'}} />];
+    return [<Container options={{col: 'col-6 col-768-12'}}><div>in</div><Button options={buttonOption} /></Container>, <Container options={{col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0'}} />, <Container options={{col: 'col-5', offset: 'col-offset-1'}} />];
   }
   render() {
     return (
