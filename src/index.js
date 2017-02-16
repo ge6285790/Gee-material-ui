@@ -1,1 +1,1 @@
-console.log('aaa');
+export Button from './Button';

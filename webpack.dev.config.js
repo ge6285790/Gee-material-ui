@@ -7,7 +7,7 @@ const config = {
   entry: [
     'webpack-hot-middleware/client',
     'babel-polyfill',
-    `${path.resolve(__dirname, 'src')}/index`,
+    `${path.resolve(__dirname, 'example')}/main`,
   ],
   output: {
     path: '/asset/js/bundle/',
@@ -18,7 +18,7 @@ const config = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      src: './src/',
+      example: './example/',
     },
   },
   module: {
@@ -26,7 +26,7 @@ const config = {
       {
         test: /\.js?$/,
         loader: 'babel-loader',
-        include: [path.resolve(__dirname, 'src')],
+        include: [path.resolve(__dirname, 'example'), path.resolve(__dirname, 'src')],
         exclude: /node_modules/,
       },
       {
@@ -55,7 +55,7 @@ const config = {
       {
         test: /\.js?$/,
         loaders: ['react-hot-loader', 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'], // stage-0 use for class static needsApi
-        include: [path.resolve(__dirname, 'src')],
+        include: [path.resolve(__dirname, 'example'), path.resolve(__dirname, 'src')],
         // include: path.join(__dirname, 'common'),
       },
     ],
