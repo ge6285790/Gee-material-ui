@@ -1,0 +1,142 @@
+.gmu-button {
+  text-align: center;
+  display: inline-block;
+
+  button {
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    font-size: 14px;
+    border: 0;
+    vertical-align: middle;
+    letter-spacing: 0;
+    // text-transform: uppercase;
+    // font-weight: 500;
+    cursor: pointer;
+    border-radius: 2px;
+    // transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    > div {
+      background: rgba(230, 230, 230, 1);
+      color: rgba(0, 0, 0, .5);
+      padding: 6px 16px;
+      position: relative;
+
+      .color-hover-response {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0);
+        transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0;
+      }
+
+      .content-word {
+        display: inline-block;
+        word-break: break-all;
+        width: 100%;
+        position: relative;
+      }
+
+      .color-click-response {
+        position: absolute;
+        transform: scale3d(-21, -21, 0) translate3d(-50%, -50%, 0);
+        width: 21px;
+        margin-top: -10px;
+        height: 21px;
+        margin-left: -10px;
+        transform-origin: center center;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        overflow: hidden;
+        background: rgba(0,0,0,.06);
+        &[data-active="true"] {
+          opacity: 0;
+          -webkit-border-radius: 50%;
+          border-radius: 50%;
+          transition: opacity 2s cubic-bezier(0.23, 1, 0.32, 1) 0s, transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        }
+      }
+
+      &:hover {
+        .color-hover-response {
+          background: rgba(0,0,0,.06);
+        }
+      }
+    }
+
+    &:focus {
+      outline: -webkit-focus-ring-color auto 0;
+    }
+
+    &:hover {
+      background: rgba(210, 210, 210, 1);
+    }
+  }
+  &.malibu {
+    button {
+      > div {
+        background: #61AFEF;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+  &.charade {
+    button {
+      > div {
+        background: #282C34;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+  &.shark {
+    button {
+      > div {
+        background: #33373A;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+  &.froly {
+    button {
+      > div {
+        background: #DA6C75;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+  &.fern {
+    button {
+      > div {
+        background: #5CB85C;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+  &.h-gold {
+    button {
+      > div {
+        background: #E5C076;
+        color: #fff;
+        .color-click-response {
+          background: rgba(255, 255, 255, .3);
+        }
+      }
+    }
+  }
+}
