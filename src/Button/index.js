@@ -6,6 +6,30 @@ import css from './button.scss';
 class Button extends React.Component {
   constructor(props) {
     super(props);
+    const defaultStyle = { ...props.option.style };
+    this.clickResponseStyle = {
+      background: defaultStyle.clickResponseColor,
+    };
+    this.buttonDivStyle = {
+      color: defaultStyle.color,
+      background: defaultStyle.background,
+      padding: defaultStyle.padding,
+    };
+    this.contentWordStyle = {
+      textOverflow: defaultStyle.textOverflow,
+      overflow: defaultStyle.overflow,
+      whiteSpace: defaultStyle.whiteSpace,
+    };
+    delete defaultStyle.clickResponseColor;
+    delete defaultStyle.color;
+    delete defaultStyle.background;
+    delete defaultStyle.padding;
+    delete defaultStyle.textOverflow;
+    delete defaultStyle.overflow;
+    delete defaultStyle.whiteSpace;
+
+    this.buttonStyle = defaultStyle;
+
     this.state = {
       clickResponseArray: [],
       buttonStyle: {
@@ -15,6 +39,12 @@ class Button extends React.Component {
       },
       safari: is.safari(),
     };
+  }
+
+  componentDidMount() {
+    this.range = this.button.offsetWidth >= this.button.offsetHeight ?
+                  this.button.offsetWidth : this.button.offsetHeight;
+    this.props.option.componentDidMountFunc();
   }
 
   setTimeoutStop() {
@@ -48,15 +78,14 @@ class Button extends React.Component {
   }
 
   fireClickResponse(e) {
-    const { buttonStyle, clickResponseArray } = this.state;
-    const range = this.button.offsetWidth >= this.button.offsetHeight ?
-                  this.button.offsetWidth : this.button.offsetHeight;
+    const { clickResponseArray } = this.state;
     const state = {
       active: 'true',
       style: {
-        transform: this.state.safari ? `scale3d(${range * 2}, ${range * 2}, 1) translate3d(50%, 50%, 0)` : `scale(${range * 2})`,
+        transform: `scale(${(this.range / 21) * 2.5})`,
         left: e.pageX - this.button.offsetLeft,
         top: e.pageY - this.button.offsetTop,
+        ...this.clickResponseStyle,
       },
     };
 
@@ -87,19 +116,20 @@ class Button extends React.Component {
   }
 
   render() {
-    const { style = {}, content = 'Button', iconClassBefore = '', iconClassAfter = '' } = this.props;
+    const { stateClass, content = 'Button', iconClassBefore = '', iconClassAfter = '', onClickFunc } = this.props.option;
     const { clickResponseArray } = this.state;
     return (
-      <div className="gmu-button">
+      <div className={`gmu-button ${stateClass}`}>
         <button
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
-          onMouseUp={(e) => { this.fireClickResponse(e); this.setTimeoutToClear(); }}
+          onMouseUp={(e) => { this.fireClickResponse(e); onClickFunc(); this.setTimeoutToClear(); }}
+          style={this.buttonStyle}
         >
-          <div>
+          <div style={this.buttonDivStyle}>
             <span className="color-hover-response" />
             { this.renderClickReponse() }
-            <span>
+            <span className="content-word" style={this.contentWordStyle}>
               <i className={iconClassBefore} />
               {content}
               <i className={iconClassAfter} />
@@ -112,14 +142,11 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-  style: {},
+  option: {},
 };
 
 Button.propTypes = {
-  style: React.PropTypes.object.isRequired,
-  content: React.PropTypes.string.isRequired,
-  iconClassBefore: React.PropTypes.string.isRequired,
-  iconClassAfter: React.PropTypes.string.isRequired,
+  option: React.PropTypes.object.isRequired,
 };
 
 export default Button;
