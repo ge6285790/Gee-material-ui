@@ -59,6 +59,10 @@ const autoCompleteOption = {
     titleActive: 'leftSmall', // default / leftSmall /
   },
   underLineColor: 'false', // color rgba / hex
+  inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
+  onFocusFuncCallback: () => {},
+  onBlurFuncCallback: () => {},
+  onChangeFuncCallback: () => {},
 };
 
 class Test extends React.Component {

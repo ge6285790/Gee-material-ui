@@ -15,7 +15,17 @@ class AutoComplete extends React.Component {
   render() {
     const { hrActive, titleActive } = this.state;
     const { options = { animation: {} } } = this.props;
-    const { title = '', size = 'small', theme = '', animation, underLineColor = 'false' } = options;
+    const {
+      title = '',
+      size = 'small',
+      theme = '',
+      animation,
+      underLineColor = 'false',
+      inputValue,
+      onFocusFuncCallback = () => {},
+      onBlurFuncCallback = () => {},
+      onChangeFuncCallback = () => {},
+    } = options;
     const underLineStyle = {
       borderBottom: `2px solid ${underLineColor}`,
     };
@@ -25,18 +35,24 @@ class AutoComplete extends React.Component {
         <span className="title" data-active={titleActive}>{title}</span>
         <input
           className="gmu-input"
-          onFocus={() => {
+          onFocus={(e) => {
             this.setState(update(this.state, {
               hrActive: { $set: 'true' },
               titleActive: { $set: titleActiveProps },
             }));
+            onFocusFuncCallback();
           }}
-          onBlur={() => {
+          onBlur={(e) => {
             this.setState(update(this.state, {
               hrActive: { $set: 'false' },
               titleActive: { $set: 'false' },
             }));
+            onBlurFuncCallback();
           }}
+          onChange={(e) => {
+            onChangeFuncCallback();
+          }}
+          value={inputValue}
         />
         <div className="gmu-underline">
           <hr />
@@ -48,5 +64,8 @@ class AutoComplete extends React.Component {
 }
 
 // options
+AutoComplete.propTypes = {
+  options: React.PropTypes.object.isRequired,
+};
 
 export default AutoComplete;
