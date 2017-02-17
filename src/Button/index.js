@@ -1,5 +1,6 @@
 import React from 'react';
 import update from 'react-addons-update';
+import gum from '../Common/common.scss';
 import css from './button.scss';
 
 class Button extends React.Component {
@@ -117,7 +118,7 @@ class Button extends React.Component {
     const { stateClass, content = 'Button', iconClassBefore = '', iconClassAfter = '', onClickFunc } = this.props.options;
     const { clickResponseArray } = this.state;
     return (
-      <div className={`gmu-button ${stateClass}`}>
+      <div className={`gum gmu-button ${stateClass}`}>
         <button
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}

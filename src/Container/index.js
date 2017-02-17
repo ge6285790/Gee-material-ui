@@ -1,12 +1,13 @@
 import React from 'react';
 import update from 'react-addons-update';
+import gum from '../Common/common.scss';
 import css from './container.scss';
 
 const Container = (props) => {
   const col = props.options.col;
   const offset = props.options.offset || '';
   return (
-    <div className={`gmu-container ${col} ${offset}`} style={props.options.gmuContainerStyle}>
+    <div className={`gmu gmu-container ${col} ${offset}`} style={props.options.gmuContainerStyle}>
       <div className="container-box" style={props.options.containerBoxStyle}>
         {props.children}
       </div>
