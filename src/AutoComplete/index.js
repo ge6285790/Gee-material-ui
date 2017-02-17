@@ -9,7 +9,7 @@ class AutoComplete extends React.Component {
     this.state = {
       hrActive: 'false',
       titleActive: 'false',
-    }
+    };
   }
 
   render() {
