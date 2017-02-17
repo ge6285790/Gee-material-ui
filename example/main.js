@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Header } from '../src';
+import { Button, Container, Header, AutoComplete } from '../src';
 
 const buttonOption = {
   style: {
@@ -51,6 +51,16 @@ const headerContainerOption = {
   theme: 'malibu',
 };
 
+const autoCompleteOption = {
+  title: 'test',
+  size: 'small',
+  theme: 'malibu',
+  animation: {
+    titleActive: 'leftSmall', // default / leftSmall /
+  },
+  underLineColor: 'false', // color rgba / hex
+};
+
 class Test extends React.Component {
   renderTest() {
     return [
@@ -62,6 +72,7 @@ class Test extends React.Component {
 
         </Header>
         <div>in</div>
+        <AutoComplete options={autoCompleteOption} />
         <Button options={buttonOption} />
       </Container>,
       <Container options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,

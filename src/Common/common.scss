@@ -588,3 +588,15 @@
     }
   }
 }
+
+.gmu-clearfix:before,
+.gmu-clearfix:after {
+  content: "";
+  display: table;
+}
+.gmu-clearfix:after {
+  clear: both;
+}
+.gmu-clearfix {
+  *zoom: 1; /*For IE 6&7 only*/
+}
