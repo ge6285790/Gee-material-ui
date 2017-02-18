@@ -40,17 +40,17 @@ class AutoComplete extends React.Component {
               hrActive: { $set: 'true' },
               titleActive: { $set: titleActiveProps },
             }));
-            onFocusFuncCallback();
+            onFocusFuncCallback(e);
           }}
           onBlur={(e) => {
             this.setState(update(this.state, {
               hrActive: { $set: 'false' },
               titleActive: { $set: 'false' },
             }));
-            onBlurFuncCallback();
+            onBlurFuncCallback(e);
           }}
           onChange={(e) => {
-            onChangeFuncCallback();
+            onChangeFuncCallback(e);
           }}
           value={inputValue}
         />

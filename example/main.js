@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Header, AutoComplete } from '../src';
+import { Button, Container, Header, AutoComplete, Avatar } from '../src';
 
 const buttonOption = {
   style: {
@@ -40,7 +40,7 @@ const containerOption = {
 };
 
 const headerFixedOption = {
-  size: 'small',
+  size: 'middle',
   status: 'fixed-top',
   theme: 'h-gold',
 };
@@ -73,7 +73,7 @@ class Test extends React.Component {
           <div className="item-top col-3">top</div>
           aaaaa
           <div className="item-bottom col-3 col-offset-2">bottom</div>
-
+          <Avatar />
         </Header>
         <div>in</div>
         <AutoComplete options={autoCompleteOption} />
@@ -86,7 +86,9 @@ class Test extends React.Component {
   render() {
     return (
       <div>
-        <Header options={headerFixedOption} />
+        <Header options={headerFixedOption}>
+          <Avatar />
+        </Header>
         {this.renderTest()}
       </div>
     );
