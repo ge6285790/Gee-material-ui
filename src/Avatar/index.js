@@ -46,4 +46,9 @@ const Avatar = (props) => {
   );
 };
 
+Avatar.propTypes = {
+  options: React.PropTypes.object,
+  children: React.PropTypes.array,
+};
+
 export default Avatar;

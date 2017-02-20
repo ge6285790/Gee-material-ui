@@ -6,6 +6,7 @@
       { "extensions": [".js", ".jsx"] }
     ],
     "no-unused-vars": [0, { "vars": "css" }],
-    "react/forbid-prop-types": 0
+    "react/forbid-prop-types": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   }
 }
