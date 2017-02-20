@@ -115,14 +115,19 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', onClickFunc = () => {} } = this.props.options;
+    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     return (
-      <div className={`gum gmu-button ${stateClass}`}>
+      <div className={`gum gmu-button ${stateClass} ${widthClass}`}>
         <button
+          className={widthClass ? 'col-12' : ''}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
-          onMouseUp={(e) => { this.fireClickResponse(e); onClickFunc(e); this.setTimeoutToClear(); }}
+          onMouseUp={(e) => {
+            this.fireClickResponse(e);
+            onClickFunc(e);
+            this.setTimeoutToClear();
+          }}
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>

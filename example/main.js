@@ -12,6 +12,7 @@ const buttonOption = {
     borderRadius: '',
     padding: '',
     margin: '',
+    fontSize: '', // custom button size
     // maxWidth: 100,
     // textOverflow: 'ellipsis',
     // overflow: 'hidden',
@@ -19,6 +20,8 @@ const buttonOption = {
   },
   content: 'textButton',
   stateClass: 'h-gold', // malibu / charade / shark / froly / fern
+  widthClass: 'col-6', // col-1 ~ col-12
+  size: 'middle', // x-large / large / middle / small
   componentDidMountFunc: () => {
     console.log('done!');
   },
