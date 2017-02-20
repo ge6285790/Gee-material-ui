@@ -2,16 +2,12 @@ import React from 'react';
 import css from './avatar.scss';
 
 const Avatar = (props) => {
-  const options = {
-    size: 'small',
-    boxShadow: true,
-    animate: 'hover-to-square',
-    src: 'http://orig05.deviantart.net/bc95/f/2015/263/4/4/stooooooooooop__by_lolwutburger-d9a8m15.png',
-    iconClass: '',
-    onClickFunc: () => {},
-  };
-  const { size = '', boxShadow = false, animate = '', src, iconClass = false, onClickFunc = () => {} } = options;
-
+  const { options = {} } = props;
+  const { size = 'middle', customSize = false, backgroundColor = false, color = false, boxShadow = false, animate = '', src = '', iconClass = false, onClickFunc = false } = options;
+  let clickFunc = onClickFunc;
+  let cursor = 'pointer';
+  let width = false;
+  let height = false;
   const renderIcon = () => {
     if (!iconClass) {
       return '';
@@ -19,8 +15,23 @@ const Avatar = (props) => {
     return <i className={iconClass} />;
   };
 
+  if (customSize) {
+    width = customSize;
+    height = customSize;
+  }
+
+  if (onClickFunc === false) {
+    clickFunc = () => {};
+    cursor = 'default';
+  }
+
   const style = {
     backgroundImage: `url('${src}')`,
+    backgroundColor,
+    color,
+    width,
+    height,
+    cursor,
   };
 
   return (

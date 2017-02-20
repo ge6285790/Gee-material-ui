@@ -115,7 +115,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = 'Button', iconClassBefore = '', iconClassAfter = '', onClickFunc = () => {} } = this.props.options;
+    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     return (
       <div className={`gum gmu-button ${stateClass}`}>
