@@ -1,9 +1,9 @@
 import React from 'react';
 import update from 'react-addons-update';
 import gum from '../Common/common.scss';
-import css from './button.scss';
+import css from './isometricButton.scss';
 
-class Button extends React.Component {
+class IsometricButton extends React.Component {
   constructor(props) {
     super(props);
     const defaultStyle = { ...props.options.style };
@@ -146,12 +146,12 @@ class Button extends React.Component {
   }
 }
 
-Button.defaultProps = {
+IsometricButton.defaultProps = {
   options: {},
 };
 
-Button.propTypes = {
+IsometricButton.propTypes = {
   options: React.PropTypes.object.isRequired,
 };
 
-export default Button;
+export default IsometricButton;
