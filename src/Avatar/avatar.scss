@@ -1,3 +1,41 @@
 .gmu-avatar {
   border-radius: 50%;
+  text-align: center;
+  background-position: center;
+  background-size: 100%;
+  background-color: #fff;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  // transition: all 300ms ease;
+
+  /* Size */
+  &.large {
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+  }
+  &.middle {
+    height: 36px;
+    width: 36px;
+    line-height: 36px;
+  }
+  &.small {
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+  }
+
+  &.box-shadow {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  }
+
+  &.hover-to-square {
+    &:hover{
+      border-radius: 0%;
+    }
+  }
+  &.hover-to-scale {
+    &:hover{
+      background-size: 110%;
+    }
+  }
 }

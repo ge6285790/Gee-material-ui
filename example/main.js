@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Header, AutoComplete } from '../src';
+import { Button, Container, Header, AutoComplete, Avatar } from '../src';
 
 const buttonOption = {
   style: {
@@ -40,7 +40,7 @@ const containerOption = {
 };
 
 const headerFixedOption = {
-  size: 'small',
+  size: 'middle', // small / middle / large
   status: 'fixed-top',
   theme: 'h-gold',
 };
@@ -53,7 +53,7 @@ const headerContainerOption = {
 
 const autoCompleteOption = {
   title: 'test',
-  size: 'small',
+  size: 'small', // small / middle / large / x-large
   theme: 'malibu',
   animation: {
     titleActive: 'leftSmall', // default / leftSmall /
@@ -65,6 +65,29 @@ const autoCompleteOption = {
   onChangeFuncCallback: () => {},
 };
 
+const avatarOptions = {
+  size: 'small', // defalut is middle  / small / middle / large
+  customSize: 50,
+  // boxShadow: true,
+  animate: 'hover-to-scale',
+  src: 'http://orig05.deviantart.net/bc95/f/2015/263/4/4/stooooooooooop__by_lolwutburger-d9a8m15.png',
+  iconClass: '',
+  // backgroundColor: '',
+  // color: '',
+  // onClickFunc: () => {},
+};
+
+const avatarOptions1 = {
+  size: 'small',
+  boxShadow: true,
+  animate: 'hover-to-square',
+  // src: 'http://orig05.deviantart.net/bc95/f/2015/263/4/4/stooooooooooop__by_lolwutburger-d9a8m15.png',
+  iconClass: '',
+  backgroundColor: '#000',
+  color: 'red',
+  onClickFunc: () => {},
+};
+
 class Test extends React.Component {
   renderTest() {
     return [
@@ -73,7 +96,10 @@ class Test extends React.Component {
           <div className="item-top col-3">top</div>
           aaaaa
           <div className="item-bottom col-3 col-offset-2">bottom</div>
-
+          <Avatar options={avatarOptions} />
+          <Avatar options={avatarOptions1}>
+            A
+          </Avatar>
         </Header>
         <div>in</div>
         <AutoComplete options={autoCompleteOption} />
@@ -86,7 +112,9 @@ class Test extends React.Component {
   render() {
     return (
       <div>
-        <Header options={headerFixedOption} />
+        <Header options={headerFixedOption}>
+          <Avatar />
+        </Header>
         {this.renderTest()}
       </div>
     );
