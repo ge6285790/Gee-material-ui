@@ -4,9 +4,9 @@ import gum from '../Common/common.scss';
 import css from './header.scss';
 
 const Header = (props) => {
-  const { gmuHeaderStyle = {}, size = '', status = '', theme = '' } = props.options;
+  const { gmuHeaderStyle = {}, size = '', status = '', theme = '', boxShadow = '' } = props.options;
   return (
-    <div className={`gmu gmu-header ${status} ${size} ${theme}`} style={gmuHeaderStyle}>
+    <div className={`gmu gmu-header ${status} ${size} ${theme} ${boxShadow}`} style={gmuHeaderStyle}>
       {props.children}
     </div>
   );

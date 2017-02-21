@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Header, AutoComplete, Avatar, IsometricButton } from '../src';
+import { Button, Card, Header, AutoComplete, Avatar, IsometricButton } from '../src';
 
 const buttonOption = {
   style: {
@@ -67,7 +67,7 @@ const isometricButtonOption = {
 
 // ReactDOM.render(<Button option={buttonOption} />, document.getElementById('root'));
 
-const containerOption = {
+const cardOption = {
   col: 'col-6 col-768-12', // 991 / 768 / 600 / 480
   offset: 'col-offset-1 col-offset-768-0', // 991 / 768 / 600 / 480
   gmuContainerStyle: {
@@ -129,7 +129,7 @@ const avatarOptions1 = {
 class Test extends React.Component {
   renderTest() {
     return [
-      <Container options={{ col: 'col-6 col-768-12' }}>
+      <Card options={{ col: 'col-6 col-768-12' }}>
         <Header options={headerContainerOption}>
           <div className="item-top col-3">top</div>
           aaaaa
@@ -142,9 +142,9 @@ class Test extends React.Component {
         <div>in</div>
         <AutoComplete options={autoCompleteOption} />
         <Button options={buttonOption} />
-      </Container>,
-      <Container options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
-      <Container options={{ col: 'col-5', offset: 'col-offset-1' }} />,
+      </Card>,
+      <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
+      <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
       <IsometricButton options={isometricButtonOption} />,
     ];
   }
