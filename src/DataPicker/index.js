@@ -1,6 +1,7 @@
 import React from 'react';
 import update from 'react-addons-update';
 import Curtain from '../Curtain';
+import Calendar from './calendar';
 import gum from '../Common/common.scss';
 import css from './dataPicker.scss';
 
@@ -32,15 +33,21 @@ class DataPicker extends React.Component {
               show: { $set: 'false' },
               opacity: { $set: 0 },
             },
+            calendar: {
+              show: { $set: 'false' },
+            },
           }));
         },
+      },
+      calendar: {
+        show: 'false',
       },
     };
   }
 
   render() {
     const { options = {} } = this.props;
-    const { curtain } = this.state;
+    const { curtain, calendar } = this.state;
     return (
       <div className={`gmu-data-picker`}>
         <div
@@ -50,12 +57,16 @@ class DataPicker extends React.Component {
                 show: { $set: 'true' },
                 opacity: { $set: options.curtain.opacity },
               },
+              calendar: {
+                show: { $set: 'true' },
+              },
             }));
           }}
         >
           aaaaaa
         </div>
         <Curtain options={curtain} />
+        <Calendar options={calendar} />
       </div>
     );
   }
