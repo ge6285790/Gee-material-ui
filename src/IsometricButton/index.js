@@ -115,13 +115,13 @@ class IsometricButton extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-button ${stateClass} ${widthClass}`}>
+      <div className={`gum gmu-isometric-button ${stateClass} ${widthClass} ${shapeClass}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
+          className={widthClass ? `col-12 ${boxShadowClass} large` : `${boxShadowClass} large`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
