@@ -1,9 +1,9 @@
 import React from 'react';
 import update from 'react-addons-update';
 import gum from '../Common/common.scss';
-import css from './button.scss';
+import css from './isometricButton.scss';
 
-class Button extends React.Component {
+class IsometricButton extends React.Component {
   constructor(props) {
     super(props);
     const defaultStyle = { ...props.options.style };
@@ -115,13 +115,13 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-button ${stateClass} ${widthClass}`}>
+      <div className={`gum gmu-isometric-button ${stateClass} ${widthClass} ${shapeClass}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
+          className={widthClass ? `col-12 ${boxShadowClass} large` : `${boxShadowClass} large`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
@@ -146,12 +146,12 @@ class Button extends React.Component {
   }
 }
 
-Button.defaultProps = {
+IsometricButton.defaultProps = {
   options: {},
 };
 
-Button.propTypes = {
+IsometricButton.propTypes = {
   options: React.PropTypes.object.isRequired,
 };
 
-export default Button;
+export default IsometricButton;

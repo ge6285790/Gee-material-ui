@@ -1,7 +1,6 @@
-.gmu-button {
+.gmu-isometric-button {
   text-align: center;
   display: inline-block;
-
   button {
     background: transparent;
     padding: 0;
@@ -24,7 +23,7 @@
       background: rgba(230, 230, 230, 1);
       color: rgba(0, 0, 0, .5);
       // padding: 6px 16px;
-      padding: 0.429em 1.143em;
+      // padding: 0.429em 1.143em;
       position: relative;
 
       .color-hover-response {
@@ -46,7 +45,7 @@
 
       .color-click-response {
         position: absolute;
-        transform: scale3d(-21, -21, 0) translate3d(-50%, -50%, 0);
+        transform: scale3d(-21, -21, 0);
         width: 21px;
         margin-top: -10px;
         height: 21px;
@@ -81,15 +80,39 @@
 
     &.x-large{
         font-size: 24px;
+
     }
     &.large{
         font-size: 20px;
+        height: 48px;
+        width: 48px;
+        line-height: 48px;
     }
     &.middle{
         font-size: 16px;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
     }
     &.small{
         font-size: 12px;
+        height: 24px;
+        width: 24px;
+        line-height: 24px;
+    }
+  }
+  &.circle {
+    // border-radius: 50%;
+    > button {
+      border-radius: 50%;
+      > div {
+        overflow: hidden;
+        border-radius: 50%;
+        z-index: 1;
+        .color-click-response{
+          z-index: 0;
+        }
+      }
     }
   }
   &.malibu {

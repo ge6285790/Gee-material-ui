@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Container, Header, AutoComplete, Avatar } from '../src';
+import { Button, Container, Header, AutoComplete, Avatar, IsometricButton } from '../src';
 
 const buttonOption = {
   style: {
@@ -18,6 +18,9 @@ const buttonOption = {
     // overflow: 'hidden',
     // whiteSpace: 'nowrap',
   },
+  iconClassBefore: '',
+  iconClassAfter: '',
+  boxShadow: true,
   content: 'textButton',
   stateClass: 'h-gold', // malibu / charade / shark / froly / fern
   widthClass: 'col-6', // col-1 ~ col-12
@@ -29,6 +32,38 @@ const buttonOption = {
     console.log('click!');
   },
 };
+
+const isometricButtonOption = {
+  style: {
+    clickResponseColor: '',
+    color: '',
+    background: '',
+    boxShadow: '',
+    border: '',
+    borderRadius: '',
+    padding: '',
+    margin: '',
+    fontSize: '', // custom button size
+    // maxWidth: 100,
+    // textOverflow: 'ellipsis',
+    // overflow: 'hidden',
+    // whiteSpace: 'nowrap',
+  },
+  iconClassBefore: '',
+  iconClassAfter: '',
+  boxShadow: true,
+  content: 'A',
+  stateClass: 'h-gold', // malibu / charade / shark / froly / fern
+  size: 'middle', // x-large / large / middle / small
+  shapeClass: 'circle',
+  componentDidMountFunc: () => {
+    console.log('done!');
+  },
+  onClickFunc: () => {
+    console.log('click!');
+  },
+};
+
 
 // ReactDOM.render(<Button option={buttonOption} />, document.getElementById('root'));
 
@@ -110,6 +145,7 @@ class Test extends React.Component {
       </Container>,
       <Container options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       <Container options={{ col: 'col-5', offset: 'col-offset-1' }} />,
+      <IsometricButton options={isometricButtonOption} />,
     ];
   }
   render() {
