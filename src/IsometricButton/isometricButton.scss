@@ -1,6 +1,8 @@
 .gmu-isometric-button {
   text-align: center;
   display: inline-block;
+  z-index: 0;
+  position: relative;
   button {
     background: transparent;
     padding: 0;

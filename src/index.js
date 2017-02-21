@@ -5,3 +5,5 @@ export Header from './Header';
 export AutoComplete from './AutoComplete';
 export Avatar from './Avatar';
 export Chip from './Chip';
+export Curtain from './Curtain';
+export DataPicker from './DataPicker';

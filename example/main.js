@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Card, Header, AutoComplete, Avatar, IsometricButton, Chip } from '../src';
+import { Button, Card, Header, AutoComplete, Avatar, IsometricButton, Chip, Curtain, DataPicker } from '../src';
 
 const buttonOption = {
   style: {
@@ -151,6 +151,24 @@ const chipOption = {
   },
 };
 
+const curtainOption = {
+  style: {},
+  opacity: 0.5,
+  show: 'false', // true
+  onClickFunc: () => {},
+};
+
+const dataPickerOption = {
+  curtain: {
+    style: {},
+    opacity: 0.5,
+    // show: 'false', // true false
+    onClickFunc: (e) => {
+      console.log(e, 2);
+    },
+  },
+};
+
 class Test extends React.Component {
   renderTest() {
     return [
@@ -173,6 +191,8 @@ class Test extends React.Component {
       <IsometricButton options={isometricButtonOption} />,
       <Chip options={chipOption} />,
       <Button options={buttonOption} />,
+      // <Curtain options={curtainOption} />,
+      <DataPicker options={dataPickerOption} />,
     ];
   }
   render() {

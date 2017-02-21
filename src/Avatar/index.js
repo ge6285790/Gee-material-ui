@@ -24,7 +24,6 @@ const Avatar = (props) => {
     clickFunc = () => {};
     cursor = 'default';
   }
-  console.log('props.style', options.style, {...options.style})
   const style = {
     backgroundImage: `url('${src}')`,
     ...options.style,
@@ -46,7 +45,7 @@ const Avatar = (props) => {
 Avatar.propTypes = {
   options: React.PropTypes.object,
   children: React.PropTypes.array,
-  style: React.PropTypes.object,
+  // style: React.PropTypes.object,
 };
 
 export default Avatar;
