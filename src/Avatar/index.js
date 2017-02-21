@@ -6,8 +6,8 @@ const Avatar = (props) => {
   const { size = 'middle', customSize = false, backgroundColor = false, color = false, boxShadow = false, animate = '', src = '', iconClass = false, onClickFunc = false } = options;
   let clickFunc = onClickFunc;
   let cursor = 'pointer';
-  let width = false;
-  let height = false;
+  // let width = false;
+  // let height = false;
   const renderIcon = () => {
     if (!iconClass) {
       return '';
@@ -16,21 +16,18 @@ const Avatar = (props) => {
   };
 
   if (customSize) {
-    width = customSize;
-    height = customSize;
+    options.style.width = customSize;
+    options.style.height = customSize;
   }
 
   if (onClickFunc === false) {
     clickFunc = () => {};
     cursor = 'default';
   }
-
+  console.log('props.style', options.style, {...options.style})
   const style = {
     backgroundImage: `url('${src}')`,
-    backgroundColor,
-    color,
-    width,
-    height,
+    ...options.style,
     cursor,
   };
 
@@ -49,6 +46,7 @@ const Avatar = (props) => {
 Avatar.propTypes = {
   options: React.PropTypes.object,
   children: React.PropTypes.array,
+  style: React.PropTypes.object,
 };
 
 export default Avatar;

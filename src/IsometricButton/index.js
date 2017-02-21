@@ -1,3 +1,6 @@
+/* eslint no-undef: "error" */
+/* eslint-env browser */
+
 import React from 'react';
 import update from 'react-addons-update';
 import gum from '../Common/common.scss';
@@ -41,9 +44,10 @@ class IsometricButton extends React.Component {
   }
 
   componentDidMount() {
+    const { componentDidMountFunc = () => {} } = this.props.options;
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
-    this.props.options.componentDidMountFunc();
+    componentDidMountFunc();
   }
 
   setTimeoutStop() {
@@ -82,8 +86,8 @@ class IsometricButton extends React.Component {
       active: 'true',
       style: {
         transform: `scale(${(this.range / 21) * 2.5})`,
-        left: e.pageX - this.button.offsetLeft,
-        top: e.pageY - this.button.offsetTop,
+        left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
+        top: e.pageY - this.button.getBoundingClientRect().top - window.scrollY,
         ...this.clickResponseStyle,
       },
     };
@@ -115,13 +119,13 @@ class IsometricButton extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
+    const { stateClass, size = 'middle', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
       <div className={`gum gmu-isometric-button ${stateClass} ${widthClass} ${shapeClass}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass} large` : `${boxShadowClass} large`}
+          className={widthClass ? `col-12 ${boxShadowClass} ${size}` : `${boxShadowClass} ${size}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {

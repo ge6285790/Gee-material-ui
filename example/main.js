@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Card, Header, AutoComplete, Avatar, IsometricButton } from '../src';
+import { Button, Card, Header, AutoComplete, Avatar, IsometricButton, Chip } from '../src';
 
 const buttonOption = {
   style: {
@@ -110,9 +110,11 @@ const avatarOptions = {
   animate: 'hover-to-scale',
   src: 'http://orig05.deviantart.net/bc95/f/2015/263/4/4/stooooooooooop__by_lolwutburger-d9a8m15.png',
   iconClass: '',
-  // backgroundColor: '',
-  // color: '',
-  // onClickFunc: () => {},
+  style: {
+    // backgroundColor: '',
+    // color: '',
+    // onClickFunc: () => {},
+  },
 };
 
 const avatarOptions1 = {
@@ -121,9 +123,32 @@ const avatarOptions1 = {
   animate: 'hover-to-square',
   // src: 'http://orig05.deviantart.net/bc95/f/2015/263/4/4/stooooooooooop__by_lolwutburger-d9a8m15.png',
   iconClass: '',
-  backgroundColor: '#000',
-  color: 'red',
+  style: {
+    backgroundColor: '#000',
+    color: 'red',
+  },
   onClickFunc: () => {},
+};
+
+const chipOption = {
+  avatar: {}, // false
+  // avatar: false,
+  isometricButton: {}, // false
+  // isometricButton: false,
+  size: 'small',
+  // customSize: 20,
+  onClickText: (e) => {
+    e.preventDefault();
+    console.log('textClick');
+  },
+  onClickAvatar: (e) => {
+    e.preventDefault();
+    console.log('onClickAvatar');
+  },
+  onClickButton: (e) => {
+    e.preventDefault();
+    console.log('onClickButton');
+  },
 };
 
 class Test extends React.Component {
@@ -146,6 +171,8 @@ class Test extends React.Component {
       <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
       <IsometricButton options={isometricButtonOption} />,
+      <Chip options={chipOption} />,
+      <Button options={buttonOption} />,
     ];
   }
   render() {

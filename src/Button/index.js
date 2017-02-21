@@ -82,8 +82,10 @@ class Button extends React.Component {
       active: 'true',
       style: {
         transform: `scale(${(this.range / 21) * 2.5})`,
-        left: e.pageX - this.button.offsetLeft,
-        top: e.pageY - this.button.offsetTop,
+        // left: e.pageX - this.button.offsetLeft,
+        left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
+        // top: e.pageY - this.button.offsetTop,
+        top: e.pageY - this.button.getBoundingClientRect().top - window.scrollY,
         ...this.clickResponseStyle,
       },
     };
