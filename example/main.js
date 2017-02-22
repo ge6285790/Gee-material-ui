@@ -172,25 +172,25 @@ const dataPickerOption = {
 class Test extends React.Component {
   renderTest() {
     return [
-      <Card options={{ col: 'col-6 col-768-12' }}>
-        <Header options={headerContainerOption}>
-          <div className="item-top col-3">top</div>
-          aaaaa
-          <div className="item-bottom col-3 col-offset-2">bottom</div>
-          <Avatar options={avatarOptions} />
-          <Avatar options={avatarOptions1}>
-            A
-          </Avatar>
-        </Header>
-        <div>in</div>
-        <AutoComplete options={autoCompleteOption} />
-        <Button options={buttonOption} />
-      </Card>,
-      <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
-      <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
-      <IsometricButton options={isometricButtonOption} />,
-      <Chip options={chipOption} />,
-      <Button options={buttonOption} />,
+      // <Card options={{ col: 'col-6 col-768-12' }}>
+      //   <Header options={headerContainerOption}>
+      //     <div className="item-top col-3">top</div>
+      //     aaaaa
+      //     <div className="item-bottom col-3 col-offset-2">bottom</div>
+      //     <Avatar options={avatarOptions} />
+      //     <Avatar options={avatarOptions1}>
+      //       A
+      //     </Avatar>
+      //   </Header>
+      //   <div>in</div>
+      //   <AutoComplete options={autoCompleteOption} />
+      //   <Button options={buttonOption} />
+      // </Card>,
+      // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
+      // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
+      // <IsometricButton options={isometricButtonOption} />,
+      // <Chip options={chipOption} />,
+      // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
       <DataPicker options={dataPickerOption} />,
     ];
@@ -198,9 +198,9 @@ class Test extends React.Component {
   render() {
     return (
       <div>
-        <Header options={headerFixedOption}>
+        {/* <Header options={headerFixedOption}>
           <Avatar />
-        </Header>
+        </Header> */}
         {this.renderTest()}
       </div>
     );
