@@ -3,6 +3,7 @@
 
 import React from 'react';
 import update from 'react-addons-update';
+import equal from 'deep-equal';
 import gum from '../Common/common.scss';
 import css from './isometricButton.scss';
 
@@ -60,6 +61,59 @@ class IsometricButton extends React.Component {
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
     componentDidMountFunc();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (!equal(nextProps, this.props)) {
+      const defaultStyle = { ...nextProps.options.style };
+      this.clickResponseStyle = {
+        background: defaultStyle.clickResponseColor,
+      };
+      this.hoverResponseStyle = {
+        background: defaultStyle.hoverResponseColor,
+      };
+      this.buttonDivStyle = {
+        color: defaultStyle.color,
+        background: defaultStyle.background,
+        padding: defaultStyle.padding,
+      };
+      this.contentWordStyle = {
+        textOverflow: defaultStyle.textOverflow,
+        overflow: defaultStyle.overflow,
+        whiteSpace: defaultStyle.whiteSpace,
+      };
+      delete defaultStyle.clickResponseColor;
+      delete defaultStyle.hoverResponseColor;
+      delete defaultStyle.color;
+      delete defaultStyle.background;
+      delete defaultStyle.padding;
+      delete defaultStyle.textOverflow;
+      delete defaultStyle.overflow;
+      delete defaultStyle.whiteSpace;
+
+      this.buttonStyle = {
+        ...defaultStyle,
+        width: this.props.options.customSize,
+        height: this.props.options.customSize,
+        lineHeight: `${this.props.options.customSize}px`,
+      };
+
+      this.state = {
+        clickResponseArray: [],
+        buttonStyle: {
+          range: 0,
+          left: 0,
+          top: 0,
+          width: this.props.options.customSize,
+          height: this.props.options.customSize,
+          lineHeight: `${this.props.options.customSize}px`,
+        },
+      };
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.setTime);
   }
 
   setTimeoutStop() {

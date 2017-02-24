@@ -1,15 +1,28 @@
 import React from 'react';
 import update from 'react-addons-update';
+import equal from 'deep-equal';
 import gum from '../Common/common.scss';
 import css from './autoComplete.scss';
 
 class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
+    const { options = { animation: {} } } = props;
+    console.log('auto', props.options.inputValue ? options.animation.titleActive || 'default' : 'false', props.options.inputValue, options.animation.titleActive)
     this.state = {
       hrActive: 'false',
-      titleActive: 'false',
+      titleActive: props.options.inputValue ? options.animation.titleActive || 'default' : 'false',
     };
+  }
+
+  componentWillUpdate(nextProps) {
+    if (!equal(nextProps, this.props)) {
+      const { options = { animation: {} } } = nextProps;
+      console.log('auto', nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false', nextProps.options.inputValue, options.animation.titleActive)
+      this.setState(update(this.state, {
+        titleActive: { $set: nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false' },
+      }));
+    }
   }
 
   render() {
@@ -30,6 +43,7 @@ class AutoComplete extends React.Component {
       borderBottom: `2px solid ${underLineColor}`,
     };
     const titleActiveProps = options.animation.titleActive || 'default';
+    console.log('AutoComplete', this.state);
     return (
       <div className={`gmu gmu-auto-complete ${size} ${theme}`}>
         <span className="title" data-active={titleActive}>{title}</span>
@@ -43,6 +57,13 @@ class AutoComplete extends React.Component {
             onFocusFuncCallback(e);
           }}
           onBlur={(e) => {
+            if (e.target.value) {
+              this.setState(update(this.state, {
+                hrActive: { $set: 'false' },
+              }));
+              onBlurFuncCallback(e);
+              return;
+            }
             this.setState(update(this.state, {
               hrActive: { $set: 'false' },
               titleActive: { $set: 'false' },

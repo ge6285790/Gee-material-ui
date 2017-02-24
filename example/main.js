@@ -167,10 +167,24 @@ const dataPickerOption = {
       console.log(e, 2);
     },
   },
+  dataPicker: {
+    title: 'test',
+    size: 'small', // small / middle / large / x-large
+    theme: 'malibu',
+    animation: {
+      titleActive: 'leftSmall', // default / leftSmall /
+    },
+    underLineColor: 'false', // color rgba / hex
+    inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
+    onFocusFuncCallback: () => {},
+    onBlurFuncCallback: () => {},
+    onChangeFuncCallback: () => {},
+  }
 };
 
-class Test extends React.Component {
+class Test1 extends React.Component {
   renderTest() {
+    window.start = new Date().getTime();
     return [
       // <Card options={{ col: 'col-6 col-768-12' }}>
       //   <Header options={headerContainerOption}>
@@ -190,11 +204,17 @@ class Test extends React.Component {
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
       // <IsometricButton options={isometricButtonOption} />,
       // <Chip options={chipOption} />,
+      // <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
-      <DataPicker options={dataPickerOption} />,
+      <DataPicker options={dataPickerOption} />, // 效能 非常差，需要優化
     ];
   }
+
+  componentDidMount() {
+    window.end = new Date().getTime();
+  }
+
   render() {
     return (
       <div>
@@ -207,4 +227,4 @@ class Test extends React.Component {
   }
 }
 
-ReactDOM.render(<Test option={buttonOption} />, document.getElementById('root'));
+ReactDOM.render(<Test1 option={buttonOption} />, document.getElementById('root'));

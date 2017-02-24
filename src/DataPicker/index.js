@@ -1,14 +1,30 @@
 import React from 'react';
 import update from 'react-addons-update';
-import Curtain from '../Curtain';
 import Calendar from './calendar';
+import Curtain from '../Curtain';
+import AutoComplete from '../AutoComplete';
 import gum from '../Common/common.scss';
 import css from './dataPicker.scss';
+
+const autoCompleteOption = {
+  title: 'test',
+  size: 'small', // small / middle / large / x-large
+  theme: 'malibu',
+  animation: {
+    titleActive: 'leftSmall', // default / leftSmall /
+  },
+  underLineColor: 'false', // color rgba / hex
+  inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
+  onFocusFuncCallback: () => {},
+  onBlurFuncCallback: () => {},
+  onChangeFuncCallback: () => {},
+};
 
 class DataPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      dataPicker: props.options.dataPicker,
       curtain: {
         ...props.options.curtain,
         opacity: 0,
@@ -43,11 +59,40 @@ class DataPicker extends React.Component {
         show: 'false',
       },
     };
+    this.getSelectDay = this.getSelectDay.bind(this);
+  }
+
+  getSelectDay(date) {
+    if (!date) {
+      this.setState(update(this.state, {
+        calendar: {
+          show: { $set: 'false' },
+        },
+        curtain: {
+          show: { $set: 'false' },
+          opacity: { $set: 0 },
+        },
+      }));
+      return this.state.dataPicker.inputValue;
+    }
+    this.setState(update(this.state, {
+      dataPicker: {
+        inputValue: { $set: date },
+      },
+      calendar: {
+        show: { $set: 'false' },
+      },
+      curtain: {
+        show: { $set: 'false' },
+        opacity: { $set: 0 },
+      },
+    }));
+    return this.state.dataPicker.inputValue;
   }
 
   render() {
     const { options = {} } = this.props;
-    const { curtain, calendar } = this.state;
+    const { curtain, calendar, dataPicker } = this.state;
     return (
       <div className={`gmu-data-picker`}>
         <div
@@ -63,10 +108,10 @@ class DataPicker extends React.Component {
             }));
           }}
         >
-          aaaaaa
+          <AutoComplete options={dataPicker} />
         </div>
         <Curtain options={curtain} />
-        <Calendar options={calendar} />
+        <Calendar options={calendar} methods={{ getSelectDay: this.getSelectDay }} />
       </div>
     );
   }
