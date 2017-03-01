@@ -3,6 +3,7 @@
 
 import React from 'react';
 import update from 'react-addons-update';
+import equal from 'deep-equal';
 import gum from '../Common/common.scss';
 import css from './isometricButton.scss';
 
@@ -12,6 +13,9 @@ class IsometricButton extends React.Component {
     const defaultStyle = { ...props.options.style };
     this.clickResponseStyle = {
       background: defaultStyle.clickResponseColor,
+    };
+    this.hoverResponseStyle = {
+      background: defaultStyle.hoverResponseColor,
     };
     this.buttonDivStyle = {
       color: defaultStyle.color,
@@ -24,6 +28,7 @@ class IsometricButton extends React.Component {
       whiteSpace: defaultStyle.whiteSpace,
     };
     delete defaultStyle.clickResponseColor;
+    delete defaultStyle.hoverResponseColor;
     delete defaultStyle.color;
     delete defaultStyle.background;
     delete defaultStyle.padding;
@@ -31,7 +36,12 @@ class IsometricButton extends React.Component {
     delete defaultStyle.overflow;
     delete defaultStyle.whiteSpace;
 
-    this.buttonStyle = defaultStyle;
+    this.buttonStyle = {
+      ...defaultStyle,
+      width: props.options.customSize,
+      height: props.options.customSize,
+      lineHeight: `${props.options.customSize}px`,
+    };
 
     this.state = {
       clickResponseArray: [],
@@ -39,6 +49,9 @@ class IsometricButton extends React.Component {
         range: 0,
         left: 0,
         top: 0,
+        width: props.options.customSize,
+        height: props.options.customSize,
+        lineHeight: `${props.options.customSize}px`,
       },
     };
   }
@@ -48,6 +61,59 @@ class IsometricButton extends React.Component {
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
     componentDidMountFunc();
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (!equal(nextProps, this.props)) {
+      const defaultStyle = { ...nextProps.options.style };
+      this.clickResponseStyle = {
+        background: defaultStyle.clickResponseColor,
+      };
+      this.hoverResponseStyle = {
+        background: defaultStyle.hoverResponseColor,
+      };
+      this.buttonDivStyle = {
+        color: defaultStyle.color,
+        background: defaultStyle.background,
+        padding: defaultStyle.padding,
+      };
+      this.contentWordStyle = {
+        textOverflow: defaultStyle.textOverflow,
+        overflow: defaultStyle.overflow,
+        whiteSpace: defaultStyle.whiteSpace,
+      };
+      delete defaultStyle.clickResponseColor;
+      delete defaultStyle.hoverResponseColor;
+      delete defaultStyle.color;
+      delete defaultStyle.background;
+      delete defaultStyle.padding;
+      delete defaultStyle.textOverflow;
+      delete defaultStyle.overflow;
+      delete defaultStyle.whiteSpace;
+
+      this.buttonStyle = {
+        ...defaultStyle,
+        width: this.props.options.customSize,
+        height: this.props.options.customSize,
+        lineHeight: `${this.props.options.customSize}px`,
+      };
+
+      this.state = {
+        clickResponseArray: [],
+        buttonStyle: {
+          range: 0,
+          left: 0,
+          top: 0,
+          width: this.props.options.customSize,
+          height: this.props.options.customSize,
+          lineHeight: `${this.props.options.customSize}px`,
+        },
+      };
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.setTime);
   }
 
   setTimeoutStop() {
@@ -119,7 +185,7 @@ class IsometricButton extends React.Component {
   }
 
   render() {
-    const { stateClass, size = 'middle', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
+    const { stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
@@ -136,7 +202,7 @@ class IsometricButton extends React.Component {
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>
-            <span className="color-hover-response" />
+            <span className="color-hover-response" style={this.hoverResponseStyle}/>
             { this.renderClickReponse() }
             <span className="content-word" style={this.contentWordStyle}>
               <i className={iconClassBefore} />

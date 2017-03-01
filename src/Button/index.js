@@ -1,5 +1,6 @@
 import React from 'react';
 import update from 'react-addons-update';
+import equal from 'deep-equal';
 import gum from '../Common/common.scss';
 import css from './button.scss';
 
@@ -41,9 +42,55 @@ class Button extends React.Component {
   }
 
   componentDidMount() {
+    console.log('this.button', this.button);
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
-    this.props.options.componentDidMountFunc();
+    try {
+      this.props.options.componentDidMountFunc();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (!equal(nextProps, this.props)) {
+      const defaultStyle = { ...nextProps.options.style };
+      this.clickResponseStyle = {
+        background: defaultStyle.clickResponseColor,
+      };
+      this.buttonDivStyle = {
+        color: defaultStyle.color,
+        background: defaultStyle.background,
+        padding: defaultStyle.padding,
+      };
+      this.contentWordStyle = {
+        textOverflow: defaultStyle.textOverflow,
+        overflow: defaultStyle.overflow,
+        whiteSpace: defaultStyle.whiteSpace,
+      };
+      delete defaultStyle.clickResponseColor;
+      delete defaultStyle.color;
+      delete defaultStyle.background;
+      delete defaultStyle.padding;
+      delete defaultStyle.textOverflow;
+      delete defaultStyle.overflow;
+      delete defaultStyle.whiteSpace;
+
+      this.buttonStyle = defaultStyle;
+
+      this.state = {
+        clickResponseArray: [],
+        buttonStyle: {
+          range: 0,
+          left: 0,
+          top: 0,
+        },
+      };
+    }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.setTime);
   }
 
   setTimeoutStop() {

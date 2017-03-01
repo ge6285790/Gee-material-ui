@@ -167,44 +167,64 @@ const dataPickerOption = {
       console.log(e, 2);
     },
   },
+  dataPicker: {
+    title: 'test',
+    size: 'small', // small / middle / large / x-large
+    theme: 'malibu',
+    animation: {
+      titleActive: 'leftSmall', // default / leftSmall /
+    },
+    underLineColor: 'false', // color rgba / hex
+    inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
+    onFocusFuncCallback: () => {},
+    onBlurFuncCallback: () => {},
+    onChangeFuncCallback: () => {},
+  }
 };
 
-class Test extends React.Component {
+class Test1 extends React.Component {
   renderTest() {
+    window.start = new Date().getTime();
     return [
-      <Card options={{ col: 'col-6 col-768-12' }}>
-        <Header options={headerContainerOption}>
-          <div className="item-top col-3">top</div>
-          aaaaa
-          <div className="item-bottom col-3 col-offset-2">bottom</div>
-          <Avatar options={avatarOptions} />
-          <Avatar options={avatarOptions1}>
-            A
-          </Avatar>
-        </Header>
-        <div>in</div>
-        <AutoComplete options={autoCompleteOption} />
-        <Button options={buttonOption} />
-      </Card>,
-      <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
-      <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
-      <IsometricButton options={isometricButtonOption} />,
-      <Chip options={chipOption} />,
-      <Button options={buttonOption} />,
+      // <Card options={{ col: 'col-6 col-768-12' }}>
+      //   <Header options={headerContainerOption}>
+      //     <div className="item-top col-3">top</div>
+      //     aaaaa
+      //     <div className="item-bottom col-3 col-offset-2">bottom</div>
+      //     <Avatar options={avatarOptions} />
+      //     <Avatar options={avatarOptions1}>
+      //       A
+      //     </Avatar>
+      //   </Header>
+      //   <div>in</div>
+      //   <AutoComplete options={autoCompleteOption} />
+      //   <Button options={buttonOption} />
+      // </Card>,
+      // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
+      // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
+      // <IsometricButton options={isometricButtonOption} />,
+      // <Chip options={chipOption} />,
+      // <AutoComplete options={autoCompleteOption} />,
+      // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
-      <DataPicker options={dataPickerOption} />,
+      <DataPicker options={dataPickerOption} />, // 效能 非常差，需要優化
     ];
   }
+
+  componentDidMount() {
+    window.end = new Date().getTime();
+  }
+
   render() {
     return (
       <div>
-        <Header options={headerFixedOption}>
+        {/* <Header options={headerFixedOption}>
           <Avatar />
-        </Header>
+        </Header> */}
         {this.renderTest()}
       </div>
     );
   }
 }
 
-ReactDOM.render(<Test option={buttonOption} />, document.getElementById('root'));
+ReactDOM.render(<Test1 option={buttonOption} />, document.getElementById('root'));
