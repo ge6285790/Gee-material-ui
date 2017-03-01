@@ -123,7 +123,7 @@ class Dialog extends React.Component {
     const { curtain, calendar, card, dialog } = this.state;
     console.log(this.props.children);
     return (
-      <div className={`gmu-data-picker`}>
+      <div className={`gmu-dialog`}>
         <div
           onClick={(e) => {
             this.setState(update(this.state, {

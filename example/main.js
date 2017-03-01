@@ -11,6 +11,7 @@ import {
   Curtain,
   DataPicker,
   Dialog,
+  ScaleButton,
 } from '../src';
 
 const buttonOption = {
@@ -274,7 +275,7 @@ class Test1 extends React.Component {
       // </Card>,
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
-      // <IsometricButton options={isometricButtonOption} />,
+      <ScaleButton options={{...isometricButtonOption, hide: true}} />,
       // <Chip options={chipOption} />,
       // <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,

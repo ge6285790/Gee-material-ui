@@ -1,5 +1,6 @@
 export Button from './Button';
 export IsometricButton from './IsometricButton';
+export ScaleButton from './ScaleButton';
 export Card from './Card';
 export Header from './Header';
 export AutoComplete from './AutoComplete';
