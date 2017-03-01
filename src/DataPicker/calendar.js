@@ -388,7 +388,7 @@ class CalendarMonthSwitcher extends React.Component {
       </div>
     );
   }
-};
+}
 
 const CalendarSwitchList = (props) => {
   const { options } = props;
