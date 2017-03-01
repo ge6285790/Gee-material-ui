@@ -7,3 +7,4 @@ export Avatar from './Avatar';
 export Chip from './Chip';
 export Curtain from './Curtain';
 export DataPicker from './DataPicker';
+export Dialog from './Dialog';

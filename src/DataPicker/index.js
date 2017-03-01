@@ -6,20 +6,6 @@ import AutoComplete from '../AutoComplete';
 import gum from '../Common/common.scss';
 import css from './dataPicker.scss';
 
-const autoCompleteOption = {
-  title: 'test',
-  size: 'small', // small / middle / large / x-large
-  theme: 'malibu',
-  animation: {
-    titleActive: 'leftSmall', // default / leftSmall /
-  },
-  underLineColor: 'false', // color rgba / hex
-  inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
-  onFocusFuncCallback: () => {},
-  onBlurFuncCallback: () => {},
-  onChangeFuncCallback: () => {},
-};
-
 class DataPicker extends React.Component {
   constructor(props) {
     super(props);

@@ -42,11 +42,12 @@ class Button extends React.Component {
   }
 
   componentDidMount() {
+    const { componentDidMountFunc = () => {} } = this.props.options;
     console.log('this.button', this.button);
     this.range = this.button.offsetWidth >= this.button.offsetHeight ?
                   this.button.offsetWidth : this.button.offsetHeight;
     try {
-      this.props.options.componentDidMountFunc();
+      componentDidMountFunc();
     } catch (e) {
       console.log(e);
     }
@@ -164,11 +165,11 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', disable = 'true', boxShadow = false, onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-button ${stateClass} ${widthClass}`}>
+      <div className={`gum gmu-button ${stateClass} ${widthClass} ${disable === true ? 'disable' : ''}`}>
         <button
           className={widthClass ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
           ref={(button) => { this.button = button; }}

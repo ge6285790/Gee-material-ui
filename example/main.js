@@ -1,6 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button, Card, Header, AutoComplete, Avatar, IsometricButton, Chip, Curtain, DataPicker } from '../src';
+import {
+  Button,
+  Card,
+  Header,
+  AutoComplete,
+  Avatar,
+  IsometricButton,
+  Chip,
+  Curtain,
+  DataPicker,
+  Dialog,
+} from '../src';
 
 const buttonOption = {
   style: {
@@ -182,6 +193,67 @@ const dataPickerOption = {
   }
 };
 
+const dialogOption = {
+  dialog: {
+    type: 'button', // text / button / icon / custom
+    size: 'small', // small / middle / large / x-large
+    theme: 'malibu',
+    content: '嘿嘿嘿',
+    iconClassBefore: '',
+    iconClassAfter: '',
+    style: {
+
+    },
+  },
+  card: {
+    col: 'col-6 col-768-12 col-991-10', // 991 / 768 / 600 / 480
+    offset: 'col-offset-3 col-offset-768-0 col-offset-991-1', // 991 / 768 / 600 / 480
+    gmuContainerStyle: {
+      // background: '#ddd',
+    },
+    containerBoxStyle: {
+    },
+  },
+  curtain: {
+    style: {},
+    opacity: 0.5,
+    // show: 'false', // true false
+    onClickFunc: (e) => {
+      console.log(e, 2);
+    },
+  },
+  confirm: {
+    submit: {
+      disable: false,
+      size: 'small', // small / middle / large / x-large
+      theme: '',
+      content: '確定',
+      iconClassBefore: '',
+      iconClassAfter: '',
+      style: {
+
+      },
+      onClickFunc: (e) => {
+
+      }
+    },
+    cancel: {
+      disable: false,
+      size: 'small', // small / middle / large / x-large
+      theme: '',
+      content: '取消',
+      iconClassBefore: '',
+      iconClassAfter: '',
+      style: {
+
+      },
+      onClickFunc: (e) => {
+
+      }
+    }
+  }
+};
+
 class Test1 extends React.Component {
   renderTest() {
     window.start = new Date().getTime();
@@ -208,6 +280,7 @@ class Test1 extends React.Component {
       // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
       <DataPicker options={dataPickerOption} />, // 效能 非常差，需要優化
+      <Dialog options={dialogOption}><p>aaaaaa</p><p>bbbb</p></Dialog>,
     ];
   }
 

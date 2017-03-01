@@ -7,7 +7,7 @@ const Card = (props) => {
   const col = props.options.col;
   const offset = props.options.offset || '';
   return (
-    <div className={`gmu gmu-card ${col} ${offset}`} style={props.options.gmuContainerStyle}>
+    <div className={`gmu gmu-card ${col} ${offset}`} style={props.options.gmuContainerStyle} data-active={props.options.show || true} >
       <div className="card-box" style={props.options.containerBoxStyle}>
         {props.children}
       </div>

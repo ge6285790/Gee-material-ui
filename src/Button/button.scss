@@ -21,7 +21,7 @@
     }
 
     > div {
-      background: rgba(230, 230, 230, 1);
+      // background: rgba(230, 230, 230, 1);
       color: rgba(0, 0, 0, .5);
       // padding: 6px 16px;
       padding: 0.429em 1.143em;
@@ -76,7 +76,7 @@
     }
 
     &:hover {
-      background: rgba(210, 210, 210, 1);
+      // background: rgba(210, 210, 210, 1);
     }
 
     &.x-large{
@@ -90,6 +90,20 @@
     }
     &.small{
         font-size: 12px;
+    }
+  }
+  &.disable {
+    button {
+      cursor: not-allowed;
+      > div {
+        background: #ddd;
+        color: #fff;
+        &:hover{
+          .color-hover-response {
+            background: rgba(255, 255, 255, 0);
+          }
+        }
+      }
     }
   }
   &.malibu {
