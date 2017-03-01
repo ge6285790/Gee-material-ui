@@ -8,7 +8,7 @@ const Curtain = (props) => {
     opacity,
     ...style,
   };
-
+  console.log(show, opacity);
   return (
     <div
       className="gmu-curatin"

@@ -8,4 +8,5 @@ export Avatar from './Avatar';
 export Chip from './Chip';
 export Curtain from './Curtain';
 export DataPicker from './DataPicker';
+export List from './List';
 export Dialog from './Dialog';

@@ -213,6 +213,7 @@ class ScaleButton extends React.Component {
             this.setState(update(this.state, {
               clickUpClass: { $set: 'click-up' },
             }));
+            onClickFunc(e);
             if (hide) {
               setTimeout(() => {
                 this.setState(update(this.state, {

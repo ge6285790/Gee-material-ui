@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import update from 'react-addons-update';
 import {
   Button,
   Card,
@@ -12,6 +13,7 @@ import {
   DataPicker,
   Dialog,
   ScaleButton,
+  List,
 } from '../src';
 
 const buttonOption = {
@@ -255,7 +257,81 @@ const dialogOption = {
   }
 };
 
+const listOption =  {
+  show: true,
+  curtain: {
+    style: {},
+    opacity: 0.5,
+    // show: 'false', // true false
+    onClickFunc: (e) => {
+      console.log(e, 2);
+    },
+  },
+};
+
 class Test1 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listOption: {
+        show: false,
+        curtain: {
+          style: {},
+          opacity: 0.5,
+          // show: 'false', // true false
+          onClickFunc: (e) => {
+            console.log(e, 2);
+          },
+        },
+      },
+      scaleButtonOption: {
+        style: {
+          clickResponseColor: '',
+          color: '',
+          background: '',
+          boxShadow: '',
+          border: '',
+          borderRadius: '',
+          padding: '',
+          margin: '',
+          fontSize: '', // custom button size
+          // maxWidth: 100,
+          // textOverflow: 'ellipsis',
+          // overflow: 'hidden',
+          // whiteSpace: 'nowrap',
+        },
+        iconClassBefore: '',
+        iconClassAfter: '',
+        boxShadow: true,
+        content: 'A',
+        stateClass: 'h-gold', // malibu / charade / shark / froly / fern
+        size: 'middle', // x-large / large / middle / small
+        shapeClass: 'circle',
+        componentDidMountFunc: () => {
+          console.log('done!');
+        },
+        onClickFunc: () => {
+          this.setState(update(this.state, {
+            listOption: {
+              show: { $set: true },
+              curtain: {
+                show: { $set: 'true' },
+                opacity: { $set: 0.5 },
+              },
+            },
+          }));
+          // setTimeout(() => {
+          //   this.setState(update(this.state, {
+          //     listOption: {
+          //       show: { $set: true },
+          //     },
+          //   }));
+          // },1000);
+          console.log('aaaaaa', this.state);
+        },
+      },
+    };
+  }
   renderTest() {
     window.start = new Date().getTime();
     return [
@@ -275,13 +351,16 @@ class Test1 extends React.Component {
       // </Card>,
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
-      <ScaleButton options={{...isometricButtonOption, hide: true}} />,
+      <ScaleButton options={{...this.state.scaleButtonOption, hide: true}} />,
       // <Chip options={chipOption} />,
       // <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
       <DataPicker options={dataPickerOption} />, // 效能 非常差，需要優化
       <Dialog options={dialogOption}><p>aaaaaa</p><p>bbbb</p></Dialog>,
+      <List options={this.state.listOption}>
+        <Card options={{ col: 'col-12' }} />
+      </List>,
     ];
   }
 
