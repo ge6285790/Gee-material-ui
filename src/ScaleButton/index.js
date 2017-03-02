@@ -55,8 +55,8 @@ class ScaleButton extends React.Component {
         height: props.options.customSize,
         lineHeight: `${props.options.customSize}px`,
       },
-      hide: props.options.hide,
-      active: '',
+      clickHidden: props.options.clickHidden,
+      active: props.options.active,
     };
   }
 
@@ -67,53 +67,112 @@ class ScaleButton extends React.Component {
     componentDidMountFunc();
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (!equal(nextProps, this.props)) {
-      const defaultStyle = { ...nextProps.options.style };
-      this.clickResponseStyle = {
-        background: defaultStyle.clickResponseColor,
-      };
-      this.hoverResponseStyle = {
-        background: defaultStyle.hoverResponseColor,
-      };
-      this.buttonDivStyle = {
-        color: defaultStyle.color,
-        background: defaultStyle.background,
-        padding: defaultStyle.padding,
-      };
-      this.contentWordStyle = {
-        textOverflow: defaultStyle.textOverflow,
-        overflow: defaultStyle.overflow,
-        whiteSpace: defaultStyle.whiteSpace,
-      };
-      delete defaultStyle.clickResponseColor;
-      delete defaultStyle.hoverResponseColor;
-      delete defaultStyle.color;
-      delete defaultStyle.background;
-      delete defaultStyle.padding;
-      delete defaultStyle.textOverflow;
-      delete defaultStyle.overflow;
-      delete defaultStyle.whiteSpace;
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log('componentWillUpdate', nextProps);
+  //   if (!equal(nextProps, this.props)) {
+  //     console.log('componentWillUpdate', nextProps);
+  //     const defaultStyle = { ...nextProps.options.style };
+  //     this.clickResponseStyle = {
+  //       background: defaultStyle.clickResponseColor,
+  //     };
+  //     this.hoverResponseStyle = {
+  //       background: defaultStyle.hoverResponseColor,
+  //     };
+  //     this.buttonDivStyle = {
+  //       color: defaultStyle.color,
+  //       background: defaultStyle.background,
+  //       padding: defaultStyle.padding,
+  //     };
+  //     this.contentWordStyle = {
+  //       textOverflow: defaultStyle.textOverflow,
+  //       overflow: defaultStyle.overflow,
+  //       whiteSpace: defaultStyle.whiteSpace,
+  //     };
+  //     delete defaultStyle.clickResponseColor;
+  //     delete defaultStyle.hoverResponseColor;
+  //     delete defaultStyle.color;
+  //     delete defaultStyle.background;
+  //     delete defaultStyle.padding;
+  //     delete defaultStyle.textOverflow;
+  //     delete defaultStyle.overflow;
+  //     delete defaultStyle.whiteSpace;
+  //
+  //     this.buttonStyle = {
+  //       ...defaultStyle,
+  //       width: nextProps.options.customSize,
+  //       height: nextProps.options.customSize,
+  //       lineHeight: `${nextProps.options.customSize}px`,
+  //     };
+  //
+  //     this.state = {
+  //       clickResponseArray: [],
+  //       clickDownClass: '',
+  //       clickUpClass: '',
+  //       buttonStyle: {
+  //         range: 0,
+  //         left: 0,
+  //         top: 0,
+  //         width: nextProps.options.customSize,
+  //         height: nextProps.options.customSize,
+  //         lineHeight: `${nextProps.options.customSize}px`,
+  //       },
+  //       hide: nextProps.options.hide,
+  //       active: nextProps.options.active,
+  //     };
+  //   }
+  // }
 
-      this.buttonStyle = {
-        ...defaultStyle,
-        width: this.props.options.customSize,
-        height: this.props.options.customSize,
-        lineHeight: `${this.props.options.customSize}px`,
-      };
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+    const defaultStyle = { ...nextProps.options.style };
+    this.clickResponseStyle = {
+      background: defaultStyle.clickResponseColor,
+    };
+    this.hoverResponseStyle = {
+      background: defaultStyle.hoverResponseColor,
+    };
+    this.buttonDivStyle = {
+      color: defaultStyle.color,
+      background: defaultStyle.background,
+      padding: defaultStyle.padding,
+    };
+    this.contentWordStyle = {
+      textOverflow: defaultStyle.textOverflow,
+      overflow: defaultStyle.overflow,
+      whiteSpace: defaultStyle.whiteSpace,
+    };
+    delete defaultStyle.clickResponseColor;
+    delete defaultStyle.hoverResponseColor;
+    delete defaultStyle.color;
+    delete defaultStyle.background;
+    delete defaultStyle.padding;
+    delete defaultStyle.textOverflow;
+    delete defaultStyle.overflow;
+    delete defaultStyle.whiteSpace;
 
-      this.state = {
-        clickResponseArray: [],
-        buttonStyle: {
-          range: 0,
-          left: 0,
-          top: 0,
-          width: this.props.options.customSize,
-          height: this.props.options.customSize,
-          lineHeight: `${this.props.options.customSize}px`,
-        },
-      };
-    }
+    this.buttonStyle = {
+      ...defaultStyle,
+      width: nextProps.options.customSize,
+      height: nextProps.options.customSize,
+      lineHeight: `${nextProps.options.customSize}px`,
+    };
+
+    const newState = {
+      clickResponseArray: [],
+      clickDownClass: '',
+      clickUpClass: '',
+      buttonStyle: {
+        range: 0,
+        left: 0,
+        top: 0,
+        width: nextProps.options.customSize,
+        height: nextProps.options.customSize,
+        lineHeight: `${nextProps.options.customSize}px`,
+      },
+      clickHidden: nextProps.options.clickHidden,
+      active: nextProps.options.active,
+    };
+    this.setState(update(this.state, { $set: newState }));
   }
 
   componentWillUnmount() {
@@ -190,8 +249,10 @@ class ScaleButton extends React.Component {
 
   render() {
     const { stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
-    const { clickResponseArray, clickDownClass, clickUpClass, hide, active } = this.state;
+    const { clickResponseArray, clickDownClass, clickUpClass, clickHidden, active } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
+
+    console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
     return (
       <div className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass}`}>
         <button
@@ -214,7 +275,7 @@ class ScaleButton extends React.Component {
               clickUpClass: { $set: 'click-up' },
             }));
             onClickFunc(e);
-            if (hide) {
+            if (clickHidden) {
               setTimeout(() => {
                 this.setState(update(this.state, {
                   active: { $set: 'true' }

@@ -10,3 +10,5 @@ export Curtain from './Curtain';
 export DataPicker from './DataPicker';
 export List from './List';
 export Dialog from './Dialog';
+
+export StateManager from './StateManager';

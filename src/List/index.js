@@ -27,6 +27,7 @@ class List extends React.Component {
         },
       },
     };
+    console.log(this.state);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +38,7 @@ class List extends React.Component {
         // opacity: 0,
         onClickFunc: (e) => {
           const curtain = e.target;
+          console.log('b');
           nextProps.options.curtain.onClickFunc(e);
           this.setState(update(this.state, {
             curtain: {
@@ -48,6 +50,7 @@ class List extends React.Component {
         },
       },
     };
+    console.log('newState', newState);
     this.setState(update(this.state, { $set: newState }));
   }
 
@@ -59,6 +62,8 @@ class List extends React.Component {
     } else {
       children = this.props.children
     }
+    this.target = [];
+    console.log('this.state.show', this.state.show);
     if (this.state.show) {
       array = children.map((item, i) => {
         return (
@@ -66,13 +71,16 @@ class List extends React.Component {
             key={`list-renderChildren${i}${new Date()}`}
             className="gmu-item"
             ref={(target) => {
+              if (!target) {
+                return;
+              }
               const that = this;
-              this.target = target;
+              this.target.push(target);
               console.log(target);
               setTimeout(() => {
                 // console.log(target);
-                console.log(that.state.show);
-                this.target.dataset.active = that.state.show;
+                console.log(that.state.show, this.target);
+                this.target[i].dataset.active = that.state.show;
               }, 150 * i);
             }}
           >
