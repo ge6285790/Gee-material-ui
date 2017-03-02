@@ -276,6 +276,7 @@ class Test1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      ...StateManager.events, // 預先加入 state，好呼叫 state 操作的函式（如：更新等等）
       listOption: {
         show: false,
         curtain: {
@@ -307,22 +308,35 @@ class Test1 extends React.Component {
           console.log('done!');
         },
         onClickFunc: () => {
-          console.log('this', this);
-          this.state.scaleButtonOption.concentratedUpdate(this, '>aa>bb>cc');
-          this.state.scaleButtonOption.test(this);
+          // console.log('this', this);
+          // // this.state.scaleButtonOption.concentratedUpdate(this, ['>scaleButtonOption'], [
+          // //   {
+          // //     active: { $set: 'true' },
+          // //   }
+          // // ]);
+
+          // this.state.scaleButtonOption.test(this);
           setTimeout(() => {
-            this.setState(update(this.state, {
-              listOption: {
-                show: { $set: true },
-                curtain: {
-                  show: { $set: 'true' },
-                  opacity: { $set: 0.5 },
+            this.state.concentratedUpdate(this,
+              [
+                {
+                  path: '>scaleButtonOption',
+                  updateState: {
+                    active: { $set: 'true' },
+                  },
                 },
-              },
-              scaleButtonOption: {
-                active: { $set: 'true' },
-              },
-            }));
+                {
+                  path: '>listOption',
+                  updateState: {
+                    show: { $set: true },
+                    curtain: {
+                      show: { $set: 'true' },
+                      opacity: { $set: 0.5 },
+                    },
+                  },
+                },
+              ],
+            );
           }, 250);
         },
       },
