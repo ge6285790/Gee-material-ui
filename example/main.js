@@ -286,19 +286,26 @@ class Test1 extends React.Component {
           onClickFunc: (e) => {
             console.log('a');
             console.log(this);
-            this.setState(update(this.state, {
-              scaleButtonOption: {
-                active: { $set: '' },
-              },
-
-              listOption: {
-                show: { $set: false },
-                curtain: {
-                  show: { $set: 'false' },
-                  opacity: { $set: 0 },
+            this.state.concentratedUpdate(this,
+              [
+                {
+                  path: '>scaleButtonOption',
+                  updateState: {
+                    active: { $set: '' },
+                  },
                 },
-              },
-            }));
+                {
+                  path: '>listOption',
+                  updateState: {
+                    show: { $set: false },
+                    curtain: {
+                      show: { $set: 'false' },
+                      opacity: { $set: 0 },
+                    },
+                  },
+                },
+              ],
+            );
           },
         },
       },
@@ -308,14 +315,6 @@ class Test1 extends React.Component {
           console.log('done!');
         },
         onClickFunc: () => {
-          // console.log('this', this);
-          // // this.state.scaleButtonOption.concentratedUpdate(this, ['>scaleButtonOption'], [
-          // //   {
-          // //     active: { $set: 'true' },
-          // //   }
-          // // ]);
-
-          // this.state.scaleButtonOption.test(this);
           setTimeout(() => {
             this.state.concentratedUpdate(this,
               [
