@@ -325,6 +325,9 @@ const radioListOptions = {
           active: false,
         },
       ],
+      onClickFunc: (e) => {
+        console.log('aa');
+      },
     },
     {
       title: 'bbbb',
@@ -338,6 +341,9 @@ const radioListOptions = {
           active: true,
         },
       ],
+      onClickFunc: (e) => {
+        console.log('aa1');
+      },
     },
   ],
 };
@@ -521,6 +527,80 @@ class Test1 extends React.Component {
           },
         },
       },
+      radioListOptions: {
+        direction: 'vertical',
+        selectOptions: [
+          {
+            title: '你說呢',
+            active: 0,
+            size: 'small',
+            checkStyle: {
+              border: '3px solid blue',
+              background: '#fff',
+              boxShadow: '0px 0px 0px 2px red',
+              // borderRadius: 0,
+            },
+            uncheckStyle: {
+              border: '1px solid blue',
+              background: '#fff',
+              boxShadow: '0px 0px 0px 2px red',
+              // borderRadius: 0,
+            },
+            radioOption: [
+              {
+                label: 'Top',
+              },
+              {
+                label: 'Bottom',
+              },
+            ],
+            onClickFunc: (e, selectOptionsIndex, radioOptionIndex) => {
+              // const newRadioOption = [
+              //   ...
+              // ]
+              this.state.concentratedUpdate(this,
+                [
+                  {
+                    path: `>radioListOptions>selectOptions>${selectOptionsIndex}`,
+                    updateState: {
+                      active: { $set: radioOptionIndex },
+                    },
+                  },
+                ],
+              );
+            },
+          },
+          {
+            title: 'bbbb',
+            active: 1,
+            size: '',
+            unCheckStyle: {},
+            radioOption: [
+              {
+                label: 'Top',
+              },
+              {
+                label: 'Bottom',
+              },
+            ],
+            onClickFunc: (e, selectOptionsIndex, radioOptionIndex) => {
+              // const newRadioOption = [
+              //   ...
+              // ]
+              this.state.concentratedUpdate(this,
+                [
+                  {
+                    path: `>radioListOptions>selectOptions>${selectOptionsIndex}`,
+                    updateState: {
+                      active: { $set: radioOptionIndex },
+                    },
+                  },
+                ],
+              );
+            },
+          },
+        ],
+      },
     };
   }
   renderTest() {
@@ -568,7 +648,7 @@ class Test1 extends React.Component {
         <p>bbb</p>
       </Menu>,
       <RadioButton options={this.state.radioOption} />,
-      <RadioList options={radioListOptions} />,
+      <RadioList options={this.state.radioListOptions} />,
     ];
   }
 

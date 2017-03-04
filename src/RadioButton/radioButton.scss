@@ -23,7 +23,7 @@
     border-radius: 50%;
     background: #fff;
     margin-top: -18px;
-    transition: transform 100ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
   }
   .fill-radio{
     // box-sizing: border-box;
@@ -52,7 +52,7 @@
       position: absolute;;
       border-radius: 50%;
       box-shadow: 0px 0px 0px 2px #333;
-      transition: transform 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
       transform: scale(0);
     }
     &:before{
@@ -72,163 +72,59 @@
   }
   &[data-active="true"]{
     .empty-radio{
-      transition: transform 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
       transform: scale(0);
     }
     .fill-radio{
       &:after{
-        transition: transform 100ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
+        transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
         transform: scale(1);
       }
       &:before{
         opacity: 1;
         transform: scale(2);
         background: rgba(0,0,0,0);
-        transition: opacity 100ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, transform 1000ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, background 1000ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+        transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, transform 1000ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, background 1000ms cubic-bezier(0.23, 1, 0.32, 1) 150ms;
       }
     }
   }
-  button {
-    background: transparent;
-    padding: 0;
-    // overflow: hidden;
-    font-size: 14px;
-    border: 0;
-    vertical-align: middle;
-    letter-spacing: 0;
-    // text-transform: uppercase;
-    // font-weight: 500;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-
-    &.click-down {
-      transform: scale(0.8);
-      .color-click-response{
-        background: transparent;
-        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-        opacity: 0.2;
+  &.small {
+    .empty-radio{
+      width: 16px;
+      height: 16px;
+    }
+    .fill-radio{
+      width: 16px;
+      height: 16px;
+      &:after{
+        // border: 2px solid #fff;
+        border-width: 2px;
+        width: 12px;
+        height: 12px;
+        left: 0px;
+        top: 0px;
+        margin-left: 2px;
+        margin-top: 0px;
+        // background: #333;
+        // position: absolute;;
+        // border-radius: 50%;
+        // box-shadow: 0px 0px 0px 2px #333;
+        // transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        // transform: scale(0);
       }
-    }
-    &.click-up {
-      transform: scale(1.1);
-      > div{
-        .color-hover-response{
-          transform: scale(1) !important;
-          background: rgba(255,255,255,.3) !important;
-          opacity: 0;
-        }
-        .color-click-response{
-          box-shadow: 0 0 0 10px #000;
-          opacity: 0;
-        }
-      }
-    }
-    &[data-active="true"]{
-      transform: scale(0);
-    }
-    &.box-shadow {
-      box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
-    }
-
-    > div {
-      background: rgba(230, 230, 230, 1);
-      color: rgba(0, 0, 0, .5);
-      // padding: 6px 16px;
-      // padding: 0.429em 1.143em;
-      position: relative;
-
-      .color-hover-response {
+      &:before{
+        content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255,255,255,0);
-        transform: scale(0.1);
-        border-radius: 50%;
-        transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-
-      }
-
-      .content-word {
-        display: inline-block;
-        word-break: break-all;
-        width: 100%;
-        position: relative;
-      }
-
-      .color-click-response {
-        position: absolute;
-        // transform: scale3d(-21, -21, 0);
-        width: 100%;
-        height: 100%;
-        transform-origin: center center;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-        overflow: hidden;
-        opacity: 0.3;
-        // background: rgba(0,0,0,.06);
-        &[data-active="true"] {
-          opacity: 0;
-          -webkit-border-radius: 50%;
-          border-radius: 50%;
-          transition: opacity 2s cubic-bezier(0.23, 1, 0.32, 1) 0s, transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-        }
-      }
-
-      &:hover {
-        .color-hover-response {
-          transform: scale(0.8);
-          background: rgba(255,255,255,.15);
-          transition: background 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-        }
-      }
-    }
-
-    &:focus {
-      outline: -webkit-focus-ring-color auto 0;
-    }
-
-    &:hover {
-      // background: rgba(210, 210, 210, 0.5);
-      // background: rgba(0,0,0,.06);
-    }
-
-    &.x-large{
-        font-size: 24px;
-
-    }
-    &.large{
-        font-size: 20px;
-        height: 48px;
-        width: 48px;
-        line-height: 48px;
-    }
-    &.middle{
-        font-size: 16px;
-        height: 36px;
-        width: 36px;
-        line-height: 36px;
-    }
-    &.small{
-        font-size: 12px;
-        height: 24px;
-        width: 24px;
-        line-height: 24px;
-    }
-  }
-  &.circle {
-    // border-radius: 50%;
-    > button {
-      border-radius: 50%;
-      > div {
-        // overflow: hidden;
-        border-radius: 50%;
-        z-index: 1;
-        .color-click-response{
-          z-index: 0;
-        }
+        top: -2px;
+        // left: -5px;
+        width: 16px;
+        height: 16px;
+        // opacity: 0;
+        left: 0px;
+        // border-radius: 50%;
+        // background: rgba(0,0,0,.2);
+        // transform-origin: center;
+        // transform: scale(1);
       }
     }
   }

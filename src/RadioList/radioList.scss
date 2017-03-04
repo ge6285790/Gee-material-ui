@@ -1,0 +1,15 @@
+.gmu-radio-list{
+  .gmu-radio-list-container{
+    .gmu-radio-item{
+      display: flex;
+      align-items: center;
+      > span {
+        margin-left: 6px;
+        font-size: 14px;
+        &.small{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

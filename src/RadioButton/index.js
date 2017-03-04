@@ -176,15 +176,15 @@ import css from './radioButton.scss';
 // }
 
 const RadioButton = (props) => {
-  // const {  } = props;
+  const { active, onClickFunc = () => {}, index, selectOptionsIndex, size } = props.options;
   return (
-    <div className="gmu-radio-button" data-active={props.options.active}>
-      <input
-        type="radio"
-        onClick={(e) => {
-
-        }}
-      />
+    <div
+      className={`gmu-radio-button ${size}`}
+      data-active={active}
+      onClick={(e) => {
+        onClickFunc(e, selectOptionsIndex, index);
+      }}
+    >
       <div className="fill-radio" />
       <div className="empty-radio" />
     </div>

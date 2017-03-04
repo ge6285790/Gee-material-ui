@@ -6,7 +6,7 @@ function returnDeepObject(obj, index, updateState, last) {
     obj[index] = last ? updateState : {};
     return;
   }
-  returnDeepObject(obj[deepObjKey], index, update, last);
+  returnDeepObject(obj[deepObjKey], index, updateState, last);
 }
 
 const StateManager = {
@@ -31,7 +31,7 @@ const StateManager = {
             newObj[item] = last ? updateContainer[index].updateState : {};
             return item;
           }
-
+          console.log('item-----', item);
           returnDeepObject(newObj[rootItem], item, updateContainer[index].updateState, last);
           return item;
         });
