@@ -16,6 +16,9 @@ import {
   List,
   StateManager,
   Drawer,
+  Menu,
+  RadioButton,
+  RadioList,
 } from '../src';
 
 console.log('StateManager', StateManager);
@@ -295,6 +298,50 @@ const drawerOptions = {
   },
 };
 
+const menuOptions = {
+  show: false,
+  cardOption: {
+    col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
+    offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
+    gmuContainerStyle: {
+    },
+    containerBoxStyle: {
+    },
+  },
+};
+
+const radioListOptions = {
+  direction: 'vertical',
+  selectOptions: [
+    {
+      title: 'aaaaa',
+      radioOption: [
+        {
+          label: 'Top',
+          active: true,
+        },
+        {
+          label: 'Bottom',
+          active: false,
+        },
+      ],
+    },
+    {
+      title: 'bbbb',
+      radioOption: [
+        {
+          label: 'Top',
+          active: false,
+        },
+        {
+          label: 'Bottom',
+          active: true,
+        },
+      ],
+    },
+  ],
+};
+
 class Test1 extends React.Component {
   constructor(props) {
     super(props);
@@ -360,6 +407,35 @@ class Test1 extends React.Component {
           }, 250);
         },
       },
+      radioOption: {
+        ...StateManager.scaleButtonOption.hide,
+        componentDidMountFunc: () => {
+          console.log('done!');
+        },
+        onClickFunc: () => {
+          // setTimeout(() => {
+          //   this.state.concentratedUpdate(this,
+          //     [
+          //       {
+          //         path: '>scaleButtonControlListOption',
+          //         updateState: {
+          //           active: { $set: 'true' },
+          //         },
+          //       },
+          //       {
+          //         path: '>listOption',
+          //         updateState: {
+          //           show: { $set: true },
+          //           curtain: {
+          //             show: { $set: 'true' },
+          //           },
+          //         },
+          //       },
+          //     ],
+          //   );
+          // }, 250);
+        },
+      },
       buttonControlDrawer: {
         boxShadow: true,
         content: 'call drawer',
@@ -406,9 +482,42 @@ class Test1 extends React.Component {
                   updateState: {
                     show: { $set: false },
                   },
-                }
+                },
               ],
             );
+          },
+        },
+      },
+      buttonControlMenu: {
+        boxShadow: true,
+        content: 'call menu',
+        stateClass: 'h-gold', // malibu / charade / shark / froly / fern
+        widthClass: 'col-6', // col-1 ~ col-12
+        size: 'middle', // x-large / large / middle / small
+        componentDidMountFunc: () => {
+          console.log('done!');
+        },
+        onClickFunc: () => {
+          this.state.concentratedUpdate(this,
+            [
+              {
+                path: '>menuOptions',
+                updateState: {
+                  show: { $set: !this.state.menuOptions.show },
+                },
+              },
+            ],
+          );
+        },
+      },
+      menuOptions: {
+        show: false,
+        cardOption: {
+          col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
+          offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
+          gmuContainerStyle: {
+          },
+          containerBoxStyle: {
           },
         },
       },
@@ -451,6 +560,15 @@ class Test1 extends React.Component {
         <p>aaa</p>
         <p>bbb</p>
       </Drawer>,
+      <Button options={this.state.buttonControlMenu} />,
+      <Menu options={this.state.menuOptions}>
+        <p>aaa</p>
+        <span className="gmu-menu-hr" />
+        <span className="gmu-menu-hr-fill" />
+        <p>bbb</p>
+      </Menu>,
+      <RadioButton options={this.state.radioOption} />,
+      <RadioList options={radioListOptions} />,
     ];
   }
 

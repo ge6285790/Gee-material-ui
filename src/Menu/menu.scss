@@ -1,0 +1,30 @@
+.gmu-menu{
+  overflow: hidden;
+  transform: translateY(-24px);
+  transition: opacity 350ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 550ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  position: absolute;
+
+  &[data-active="true"]{
+    transform: translateY(0px);
+    transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, height 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+  }
+
+  span.gmu-menu-hr{
+    height: 1px;
+    width: 100%;
+    position: relative;
+    background: rgba(0,0,0,.1);
+    display: inline-block;
+  }
+
+  span.gmu-menu-hr-fill{
+    margin-left: -12px;
+    box-sizing: content-box;
+    height: 1px;
+    width: 100%;
+    position: relative;
+    background: rgba(0,0,0,.1);
+    display: inline-block;
+    border-right: 24px solid rgba(0,0,0,0);
+  }
+}

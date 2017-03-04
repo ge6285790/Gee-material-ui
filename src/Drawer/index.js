@@ -1,16 +1,10 @@
 import React from 'react';
-import update from 'react-addons-update';
 import Curtain from '../Curtain';
 import Card from '../Card';
 import gum from '../Common/common.scss';
 import css from './drawer.scss';
 
 class Drawer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   renderCurtain() {
     const { curtainOption = false, show = false } = this.props.options;
     if (curtainOption) {
