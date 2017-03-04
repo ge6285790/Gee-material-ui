@@ -15,6 +15,7 @@ import {
   ScaleButton,
   List,
   StateManager,
+  Drawer,
 } from '../src';
 
 console.log('StateManager', StateManager);
@@ -223,7 +224,7 @@ const dialogOption = {
   curtain: {
     style: {},
     opacity: 0.5,
-    // show: 'false', // true false
+    show: 'false', // true false
     onClickFunc: (e) => {
       console.log(e, 2);
     },
@@ -272,6 +273,28 @@ const listOption =  {
   },
 };
 
+const drawerOptions = {
+  show: false,
+  position: 'right', // left / right
+  cardOption: {
+    col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
+    offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
+    gmuContainerStyle: {
+    },
+    containerBoxStyle: {
+    },
+  },
+  // curtainOption: false,
+  curtainOption: {
+    style: {},
+    opacity: 0.5,
+    show: 'false', // true false
+    onClickFunc: (e) => {
+      console.log(e, 2);
+    },
+  },
+};
+
 class Test1 extends React.Component {
   constructor(props) {
     super(props);
@@ -289,7 +312,7 @@ class Test1 extends React.Component {
             this.state.concentratedUpdate(this,
               [
                 {
-                  path: '>scaleButtonOption',
+                  path: '>scaleButtonControlListOption',
                   updateState: {
                     active: { $set: '' },
                   },
@@ -300,7 +323,6 @@ class Test1 extends React.Component {
                     show: { $set: false },
                     curtain: {
                       show: { $set: 'false' },
-                      opacity: { $set: 0 },
                     },
                   },
                 },
@@ -309,7 +331,7 @@ class Test1 extends React.Component {
           },
         },
       },
-      scaleButtonOption: {
+      scaleButtonControlListOption: {
         ...StateManager.scaleButtonOption.hide,
         componentDidMountFunc: () => {
           console.log('done!');
@@ -319,7 +341,7 @@ class Test1 extends React.Component {
             this.state.concentratedUpdate(this,
               [
                 {
-                  path: '>scaleButtonOption',
+                  path: '>scaleButtonControlListOption',
                   updateState: {
                     active: { $set: 'true' },
                   },
@@ -330,13 +352,64 @@ class Test1 extends React.Component {
                     show: { $set: true },
                     curtain: {
                       show: { $set: 'true' },
-                      opacity: { $set: 0.5 },
                     },
                   },
                 },
               ],
             );
           }, 250);
+        },
+      },
+      buttonControlDrawer: {
+        boxShadow: true,
+        content: 'call drawer',
+        stateClass: 'h-gold', // malibu / charade / shark / froly / fern
+        widthClass: 'col-6', // col-1 ~ col-12
+        size: 'middle', // x-large / large / middle / small
+        componentDidMountFunc: () => {
+          console.log('done!');
+        },
+        onClickFunc: () => {
+          this.state.concentratedUpdate(this,
+            [
+              {
+                path: '>drawerOptions',
+                updateState: {
+                  show: { $set: true },
+                },
+              }
+            ],
+          );
+        },
+      },
+      drawerOptions: {
+        show: false,
+        position: 'right',
+        cardOption: {
+          col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
+          offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
+          gmuContainerStyle: {
+          },
+          containerBoxStyle: {
+          },
+        },
+        // curtainOption: false,
+        curtainOption: {
+          style: {},
+          opacity: 0.5,
+          show: 'false', // true false
+          onClickFunc: (e) => {
+            this.state.concentratedUpdate(this,
+              [
+                {
+                  path: '>drawerOptions',
+                  updateState: {
+                    show: { $set: false },
+                  },
+                }
+              ],
+            );
+          },
         },
       },
     };
@@ -360,7 +433,7 @@ class Test1 extends React.Component {
       // </Card>,
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
-      <ScaleButton options={{ ...this.state.scaleButtonOption, hide: true }} />,
+      <ScaleButton options={this.state.scaleButtonControlListOption} />,
       // <Chip options={chipOption} />,
       // <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,
@@ -373,6 +446,11 @@ class Test1 extends React.Component {
         <Card options={{ col: 'col-12' }} />
         <Card options={{ col: 'col-12' }} />
       </List>,
+      <Button options={this.state.buttonControlDrawer} />,
+      <Drawer options={this.state.drawerOptions}>
+        <p>aaa</p>
+        <p>bbb</p>
+      </Drawer>,
     ];
   }
 

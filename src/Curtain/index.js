@@ -8,7 +8,6 @@ const Curtain = (props) => {
     opacity,
     ...style,
   };
-  console.log(show, opacity);
   return (
     <div
       className="gmu-curatin"
@@ -16,11 +15,7 @@ const Curtain = (props) => {
       style={curtainStyle}
       onClick={(e) => {
         const curtain = e.target;
-        // curtain.opacity.
         onClickFunc(e);
-        // setTimeout(() => {
-        //   curtain.style.display = 'none';
-        // }, 460);
       }}
     />
   );
