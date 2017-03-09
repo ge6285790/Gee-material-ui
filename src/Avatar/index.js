@@ -25,7 +25,7 @@ const Avatar = (props) => {
     cursor = 'default';
   }
   const style = {
-    backgroundImage: `url('${src}')`,
+    backgroundImage: src ? `url('${src}')` : '',
     ...options.style,
     cursor,
   };
@@ -44,7 +44,7 @@ const Avatar = (props) => {
 
 Avatar.propTypes = {
   options: React.PropTypes.object,
-  children: React.PropTypes.array,
+  children: React.PropTypes.any,
   // style: React.PropTypes.object,
 };
 
