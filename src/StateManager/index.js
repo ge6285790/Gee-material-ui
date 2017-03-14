@@ -10,17 +10,22 @@ function returnDeepObject(obj, index, updateState, last) {
 }
 
 function deepClone(obj1, obj2) {
-  const array = Object.keys(obj1);
-  if (array.length === 0 && typeof obj1 !== 'string' && typeof obj1 !== 'string') {
+
+  if (typeof obj1 === 'string') {
+    return obj2;
+  }
+  const arrayObj1 = Object.keys(obj1);
+  const arrayObj2 = Object.keys(obj2);
+  if (arrayObj1.length === 0) {
     return {
       ...obj1,
       ...obj2,
     };
-  } else if (array.length === 0) {
+  } else if (arrayObj1.length === 0) {
     return obj2;
   }
   let result = {};
-  array.map((item) => {
+  arrayObj1.map((item) => {
     if (obj2[item]) {
       result = {
         ...result,
@@ -41,7 +46,7 @@ function deepClone(obj1, obj2) {
 const StateManager = {
   events: {
     concentratedUpdate: (that, updateContainer) => {
-      const newObj = {};
+      // const newObj = {};
       let upObjects = {};
       const pathsArray = updateContainer.map((item) => {
         const array = item.path.split('>');
@@ -50,6 +55,7 @@ const StateManager = {
       });
       pathsArray.map((array, index) => {
         let rootItem = '';
+        let newObj = {};
         const length = array.length - 1;
         array.map((item, i) => {
           let last = false;
