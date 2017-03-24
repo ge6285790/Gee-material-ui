@@ -53,6 +53,14 @@ const config = {
         loader: 'url-loader?limit=8192&name=../public/img/[name].[ext]',
       },
       {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader'
+      },
+      {
         test: /\.js?$/,
         loaders: ['react-hot-loader', 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0'], // stage-0 use for class static needsApi
         include: [path.resolve(__dirname, 'example'), path.resolve(__dirname, 'src')],
