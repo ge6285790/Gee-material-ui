@@ -1,0 +1,17 @@
+.gmu-list{
+  position: fixed;
+  width: 100%;
+  top: 10%;
+  z-index: 10;
+  .gmu-item{
+    opacity: 0;
+    z-index: 10;
+    position: relative;
+    transform: translateY(24px);
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    &[data-active="true"]{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.gmu-chip {
+  position: relative;
+  display: inline-block;
+  // border-radius: 16px;
+  border-radius: 1000px;
+  overflow: hidden;
+  background: #eee;
+  > div {
+    display: flex;
+    align-items: center;
+    > span {
+      padding: 6px 16px;
+      color: #333;
+      display: inline-block;
+    }
+  }
+  &.large {
+    font-size: 36px;
+    .gmu-isometric-button button.large {
+      font-size: 36px;
+    }
+  }
+  &.middle {
+    font-size: 24px;
+    .gmu-isometric-button button.middle {
+      font-size: 24px;
+    }
+  }
+  &.small {
+    font-size: 16px;
+    .gmu-isometric-button button.small {
+      font-size: 16px;
+    }
+  }
+}

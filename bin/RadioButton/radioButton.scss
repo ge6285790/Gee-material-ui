@@ -1,0 +1,185 @@
+.gmu-radio-button {
+  text-align: center;
+  display: inline-block;
+  z-index: 0;
+  position: relative;
+  input{
+    opacity: 0;
+    padding: 0px;
+    margin: 0px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+  }
+  .empty-radio{
+    box-sizing: border-box;
+    border: 1px solid #333;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border-radius: 50%;
+    background: #fff;
+    margin-top: -18px;
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
+  }
+  .fill-radio{
+    // box-sizing: border-box;
+    // border: 3px solid #fff;
+    width: 20px;
+    height: 20px;
+    // background: #333;
+    position: relative;
+    // border-radius: 50%;
+    // box-shadow: 0px 0px 0px 2px #333;
+    // transform: scale(0);
+    // transition: transform 100ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    z-index: 1;
+    &:after{
+      content: '';
+      display: inline-block;
+      box-sizing: border-box;
+      border: 3px solid #fff;
+      width: 16px;
+      height: 16px;
+      left: 0px;
+      top: 0px;
+      margin-left: 2px;
+      margin-top: 4px;
+      background: #333;
+      position: absolute;;
+      border-radius: 50%;
+      box-shadow: 0px 0px 0px 2px #333;
+      transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      transform: scale(0);
+    }
+    &:before{
+      content: '';
+      position: absolute;
+      top: 2px;
+      // left: -5px;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      left: 0px;
+      border-radius: 50%;
+      background: rgba(0,0,0,.2);
+      transform-origin: center;
+      transform: scale(1);
+    }
+  }
+  &[data-active="true"]{
+    .empty-radio{
+      transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+      transform: scale(0);
+    }
+    .fill-radio{
+      &:after{
+        transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 80ms;
+        transform: scale(1);
+      }
+      &:before{
+        opacity: 1;
+        transform: scale(2);
+        background: rgba(0,0,0,0);
+        transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, transform 1000ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, background 1000ms cubic-bezier(0.23, 1, 0.32, 1) 150ms;
+      }
+    }
+  }
+  &.small {
+    .empty-radio{
+      width: 16px;
+      height: 16px;
+    }
+    .fill-radio{
+      width: 16px;
+      height: 16px;
+      &:after{
+        // border: 2px solid #fff;
+        border-width: 2px;
+        width: 12px;
+        height: 12px;
+        left: 0px;
+        top: 0px;
+        margin-left: 2px;
+        margin-top: 0px;
+        // background: #333;
+        // position: absolute;;
+        // border-radius: 50%;
+        // box-shadow: 0px 0px 0px 2px #333;
+        // transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        // transform: scale(0);
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: -2px;
+        // left: -5px;
+        width: 16px;
+        height: 16px;
+        // opacity: 0;
+        left: 0px;
+        // border-radius: 50%;
+        // background: rgba(0,0,0,.2);
+        // transform-origin: center;
+        // transform: scale(1);
+      }
+    }
+  }
+  &.malibu {
+    button {
+      > div {
+        background: #61AFEF;
+        color: #fff;
+
+      }
+    }
+  }
+  &.charade {
+    button {
+      > div {
+        background: #282C34;
+        color: #fff;
+
+      }
+    }
+  }
+  &.shark {
+    button {
+      > div {
+        background: #33373A;
+        color: #fff;
+
+      }
+    }
+  }
+  &.froly {
+    button {
+      > div {
+        background: #DA6C75;
+        color: #fff;
+
+      }
+    }
+  }
+  &.fern {
+    button {
+      > div {
+        background: #5CB85C;
+        color: #fff;
+
+      }
+    }
+  }
+  &.h-gold {
+    button {
+      > div {
+        background: #E5C076;
+        color: #fff;
+
+      }
+    }
+  }
+}
