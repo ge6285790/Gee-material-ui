@@ -528,12 +528,15 @@ class Test1 extends React.Component {
         },
       },
       radioListOptions: {
-        direction: 'vertical',
+        direction: 'horizontal',
         selectOptions: [
           {
             title: '你說呢',
             active: 0,
             size: 'small',
+            containerStyle: {
+              background: 'rgba(0,0,0,.1)',
+            },
             checkStyle: {
               border: '3px solid blue',
               background: '#fff',
@@ -574,6 +577,7 @@ class Test1 extends React.Component {
             title: 'bbbb',
             active: 1,
             size: '',
+            containerStyle: {},
             unCheckStyle: {},
             radioOption: [
               {
