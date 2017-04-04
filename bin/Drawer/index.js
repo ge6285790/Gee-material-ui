@@ -72,18 +72,18 @@ var Drawer = function (_React$Component) {
           position = _props$options2$posit === undefined ? 'left' : _props$options2$posit;
 
       var cardAdjustOptions = _extends({}, cardOption, {
-        gmuContainerStyle: _extends({
+        gmuCardStyle: _extends({
           height: '100%',
           position: 'fixed',
           left: '0px',
           top: '0px',
           padding: '0px',
           zIndex: 10
-        }, cardOption.gmuContainerStyle),
-        containerBoxStyle: _extends({
+        }, cardOption.gmuCardStyle),
+        cardBoxStyle: _extends({
           width: '100%',
           height: '100%'
-        }, cardOption.containerBoxStyle)
+        }, cardOption.cardBoxStyle)
       });
 
       return _react2.default.createElement(

@@ -30,8 +30,8 @@ class Menu extends React.Component {
       ...cardOption,
       col: 'col-12',
       offset: '',
-      gmuContainerStyle: {
-        ...cardOption.gmuContainerStyle,
+      gmuCardStyle: {
+        ...cardOption.gmuCardStyle,
         display: 'inline-block',
       },
     };

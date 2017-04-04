@@ -21,19 +21,19 @@ class Drawer extends React.Component {
     const { cardOption, show, position = 'left' } = this.props.options;
     const cardAdjustOptions = {
       ...cardOption,
-      gmuContainerStyle: {
+      gmuCardStyle: {
         height: '100%',
         position: 'fixed',
         left: '0px',
         top: '0px',
         padding: '0px',
         zIndex: 10,
-        ...cardOption.gmuContainerStyle,
+        ...cardOption.gmuCardStyle,
       },
-      containerBoxStyle: {
+      cardBoxStyle: {
         width: '100%',
         height: '100%',
-        ...cardOption.containerBoxStyle,
+        ...cardOption.cardBoxStyle,
       },
     };
 

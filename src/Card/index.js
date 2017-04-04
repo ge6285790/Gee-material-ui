@@ -7,9 +7,10 @@ const Card = (props) => {
   const col = props.options.col;
   const offset = props.options.offset || '';
   const animate = props.options.animate || '';
+  const classNames = props.options.classNames || '';
   return (
-    <div className={`gmu gmu-card ${col} ${offset} ${animate}`} style={props.options.gmuContainerStyle} data-active={props.options.show || true} >
-      <div className="card-box" style={props.options.containerBoxStyle}>
+    <div className={`gmu gmu-card ${col} ${offset} ${animate} ${classNames}`} style={props.options.gmuCardStyle} data-active={props.options.show || true} >
+      <div className="card-box" style={props.options.cardBoxStyle}>
         {props.children}
       </div>
     </div>

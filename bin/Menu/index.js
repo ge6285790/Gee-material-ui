@@ -77,7 +77,7 @@ var Menu = function (_React$Component) {
       var cardAdjustOption = _extends({}, cardOption, {
         col: 'col-12',
         offset: '',
-        gmuContainerStyle: _extends({}, cardOption.gmuContainerStyle, {
+        gmuCardStyle: _extends({}, cardOption.gmuCardStyle, {
           display: 'inline-block'
         })
       });

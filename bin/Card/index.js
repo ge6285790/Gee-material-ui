@@ -26,12 +26,13 @@ var Card = function Card(props) {
   var col = props.options.col;
   var offset = props.options.offset || '';
   var animate = props.options.animate || '';
+  var classNames = props.options.classNames || '';
   return _react2.default.createElement(
     'div',
-    { className: 'gmu gmu-card ' + col + ' ' + offset + ' ' + animate, style: props.options.gmuContainerStyle, 'data-active': props.options.show || true },
+    { className: 'gmu gmu-card ' + col + ' ' + offset + ' ' + animate + ' ' + classNames, style: props.options.gmuCardStyle, 'data-active': props.options.show || true },
     _react2.default.createElement(
       'div',
-      { className: 'card-box', style: props.options.containerBoxStyle },
+      { className: 'card-box', style: props.options.cardBoxStyle },
       props.children
     )
   );
