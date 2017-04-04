@@ -55,7 +55,8 @@ var Dialog = function (_React$Component) {
     _this.state = {
       dialog: props.options.dialog,
       card: _extends({
-        show: 'false'
+        show: 'false',
+        animate: 'fadeIn'
       }, props.options.card),
       // dataPicker: props.options.dataPicker,
       curtain: _extends({}, props.options.curtain, {
@@ -195,7 +196,7 @@ var Dialog = function (_React$Component) {
                   opacity: { $set: options.curtain.opacity }
                 },
                 card: {
-                  show: { $set: 'dialog' }
+                  show: { $set: 'true' }
                 }
               }));
             }

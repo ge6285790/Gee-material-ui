@@ -6,8 +6,9 @@ import css from './card.scss';
 const Card = (props) => {
   const col = props.options.col;
   const offset = props.options.offset || '';
+  const animate = props.options.animate || '';
   return (
-    <div className={`gmu gmu-card ${col} ${offset}`} style={props.options.gmuContainerStyle} data-active={props.options.show || true} >
+    <div className={`gmu gmu-card ${col} ${offset} ${animate}`} style={props.options.gmuContainerStyle} data-active={props.options.show || true} >
       <div className="card-box" style={props.options.containerBoxStyle}>
         {props.children}
       </div>

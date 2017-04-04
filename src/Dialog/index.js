@@ -13,6 +13,7 @@ class Dialog extends React.Component {
       dialog: props.options.dialog,
       card: {
         show: 'false',
+        animate: 'fadeIn',
         ...props.options.card,
       },
       // dataPicker: props.options.dataPicker,
@@ -132,7 +133,7 @@ class Dialog extends React.Component {
                 opacity: { $set: options.curtain.opacity },
               },
               card: {
-                show: { $set: 'dialog' },
+                show: { $set: 'true' },
               },
             }));
           }}

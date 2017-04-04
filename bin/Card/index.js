@@ -25,9 +25,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Card = function Card(props) {
   var col = props.options.col;
   var offset = props.options.offset || '';
+  var animate = props.options.animate || '';
   return _react2.default.createElement(
     'div',
-    { className: 'gmu gmu-card ' + col + ' ' + offset, style: props.options.gmuContainerStyle, 'data-active': props.options.show || true },
+    { className: 'gmu gmu-card ' + col + ' ' + offset + ' ' + animate, style: props.options.gmuContainerStyle, 'data-active': props.options.show || true },
     _react2.default.createElement(
       'div',
       { className: 'card-box', style: props.options.containerBoxStyle },
