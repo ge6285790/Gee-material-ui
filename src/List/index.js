@@ -94,10 +94,10 @@ class List extends React.Component {
   }
 
   render() {
-    const { curtain } = this.state;
+    const { curtain, style = {}, classNames = '' } = this.state;
     console.log('curtain', curtain);
     return (
-      <div className="gmu-list">
+      <div className={`gmu-list ${classNames}`} style={style} >
         <Curtain options={curtain} />
         {this.renderChildren()}
       </div>

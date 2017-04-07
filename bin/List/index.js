@@ -139,12 +139,17 @@ var List = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var curtain = this.state.curtain;
+      var _state = this.state,
+          curtain = _state.curtain,
+          _state$style = _state.style,
+          style = _state$style === undefined ? {} : _state$style,
+          _state$classNames = _state.classNames,
+          classNames = _state$classNames === undefined ? '' : _state$classNames;
 
       console.log('curtain', curtain);
       return _react2.default.createElement(
         'div',
-        { className: 'gmu-list' },
+        { className: 'gmu-list ' + classNames, style: style },
         _react2.default.createElement(_Curtain2.default, { options: curtain }),
         this.renderChildren()
       );
