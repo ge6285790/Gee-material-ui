@@ -49,6 +49,8 @@ var List = function (_React$Component) {
 
     _this.state = {
       show: props.options.show,
+      classNames: props.options.classNames,
+      style: props.options.style,
       curtain: _extends({}, props.options.curtain, {
         opacity: 0,
         onClickFunc: function onClickFunc(e) {
@@ -75,6 +77,8 @@ var List = function (_React$Component) {
 
       var newState = {
         show: nextProps.options.show,
+        classNames: nextProps.options.classNames,
+        style: nextProps.options.style,
         curtain: _extends({}, nextProps.options.curtain, {
           // opacity: 0,
           onClickFunc: function onClickFunc(e) {

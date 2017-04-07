@@ -11,6 +11,8 @@ class List extends React.Component {
     super(props);
     this.state = {
       show: props.options.show,
+      classNames: props.options.classNames,
+      style: props.options.style,
       curtain: {
         ...props.options.curtain,
         opacity: 0,
@@ -33,6 +35,8 @@ class List extends React.Component {
   componentWillReceiveProps(nextProps) {
     const newState = {
       show: nextProps.options.show,
+      classNames: nextProps.options.classNames,
+      style: nextProps.options.style,
       curtain: {
         ...nextProps.options.curtain,
         // opacity: 0,
