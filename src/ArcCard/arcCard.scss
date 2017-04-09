@@ -1,0 +1,32 @@
+.gmu-arc-card {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  // right: inherit;
+  // border-radius: 3px;
+  border-radius: 0.3em;
+  overflow: hidden;
+  // top: 500px;
+  // left: 1000px;
+  background: #fff;
+  // background: #f60;
+  transition: width 550ms ease 30ms, left 550ms ease 30ms, top 350ms ease 0ms, height 350ms ease 0ms;
+  &[data-active="true"]{
+    width: 100% !important;
+    height: 100% !important;
+    top: 0px !important;
+    left: 0px !important;
+    // right: 0px !important;
+    overflow: auto;
+    transition: width 350ms ease 0ms, left 350ms ease 0ms, top 550ms ease 30ms, height 550ms ease 30ms;
+  }
+  .gmu-arc-card-image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    background-position: center;
+    // background-size: 1000px;
+    // background-size: cover;
+  }
+}

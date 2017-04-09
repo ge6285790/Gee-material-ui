@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import update from 'react-addons-update';
 import {
   Button,
+  ArcCard,
   Card,
   Header,
   AutoComplete,
@@ -19,6 +20,7 @@ import {
   Menu,
   RadioButton,
   RadioList,
+  Grid,
 } from '../src';
 
 console.log('StateManager', StateManager);
@@ -91,10 +93,12 @@ const isometricButtonOption = {
 const cardOption = {
   col: 'col-6 col-768-12', // 991 / 768 / 600 / 480
   offset: 'col-offset-1 col-offset-768-0', // 991 / 768 / 600 / 480
-  gmuContainerStyle: {
+  classNames: '',
+  animate: '',
+  gmuCardStyle: {
     background: '#ddd',
   },
-  containerBoxStyle: {
+  cardBoxStyle: {
   },
 };
 
@@ -218,10 +222,10 @@ const dialogOption = {
   card: {
     col: 'col-6 col-768-12 col-991-10', // 991 / 768 / 600 / 480
     offset: 'col-offset-3 col-offset-768-0 col-offset-991-1', // 991 / 768 / 600 / 480
-    gmuContainerStyle: {
+    gmuCardStyle: {
       // background: '#ddd',
     },
-    containerBoxStyle: {
+    cardBoxStyle: {
     },
   },
   curtain: {
@@ -282,9 +286,9 @@ const drawerOptions = {
   cardOption: {
     col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
     offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
-    gmuContainerStyle: {
+    gmuCardStyle: {
     },
-    containerBoxStyle: {
+    cardBoxStyle: {
     },
   },
   // curtainOption: false,
@@ -303,9 +307,9 @@ const menuOptions = {
   cardOption: {
     col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
     offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
-    gmuContainerStyle: {
+    gmuCardStyle: {
     },
-    containerBoxStyle: {
+    cardBoxStyle: {
     },
   },
 };
@@ -346,6 +350,14 @@ const radioListOptions = {
       },
     },
   ],
+};
+
+const ArcCardOption = {
+  classNames: '',
+  active: 'false',
+  defaultStyle: {},
+  resultStyle: {},
+  imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
 };
 
 class Test1 extends React.Component {
@@ -470,9 +482,9 @@ class Test1 extends React.Component {
         cardOption: {
           col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
           offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
-          gmuContainerStyle: {
+          gmuCardStyle: {
           },
-          containerBoxStyle: {
+          cardBoxStyle: {
           },
         },
         // curtainOption: false,
@@ -521,9 +533,9 @@ class Test1 extends React.Component {
         cardOption: {
           col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
           offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
-          gmuContainerStyle: {
+          gmuCardStyle: {
           },
-          containerBoxStyle: {
+          cardBoxStyle: {
           },
         },
       },
@@ -626,6 +638,8 @@ class Test1 extends React.Component {
       // </Card>,
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
+      <ArcCard options={ArcCardOption} />,
+      <Grid />,
       <ScaleButton options={this.state.scaleButtonControlListOption} />,
       // <Chip options={chipOption} />,
       // <AutoComplete options={autoCompleteOption} />,
