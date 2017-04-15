@@ -541,7 +541,7 @@ class Grid extends React.Component {
         this.gmuGrid.classList.remove('active');
         this.circleCover.classList.remove('active');
         this.circleCover.classList.remove('setInit');
-        this.circleCover.setAttribute('style', '');
+        this.circleCover.setAttribute('style', `background: ${this.props.options.haloColor}; boxShadow: 0 0 20em 20em ${this.props.options.haloColor};`);
       }, 700);
     }
   }
@@ -611,7 +611,7 @@ class Grid extends React.Component {
       <div className="gmu-grid" id={this.state.gridId} ref={(div) => { this.gmuGrid = div; }}>
         <div className="gmu-container-box" ref={(div) => { this.containerBox = div; }}>
           {this.renderGrid()}
-          <div className="gmu-circle-cover" style={{ background: this.props.options.haloColor }} ref={(div) => { this.circleCover = div; }}>
+          <div className="gmu-circle-cover" style={{ background: this.props.options.haloColor, boxShadow: `0 0 20em 20em ${this.props.options.haloColor}` }} ref={(div) => { this.circleCover = div; }}>
             <div className="padding-bottom" />
           </div>
         </div>
