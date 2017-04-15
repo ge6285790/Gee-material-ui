@@ -617,6 +617,322 @@ class Test1 extends React.Component {
           },
         ],
       },
+      girdOptions: {
+        gridList: [
+
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+                // setTimeout(() => {
+                  // this.state.concentratedUpdate(this,
+                  //   [
+                  //     {
+                  //       path: `>girdOptions>gridList>0`,
+                  //       updateState: {
+                  //         classNames: { $set: 'fuck' },
+                  //       },
+                  //     },
+                  //   ],
+                  // );
+                // }, 0);
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+            {
+              id: '',
+              classNames: '',
+              active: 'false',
+              defaultStyle: {},
+              resultStyle: {},
+              imageSrc: 'http://www.freshwater-plumbing.com/images/www.elikarealestate.com/images/luxury-new-york-city-condo-apartments.jpg',
+              onClickFunc: (e) => {
+
+              },
+              children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+            },
+        ]
+      }
     };
   }
   renderTest() {
@@ -639,7 +955,7 @@ class Test1 extends React.Component {
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
       <ArcCard options={ArcCardOption} />,
-      <Grid />,
+      <Grid options={this.state.girdOptions} />,
       <ScaleButton options={this.state.scaleButtonControlListOption} />,
       // <Chip options={chipOption} />,
       // <AutoComplete options={autoCompleteOption} />,

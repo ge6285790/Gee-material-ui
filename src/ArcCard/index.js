@@ -25,7 +25,7 @@ class ArcCard extends React.Component {
   }
   render() {
     const { options = {}, methods } = this.props;
-    const { classNames = '', active = 'false', defaultStyle = {}, resultStyle = {}, imageSrc = false, onClickFunc = (e) => {} } = options;
+    const { classNames = '', id = '', active = 'false', defaultStyle = {}, resultStyle = {}, imageSrc = false, onClickFunc = (e) => {} } = options;
     let onClickMethods = onClickFunc;
     if (methods) {
       onClickMethods = (e) => {
@@ -36,6 +36,7 @@ class ArcCard extends React.Component {
     console.log('render')
     return (
       <div
+        id={id}
         className={`gmu-arc-card ${classNames}`}
         data-active={active}
         style={active === 'false' ? defaultStyle : resultStyle}
