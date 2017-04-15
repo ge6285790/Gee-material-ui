@@ -101,7 +101,7 @@ var Grid = function (_React$Component) {
         } else {
           timeout = false;
           // alert('Done resizing');
-          this.gmuGrid.style.width = '100%';
+          that.gmuGrid.style.width = '100%';
           that.initialGridStyle();
         }
       }
