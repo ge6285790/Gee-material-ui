@@ -541,7 +541,7 @@ class Grid extends React.Component {
         this.gmuGrid.classList.remove('active');
         this.circleCover.classList.remove('active');
         this.circleCover.classList.remove('setInit');
-        this.circleCover.setAttribute('style', `background: ${this.props.options.haloColor}; boxShadow: 0 0 20em 20em ${this.props.options.haloColor};`);
+        this.circleCover.setAttribute('style', `background: ${this.props.options.haloColor}; box-shadow: 0 0 20em 20em ${this.props.options.haloColor};`);
       }, 700);
     }
   }

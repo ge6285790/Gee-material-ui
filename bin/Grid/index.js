@@ -156,7 +156,7 @@ var Grid = function (_React$Component) {
           _this3.gmuGrid.classList.remove('active');
           _this3.circleCover.classList.remove('active');
           _this3.circleCover.classList.remove('setInit');
-          _this3.circleCover.setAttribute('style', 'background: ' + _this3.props.options.haloColor + '; boxShadow: 0 0 20em 20em ' + _this3.props.options.haloColor + ';');
+          _this3.circleCover.setAttribute('style', 'background: ' + _this3.props.options.haloColor + '; box-shadow: 0 0 20em 20em ' + _this3.props.options.haloColor + ';');
         }, 700);
       }
     }
