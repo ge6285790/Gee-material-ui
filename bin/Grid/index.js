@@ -247,7 +247,7 @@ var Grid = function (_React$Component) {
           this.renderGrid(),
           _react2.default.createElement(
             'div',
-            { className: 'gmu-circle-cover', ref: function ref(div) {
+            { className: 'gmu-circle-cover', style: { background: this.props.options.haloColor }, ref: function ref(div) {
                 _this6.circleCover = div;
               } },
             _react2.default.createElement('div', { className: 'padding-bottom' })
