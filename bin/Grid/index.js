@@ -90,6 +90,7 @@ var Grid = function (_React$Component) {
       // this.gmuGridWidth = this.gmuGrid.offsetWidth;
       this.gmuGridTop = this.gmuGrid.offsetTop;
       this.gmuGridLeft = this.gmuGrid.offsetLeft;
+      console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
       this.gmuGrid.style.width = this.gmuGrid.offsetWidth + 'px';
 
       this.scale = this.gmuGrid.offsetHeight / this.gmuGrid.offsetWidth * 2;
