@@ -134,13 +134,13 @@ var Grid = function (_React$Component) {
             active: { $set: 'false' }
           })
         }));
+        this.circleClick.classList.remove('active');
         this.circleCover.classList.add('setInit');
         setTimeout(function () {
           var containerBoxCard = _this2.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]');
           Array.prototype.forEach.call(containerBoxCard, function (element, i) {
             element.style.zIndex = '1';
           });
-          _this2.circleClick.classList.remove('active');
           _this2.gmuGrid.classList.remove('active');
           _this2.circleCover.classList.remove('active');
           _this2.circleCover.classList.remove('setInit');

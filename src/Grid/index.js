@@ -519,14 +519,14 @@ class Grid extends React.Component {
             active: { $set: 'false' },
           },
         },
-      }))
+      }));
+      this.circleClick.classList.remove('active');
       this.circleCover.classList.add('setInit');
       setTimeout(() => {
         const containerBoxCard = this.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]')
         Array.prototype.forEach.call(containerBoxCard, (element, i) => {
           element.style.zIndex = '1';
         });
-        this.circleClick.classList.remove('active');
         this.gmuGrid.classList.remove('active');
         this.circleCover.classList.remove('active');
         this.circleCover.classList.remove('setInit');
