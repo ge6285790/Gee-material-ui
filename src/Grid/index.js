@@ -479,11 +479,12 @@ class Grid extends React.Component {
     console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
     this.gmuGrid.style.width = `${this.gmuGrid.offsetWidth}px`;
 
-    this.scale = (this.gmuGrid.offsetHeight / this.gmuGrid.offsetWidth) * 2;
+
     const width = (parseInt(this.gmuGrid.style.width, 10) - 20) / 5;
     const height = width;
     const allArcCardElement = document.querySelector(`#${this.state.gridId}`).querySelectorAll('.gmu-arc-card');
     this.gmuGrid.style.height = `${Math.ceil(allArcCardElement.length / 5) * (height + 5)}px`;
+    this.scale = (this.gmuGrid.offsetHeight / this.gmuGrid.offsetWidth) * 2;
     Array.prototype.forEach.call(allArcCardElement, (element, i) => {
       // const top = element.offsetTop + this.gmuGridTop;
       // console.log(element.offsetLeft, this.gmuGridLeft);

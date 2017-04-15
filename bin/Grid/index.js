@@ -93,11 +93,11 @@ var Grid = function (_React$Component) {
       console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
       this.gmuGrid.style.width = this.gmuGrid.offsetWidth + 'px';
 
-      this.scale = this.gmuGrid.offsetHeight / this.gmuGrid.offsetWidth * 2;
       var width = (parseInt(this.gmuGrid.style.width, 10) - 20) / 5;
       var height = width;
       var allArcCardElement = document.querySelector('#' + this.state.gridId).querySelectorAll('.gmu-arc-card');
       this.gmuGrid.style.height = Math.ceil(allArcCardElement.length / 5) * (height + 5) + 'px';
+      this.scale = this.gmuGrid.offsetHeight / this.gmuGrid.offsetWidth * 2;
       Array.prototype.forEach.call(allArcCardElement, function (element, i) {
         // const top = element.offsetTop + this.gmuGridTop;
         // console.log(element.offsetLeft, this.gmuGridLeft);
