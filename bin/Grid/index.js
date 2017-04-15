@@ -84,10 +84,75 @@ var Grid = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
       // this.gmuGridHeight = this.gmuGrid.offsetHeight;
       // this.gmuGridWidth = this.gmuGrid.offsetWidth;
+      var that = this;
+      this.initialGridStyle();
+      this.containerBox.classList.add('active');
+      document.addEventListener('click', this.handleClickOutside.bind(this), true);
+
+      var rtime = void 0;
+      var timeout = false;
+      var delta = 200;
+
+      function resizeend() {
+        if (new Date() - rtime < delta) {
+          setTimeout(resizeend, delta);
+        } else {
+          timeout = false;
+          // alert('Done resizing');
+          this.gmuGrid.style.width = '100%';
+          that.initialGridStyle();
+        }
+      }
+
+      window.onresize = function () {
+        rtime = new Date();
+        if (timeout === false) {
+          timeout = true;
+          setTimeout(resizeend, delta);
+        }
+      };
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(nextProps) {
+      this.setState((0, _reactAddonsUpdate2.default)(this.state, {
+        data: { $set: nextProps.options.gridList }
+      }));
+    }
+  }, {
+    key: 'handleClickOutside',
+    value: function handleClickOutside(e) {
+      var _this2 = this;
+
+      var domNode = _reactDom2.default.findDOMNode(this);
+      if (!domNode || !domNode.contains(e.target)) {
+        //
+        this.setState((0, _reactAddonsUpdate2.default)(this.state, {
+          data: _defineProperty({}, this.tempIndex, {
+            active: { $set: 'false' }
+          })
+        }));
+        this.circleCover.classList.add('setInit');
+        setTimeout(function () {
+          var containerBoxCard = _this2.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]');
+          Array.prototype.forEach.call(containerBoxCard, function (element, i) {
+            element.style.zIndex = '1';
+          });
+          _this2.circleClick.classList.remove('active');
+          _this2.gmuGrid.classList.remove('active');
+          _this2.circleCover.classList.remove('active');
+          _this2.circleCover.classList.remove('setInit');
+          _this2.circleCover.setAttribute('style', 'background: ' + _this2.props.options.haloColor + '; box-shadow: 0 0 20em 20em ' + _this2.props.options.haloColor + ';');
+        }, 700);
+      }
+    }
+  }, {
+    key: 'initialGridStyle',
+    value: function initialGridStyle() {
+      var _this3 = this;
+
       this.gmuGridTop = this.gmuGrid.offsetTop;
       this.gmuGridLeft = this.gmuGrid.offsetLeft;
       console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
@@ -108,11 +173,11 @@ var Grid = function (_React$Component) {
         if (i % 5 === 0) {
           console.log('i');
           element.style.left = '0px';
-          element.dataset.abLeft = width / 2 - _this2.gmuGrid.offsetWidth / 2 + 'px';
+          element.dataset.abLeft = width / 2 - _this3.gmuGrid.offsetWidth / 2 + 'px';
           element.dataset.ckLeft = width / 2 + 'px';
         } else {
           element.style.left = i % 5 * (width + 5) + 'px';
-          element.dataset.abLeft = i % 5 * (width + 5) + width / 2 - _this2.gmuGrid.offsetWidth / 2 + 'px';
+          element.dataset.abLeft = i % 5 * (width + 5) + width / 2 - _this3.gmuGrid.offsetWidth / 2 + 'px';
           element.dataset.ckLeft = i % 5 * (width + 5) + width / 2 + 'px';
         }
         element.style.position = 'absolute';
@@ -120,45 +185,9 @@ var Grid = function (_React$Component) {
         element.style.height = height + 'px';
         element.style.top = top + 'px';
         element.dataset.index = i;
-        element.dataset.abTop = top + height / 2 - _this2.gmuGrid.offsetWidth / 2 + 'px';
+        element.dataset.abTop = top + height / 2 - _this3.gmuGrid.offsetWidth / 2 + 'px';
         element.dataset.ckTop = top + height / 2 + 'px';
       });
-      this.containerBox.classList.add('active');
-      document.addEventListener('click', this.handleClickOutside.bind(this), true);
-    }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      this.setState((0, _reactAddonsUpdate2.default)(this.state, {
-        data: { $set: nextProps.options.gridList }
-      }));
-    }
-  }, {
-    key: 'handleClickOutside',
-    value: function handleClickOutside(e) {
-      var _this3 = this;
-
-      var domNode = _reactDom2.default.findDOMNode(this);
-      if (!domNode || !domNode.contains(e.target)) {
-        //
-        this.setState((0, _reactAddonsUpdate2.default)(this.state, {
-          data: _defineProperty({}, this.tempIndex, {
-            active: { $set: 'false' }
-          })
-        }));
-        this.circleCover.classList.add('setInit');
-        setTimeout(function () {
-          var containerBoxCard = _this3.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]');
-          Array.prototype.forEach.call(containerBoxCard, function (element, i) {
-            element.style.zIndex = '1';
-          });
-          _this3.circleClick.classList.remove('active');
-          _this3.gmuGrid.classList.remove('active');
-          _this3.circleCover.classList.remove('active');
-          _this3.circleCover.classList.remove('setInit');
-          _this3.circleCover.setAttribute('style', 'background: ' + _this3.props.options.haloColor + '; box-shadow: 0 0 20em 20em ' + _this3.props.options.haloColor + ';');
-        }, 700);
-      }
     }
   }, {
     key: 'clickGrid',

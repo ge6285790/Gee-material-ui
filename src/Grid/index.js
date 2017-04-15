@@ -474,6 +474,68 @@ class Grid extends React.Component {
   componentDidMount() {
     // this.gmuGridHeight = this.gmuGrid.offsetHeight;
     // this.gmuGridWidth = this.gmuGrid.offsetWidth;
+    const that = this;
+    this.initialGridStyle();
+    this.containerBox.classList.add('active');
+    document.addEventListener('click', this.handleClickOutside.bind(this), true);
+
+    let rtime;
+    let timeout = false;
+    let delta = 200;
+
+    function resizeend() {
+      if (new Date() - rtime < delta) {
+        setTimeout(resizeend, delta);
+      } else {
+        timeout = false;
+        // alert('Done resizing');
+        this.gmuGrid.style.width = '100%';
+        that.initialGridStyle();
+      }
+    }
+
+    window.onresize = () => {
+      rtime = new Date();
+      if (timeout === false) {
+        timeout = true;
+        setTimeout(resizeend, delta);
+      }
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState(update(this.state, {
+      data: { $set: nextProps.options.gridList },
+    }));
+  }
+
+  handleClickOutside(e) {
+    const domNode = ReactDOM.findDOMNode(this);
+    if ((!domNode || !domNode.contains(e.target))) {
+      //
+      this.setState(update(this.state, {
+        data: {
+          [this.tempIndex]: {
+            active: { $set: 'false' },
+          },
+        },
+      }))
+      this.circleCover.classList.add('setInit');
+      setTimeout(() => {
+        const containerBoxCard = this.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]')
+        Array.prototype.forEach.call(containerBoxCard, (element, i) => {
+          element.style.zIndex = '1';
+        });
+        this.circleClick.classList.remove('active');
+        this.gmuGrid.classList.remove('active');
+        this.circleCover.classList.remove('active');
+        this.circleCover.classList.remove('setInit');
+        this.circleCover.setAttribute('style', `background: ${this.props.options.haloColor}; box-shadow: 0 0 20em 20em ${this.props.options.haloColor};`);
+      }, 700);
+    }
+  }
+
+  initialGridStyle() {
     this.gmuGridTop = this.gmuGrid.offsetTop;
     this.gmuGridLeft = this.gmuGrid.offsetLeft;
     console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
@@ -511,41 +573,8 @@ class Grid extends React.Component {
       element.dataset.ckTop = `${top + (height / 2)}px`;
 
     });
-    this.containerBox.classList.add('active');
-    document.addEventListener('click', this.handleClickOutside.bind(this), true);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setState(update(this.state, {
-      data: { $set: nextProps.options.gridList },
-    }));
-  }
-
-  handleClickOutside(e) {
-    const domNode = ReactDOM.findDOMNode(this);
-    if ((!domNode || !domNode.contains(e.target))) {
-      //
-      this.setState(update(this.state, {
-        data: {
-          [this.tempIndex]: {
-            active: { $set: 'false' },
-          },
-        },
-      }))
-      this.circleCover.classList.add('setInit');
-      setTimeout(() => {
-        const containerBoxCard = this.containerBox.querySelectorAll('.gmu-arc-card[style*="z-index"]')
-        Array.prototype.forEach.call(containerBoxCard, (element, i) => {
-          element.style.zIndex = '1';
-        });
-        this.circleClick.classList.remove('active');
-        this.gmuGrid.classList.remove('active');
-        this.circleCover.classList.remove('active');
-        this.circleCover.classList.remove('setInit');
-        this.circleCover.setAttribute('style', `background: ${this.props.options.haloColor}; box-shadow: 0 0 20em 20em ${this.props.options.haloColor};`);
-      }, 700);
-    }
-  }
   clickGrid(index) {
     const ele = document.querySelector(`[data-index="${index}"]`);
     // console.log(this.circleCover, ele.dataset.abTop, ele.dataset.abLeft, ele, ele.dataset);

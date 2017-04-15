@@ -12,6 +12,7 @@
   &.active{
     .gmu-arc-card{
       pointer-events: none;
+      cursor: auto;
     }
   }
   .gmu-container-box{
@@ -31,6 +32,7 @@
   .gmu-arc-card{
     position: relative;
     opacity: 1;
+    cursor: pointer;
     // flex: 1;
     // margin-right: 5px;
     // margin-bottom: 5px;
