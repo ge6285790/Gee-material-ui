@@ -199,9 +199,9 @@ var Grid = function (_React$Component) {
 
       // console.log(e.pageX, e.pageY);
       // this.circleClick.style.top = ele.dataset.ckTop;
-      this.circleClick.style.top = e.pageY + 'px';
+      this.circleClick.style.top = e.pageY - this.gmuGridTop + 'px';
       // this.circleClick.style.left = ele.dataset.ckLeft;
-      this.circleClick.style.left = e.pageX + 'px';
+      this.circleClick.style.left = e.pageX - this.gmuGridLeft + 'px';
       this.circleClick.classList.add('active');
 
       this.gmuGrid.classList.add('active');
