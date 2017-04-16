@@ -581,9 +581,9 @@ class Grid extends React.Component {
 
     console.log(e.pageX, e.pageY, this.gmuGridTop, this.gmuGridLeft);
     // this.circleClick.style.top = ele.dataset.ckTop;
-    this.circleClick.style.top = `${e.pageY - this.gmuGridTop}px`;
+    this.circleClick.style.top = `${e.pageY - this.gmuGrid.offsetTop}px`;
     // this.circleClick.style.left = ele.dataset.ckLeft;
-    this.circleClick.style.left = `${e.pageX - this.gmuGridLeft}px`;
+    this.circleClick.style.left = `${e.pageX - this.gmuGrid.offsetLeft}px`;
     this.circleClick.classList.add('active');
 
     this.gmuGrid.classList.add('active');
