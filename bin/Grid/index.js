@@ -155,6 +155,8 @@ var Grid = function (_React$Component) {
 
       this.gmuGridTop = this.gmuGrid.offsetTop;
       this.gmuGridLeft = this.gmuGrid.offsetLeft;
+      this.circleClickTop = this.gmuGrid.getBoundingClientRect().top + document.body.scrollTop;
+      this.circleClickLeft = this.gmuGrid.getBoundingClientRect().left + document.body.scrollLeft;
       console.log('this.gmuGrid.offsetWidth', this.gmuGrid.offsetWidth);
       this.gmuGrid.style.width = this.gmuGrid.offsetWidth + 'px';
 
@@ -199,9 +201,9 @@ var Grid = function (_React$Component) {
 
       console.log(e.pageX, e.pageY, this.gmuGridTop, this.gmuGridLeft);
       // this.circleClick.style.top = ele.dataset.ckTop;
-      this.circleClick.style.top = e.pageY - this.gmuGrid.offsetTop + 'px';
+      this.circleClick.style.top = e.pageY - this.circleClickTop + 'px';
       // this.circleClick.style.left = ele.dataset.ckLeft;
-      this.circleClick.style.left = e.pageX - this.gmuGrid.offsetLeft + 'px';
+      this.circleClick.style.left = e.pageX - this.circleClickLeft + 'px';
       this.circleClick.classList.add('active');
 
       this.gmuGrid.classList.add('active');
