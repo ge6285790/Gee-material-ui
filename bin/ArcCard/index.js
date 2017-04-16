@@ -86,7 +86,7 @@ var ArcCard = function (_React$Component) {
       var onClickMethods = onClickFunc;
       if (methods) {
         onClickMethods = function onClickMethods(e) {
-          methods.clickGrid();
+          methods.clickGrid(e);
           onClickFunc(e);
         };
       }

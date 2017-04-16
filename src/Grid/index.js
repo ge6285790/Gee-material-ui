@@ -575,12 +575,15 @@ class Grid extends React.Component {
     });
   }
 
-  clickGrid(index) {
+  clickGrid(e, index) {
     const ele = document.querySelector(`[data-index="${index}"]`);
     // console.log(this.circleCover, ele.dataset.abTop, ele.dataset.abLeft, ele, ele.dataset);
 
-    this.circleClick.style.top = ele.dataset.ckTop;
-    this.circleClick.style.left = ele.dataset.ckLeft;
+    // console.log(e.pageX, e.pageY);
+    // this.circleClick.style.top = ele.dataset.ckTop;
+    this.circleClick.style.top = `${e.pageY}px`;
+    // this.circleClick.style.left = ele.dataset.ckLeft;
+    this.circleClick.style.left = `${e.pageX}px`;
     this.circleClick.classList.add('active');
 
     this.gmuGrid.classList.add('active');
@@ -628,7 +631,7 @@ class Grid extends React.Component {
       return (
         <ArcCard
           options={item}
-          methods={{ clickGrid: () => { this.clickGrid(i); } }}
+          methods={{ clickGrid: (e) => { this.clickGrid(e, i); } }}
           key={i}
         >
           {item.children}

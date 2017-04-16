@@ -29,7 +29,7 @@ class ArcCard extends React.Component {
     let onClickMethods = onClickFunc;
     if (methods) {
       onClickMethods = (e) => {
-        methods.clickGrid();
+        methods.clickGrid(e);
         onClickFunc(e);
       };
     }
