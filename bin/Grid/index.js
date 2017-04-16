@@ -197,7 +197,7 @@ var Grid = function (_React$Component) {
       var ele = document.querySelector('[data-index="' + index + '"]');
       // console.log(this.circleCover, ele.dataset.abTop, ele.dataset.abLeft, ele, ele.dataset);
 
-      // console.log(e.pageX, e.pageY);
+      console.log(e.pageX, e.pageY, this.gmuGridTop, this.gmuGridLeft);
       // this.circleClick.style.top = ele.dataset.ckTop;
       this.circleClick.style.top = e.pageY - this.gmuGridTop + 'px';
       // this.circleClick.style.left = ele.dataset.ckLeft;
