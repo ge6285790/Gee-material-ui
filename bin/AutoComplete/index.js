@@ -76,7 +76,11 @@ var AutoComplete = function (_React$Component) {
           titleActive = _state.titleActive;
       var _props$options2 = this.props.options,
           options = _props$options2 === undefined ? { animation: {} } : _props$options2;
-      var _options$title = options.title,
+      var _options$id = options.id,
+          id = _options$id === undefined ? '' : _options$id,
+          _options$classNames = options.classNames,
+          classNames = _options$classNames === undefined ? '' : _options$classNames,
+          _options$title = options.title,
           title = _options$title === undefined ? '' : _options$title,
           _options$size = options.size,
           size = _options$size === undefined ? 'small' : _options$size,
@@ -100,7 +104,7 @@ var AutoComplete = function (_React$Component) {
       console.log('AutoComplete', this.state);
       return _react2.default.createElement(
         'div',
-        { className: 'gmu gmu-auto-complete ' + size + ' ' + theme },
+        { id: id, className: 'gmu gmu-auto-complete ' + size + ' ' + theme + ' ' + classNames },
         _react2.default.createElement(
           'span',
           { className: 'title', 'data-active': titleActive },

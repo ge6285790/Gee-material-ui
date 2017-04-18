@@ -19,7 +19,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Avatar = function Avatar(props) {
   var _props$options = props.options,
       options = _props$options === undefined ? {} : _props$options;
-  var _options$size = options.size,
+  var id = options.id,
+      classNames = options.classNames,
+      _options$size = options.size,
       size = _options$size === undefined ? 'middle' : _options$size,
       _options$customSize = options.customSize,
       customSize = _options$customSize === undefined ? false : _options$customSize,
@@ -67,8 +69,9 @@ var Avatar = function Avatar(props) {
   return _react2.default.createElement(
     'div',
     {
+      id: id,
       style: style,
-      className: 'gmu-avatar ' + size + ' ' + (boxShadow ? 'box-shadow' : '') + ' ' + animate,
+      className: 'gmu-avatar ' + size + ' ' + (boxShadow ? 'box-shadow' : '') + ' ' + animate + ' ' + classNames,
       onClick: function onClick(e) {
         onClickFunc(e);
       }
