@@ -18,9 +18,10 @@ app.use(WebpackDevMiddleware(compiler, {
 
 app.use(WebpackHotMiddleware(compiler));
 
-app.use('/assets', express.static(__dirname + '/../public'));
+app.use('/assets', express.static(__dirname + '/public'));
+app.use('/assets', express.static(__dirname + '/example'));
 
-app.get('/cool', (req, res) => {
+app.get('/', (req, res) => {
   // console.log('aaaa');
   res.sendfile('./index.html', { root: __dirname });
 });

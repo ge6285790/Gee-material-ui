@@ -1,0 +1,75 @@
+.gmu-header {
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+
+  .item-top {
+    align-self: flex-start;
+  }
+  .item-bottom {
+    align-self: flex-end;
+  }
+
+  &.box-shadow {
+    box-shadow: 0 2px 5px rgba(0,0,0,.26);
+  }
+
+  /* Status */
+  &.fixed-top {
+    position: fixed;
+  }
+  &.container-header{
+    // margin-left: -12px;
+    // margin-right: -12px;
+    // margin-top: -12px;
+    // padding-left: 12px;
+    // padding-right: 12px;
+    margin-left: -13px;
+    margin-right: -13px;
+    margin-top: -12px;
+    padding-left: 13px;
+    padding-right: 13px;
+    box-sizing: content-box;
+  }
+
+  /* Size */
+  &.large {
+    height: 72px;
+  }
+  &.middle {
+    height: 48px;
+  }
+  &.small {
+    height: 30px;
+  }
+
+  /* Theme Type */
+  &.malibu {
+    background: #61AFEF;
+    color: #fff;
+  }
+  &.charade {
+    background: #282C34;
+    color: #fff;
+  }
+  &.shark {
+    background: #33373A;
+    color: #fff;
+  }
+  &.froly {
+    background: #DA6C75;
+    color: #fff;
+  }
+  &.fern {
+    background: #5CB85C;
+    color: #fff;
+  }
+  &.h-gold {
+    background: #E5C076;
+    color: #fff;
+  }
+}

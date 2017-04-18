@@ -1,0 +1,186 @@
+.gmu-auto-complete {
+  position: relative;
+  margin: 24px 0px;
+  .title {
+    position: absolute;
+    color: rgba(0,0,0,.3);
+    opacity: 1;
+    transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    &[data-active="default"] {
+      opacity: 0;
+    }
+
+  }
+  .gmu-input {
+    position: relative;;
+    left: 0px;
+    width: 100%;
+    top: 0px;
+    height: 100%;
+    border: 0px;
+    color: #333;
+    background: transparent;
+    &:focus {
+      outline: -webkit-focus-ring-color auto 0;
+    }
+  }
+  .gmu-underline {
+    margin-top: -2px;
+  }
+  hr {
+    margin: 0px;
+    border: 0px;
+    border-bottom: 1px solid rgba(0,0,0,.3);
+  }
+  .gmu-hr-animate {
+    margin-top: -2px;
+    border-bottom: 2px solid rgba(0,0,0,.3);
+    transform-origin: center;
+    transform: scale3d(0, 1, 1);
+    transition: transform 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+    &[data-active="true"] {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  /* Size */
+  &.x-large {
+    height: 60px;
+    line-height: 60px;
+    padding: 0px;
+    font-size: 40px;
+    .title {
+      font-size: 40px;
+      &[data-active="leftSmall"] {
+        font-size: 14px;
+        transform: translate3d(0, -60%, 0);
+      }
+    }
+    .gmu-input {
+      font-size: 40px;
+    }
+
+  }
+  &.large {
+    height: 48px;
+    line-height: 48px;
+    padding: 0px;
+    font-size: 28px;
+    .title {
+      font-size: 28px;
+      &[data-active="leftSmall"] {
+        font-size: 14px;
+        transform: translate3d(0, -60%, 0);
+      }
+    }
+    .gmu-input {
+      font-size: 28px;
+    }
+
+  }
+  &.middle {
+    height: 40px;
+    line-height: 40px;
+    padding: 0px;
+    font-size: 20px;
+    .title {
+      font-size: 20px;
+      &[data-active="leftSmall"] {
+        font-size: 14px;
+        transform: translate3d(0, -60%, 0);
+      }
+    }
+    .gmu-input {
+      font-size: 20px;
+    }
+
+  }
+  &.small {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px;
+    font-size: 16px;
+    .title {
+      font-size: 16px;
+      &[data-active="leftSmall"] {
+        font-size: 14px;
+        transform: translate3d(0, -60%, 0);
+      }
+    }
+    .gmu-input {
+      font-size: 16px;
+    }
+
+  }
+  &.malibu {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #61AFEF;
+      }
+      // background: #61AFEF;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #61AFEF;
+    }
+  }
+  &.charade {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #282C34;
+      }
+      // background: #282C34;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #282C34;
+    }
+  }
+  &.shark {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #33373A;
+      }
+      // background: #33373A;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #33373A;
+    }
+  }
+  &.froly {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #DA6C75;
+      }
+      // background: #DA6C75;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #DA6C75;
+    }
+  }
+  &.fern {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #5CB85C;
+      }
+      // background: #5CB85C;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #5CB85C;
+    }
+  }
+  &.h-gold {
+    .title {
+      &[data-active]:not([data-active="false"]) {
+        // color: #E5C076;
+      }
+      // background: #E5C076;
+      // color: #fff;
+    }
+    .gmu-hr-animate {
+      border-bottom: 2px solid #E5C076;
+    }
+  }
+}

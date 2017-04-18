@@ -1,0 +1,28 @@
+.gmu-radio-list{
+  .gmu-radio-list-container{
+    &.radio-list-vertical{
+      display: inline-block;
+      margin: 12px;
+    }
+    &.radio-list-horizontal{
+      display: inline-block;
+      margin: 12px;
+      .gmu-radio-item{
+        // display: inline-block;
+        float: left;
+        margin-right: 6px;
+      }
+    }
+    .gmu-radio-item{
+      display: flex;
+      align-items: center;
+      > span {
+        margin-left: 6px;
+        font-size: 14px;
+        &.small{
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
