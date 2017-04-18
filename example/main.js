@@ -121,11 +121,11 @@ const autoCompleteOption = {
   animation: {
     titleActive: 'leftSmall', // default / leftSmall /
   },
-  underLineColor: 'false', // color rgba / hex
+  underLineColor: false, // color rgba / hex
   inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
-  onFocusFuncCallback: () => {},
-  onBlurFuncCallback: () => {},
-  onChangeFuncCallback: () => {},
+  onFocusFunc: () => {},
+  onBlurFunc: () => {},
+  onChangeFunc: () => {},
 };
 
 const avatarOptions = {
@@ -618,6 +618,7 @@ class Test1 extends React.Component {
         ],
       },
       girdOptions: {
+        haloColor: '',
         gridList: [
 
             {
@@ -958,7 +959,7 @@ class Test1 extends React.Component {
       <Grid options={this.state.girdOptions} />,
       <ScaleButton options={this.state.scaleButtonControlListOption} />,
       // <Chip options={chipOption} />,
-      // <AutoComplete options={autoCompleteOption} />,
+      <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
       <DataPicker options={dataPickerOption} />, // 效能 非常差，需要優化

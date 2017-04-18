@@ -29,6 +29,8 @@ class AutoComplete extends React.Component {
     const { hrActive, titleActive } = this.state;
     const { options = { animation: {} } } = this.props;
     const {
+      id = '',
+      classNames = '',
       title = '',
       size = 'small',
       theme = '',
@@ -45,7 +47,7 @@ class AutoComplete extends React.Component {
     const titleActiveProps = options.animation.titleActive || 'default';
     console.log('AutoComplete', this.state);
     return (
-      <div className={`gmu gmu-auto-complete ${size} ${theme}`}>
+      <div id={id} className={`gmu gmu-auto-complete ${size} ${theme} ${classNames}`}>
         <span className="title" data-active={titleActive}>{title}</span>
         <input
           className="gmu-input"
