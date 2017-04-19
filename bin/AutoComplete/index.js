@@ -45,7 +45,6 @@ var AutoComplete = function (_React$Component) {
     var _props$options = props.options,
         options = _props$options === undefined ? { animation: {} } : _props$options;
 
-    console.log('auto', props.options.inputValue ? options.animation.titleActive || 'default' : 'false', props.options.inputValue, options.animation.titleActive);
     _this.state = {
       hrActive: 'false',
       titleActive: props.options.inputValue ? options.animation.titleActive || 'default' : 'false'
@@ -60,7 +59,6 @@ var AutoComplete = function (_React$Component) {
         var _nextProps$options = nextProps.options,
             options = _nextProps$options === undefined ? { animation: {} } : _nextProps$options;
 
-        console.log('auto', nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false', nextProps.options.inputValue, options.animation.titleActive);
         this.setState((0, _reactAddonsUpdate2.default)(this.state, {
           titleActive: { $set: nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false' }
         }));
@@ -101,7 +99,6 @@ var AutoComplete = function (_React$Component) {
         borderBottom: '2px solid ' + underLineColor
       };
       var titleActiveProps = options.animation.titleActive || 'default';
-      console.log('AutoComplete', this.state);
       return _react2.default.createElement(
         'div',
         { id: id, className: 'gmu gmu-auto-complete ' + size + ' ' + theme + ' ' + classNames },

@@ -8,7 +8,6 @@ class AutoComplete extends React.Component {
   constructor(props) {
     super(props);
     const { options = { animation: {} } } = props;
-    console.log('auto', props.options.inputValue ? options.animation.titleActive || 'default' : 'false', props.options.inputValue, options.animation.titleActive)
     this.state = {
       hrActive: 'false',
       titleActive: props.options.inputValue ? options.animation.titleActive || 'default' : 'false',
@@ -18,7 +17,6 @@ class AutoComplete extends React.Component {
   componentWillUpdate(nextProps) {
     if (!equal(nextProps, this.props)) {
       const { options = { animation: {} } } = nextProps;
-      console.log('auto', nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false', nextProps.options.inputValue, options.animation.titleActive)
       this.setState(update(this.state, {
         titleActive: { $set: nextProps.options.inputValue ? options.animation.titleActive || 'default' : 'false' },
       }));
@@ -45,7 +43,6 @@ class AutoComplete extends React.Component {
       borderBottom: `2px solid ${underLineColor}`,
     };
     const titleActiveProps = options.animation.titleActive || 'default';
-    console.log('AutoComplete', this.state);
     return (
       <div id={id} className={`gmu gmu-auto-complete ${size} ${theme} ${classNames}`}>
         <span className="title" data-active={titleActive}>{title}</span>
