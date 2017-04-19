@@ -35,11 +35,11 @@ class AutoComplete extends React.Component {
       size = 'small',
       theme = '',
       animation,
-      underLineColor = 'false',
+      underLineColor = false,
       inputValue,
-      onFocusFuncCallback = () => {},
-      onBlurFuncCallback = () => {},
-      onChangeFuncCallback = () => {},
+      onFocusFunc = () => {},
+      onBlurFunc = () => {},
+      onChangeFunc = () => {},
     } = options;
     const underLineStyle = {
       borderBottom: `2px solid ${underLineColor}`,
@@ -56,26 +56,26 @@ class AutoComplete extends React.Component {
               hrActive: { $set: 'true' },
               titleActive: { $set: titleActiveProps },
             }));
-            onFocusFuncCallback(e);
+            onFocusFunc(e);
           }}
           onBlur={(e) => {
             if (e.target.value) {
               this.setState(update(this.state, {
                 hrActive: { $set: 'false' },
               }));
-              onBlurFuncCallback(e);
+              onBlurFunc(e);
               return;
             }
             this.setState(update(this.state, {
               hrActive: { $set: 'false' },
               titleActive: { $set: 'false' },
             }));
-            onBlurFuncCallback(e);
+            onBlurFunc(e);
           }}
           onChange={(e) => {
-            onChangeFuncCallback(e);
+            onChangeFunc(e);
           }}
-          value={inputValue}
+          defaultValue={inputValue}
         />
         <div className="gmu-underline">
           <hr />

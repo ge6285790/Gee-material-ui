@@ -88,14 +88,14 @@ var AutoComplete = function (_React$Component) {
           theme = _options$theme === undefined ? '' : _options$theme,
           animation = options.animation,
           _options$underLineCol = options.underLineColor,
-          underLineColor = _options$underLineCol === undefined ? 'false' : _options$underLineCol,
+          underLineColor = _options$underLineCol === undefined ? false : _options$underLineCol,
           inputValue = options.inputValue,
-          _options$onFocusFuncC = options.onFocusFuncCallback,
-          onFocusFuncCallback = _options$onFocusFuncC === undefined ? function () {} : _options$onFocusFuncC,
-          _options$onBlurFuncCa = options.onBlurFuncCallback,
-          onBlurFuncCallback = _options$onBlurFuncCa === undefined ? function () {} : _options$onBlurFuncCa,
-          _options$onChangeFunc = options.onChangeFuncCallback,
-          onChangeFuncCallback = _options$onChangeFunc === undefined ? function () {} : _options$onChangeFunc;
+          _options$onFocusFunc = options.onFocusFunc,
+          onFocusFunc = _options$onFocusFunc === undefined ? function () {} : _options$onFocusFunc,
+          _options$onBlurFunc = options.onBlurFunc,
+          onBlurFunc = _options$onBlurFunc === undefined ? function () {} : _options$onBlurFunc,
+          _options$onChangeFunc = options.onChangeFunc,
+          onChangeFunc = _options$onChangeFunc === undefined ? function () {} : _options$onChangeFunc;
 
       var underLineStyle = {
         borderBottom: '2px solid ' + underLineColor
@@ -117,26 +117,26 @@ var AutoComplete = function (_React$Component) {
               hrActive: { $set: 'true' },
               titleActive: { $set: titleActiveProps }
             }));
-            onFocusFuncCallback(e);
+            onFocusFunc(e);
           },
           onBlur: function onBlur(e) {
             if (e.target.value) {
               _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
                 hrActive: { $set: 'false' }
               }));
-              onBlurFuncCallback(e);
+              onBlurFunc(e);
               return;
             }
             _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
               hrActive: { $set: 'false' },
               titleActive: { $set: 'false' }
             }));
-            onBlurFuncCallback(e);
+            onBlurFunc(e);
           },
           onChange: function onChange(e) {
-            onChangeFuncCallback(e);
+            onChangeFunc(e);
           },
-          value: inputValue
+          defaultValue: inputValue
         }),
         _react2.default.createElement(
           'div',

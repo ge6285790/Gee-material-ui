@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.StateManager = exports.Grid = exports.Menu = exports.Drawer = exports.Dialog = exports.List = exports.DataPicker = exports.Curtain = exports.Chip = exports.Avatar = exports.AutoComplete = exports.Header = exports.Card = exports.ArcCard = exports.RadioList = exports.RadioButton = exports.ScaleButton = exports.IsometricButton = exports.Button = undefined;
+exports.StateManager = exports.Grid = exports.Menu = exports.Drawer = exports.Dialog = exports.List = exports.DataPicker = exports.Curtain = exports.Chip = exports.Avatar = exports.Input = exports.AutoComplete = exports.Header = exports.Card = exports.ArcCard = exports.RadioList = exports.RadioButton = exports.ScaleButton = exports.IsometricButton = exports.Button = undefined;
 
 var _Button2 = require('./Button');
 
@@ -92,6 +92,7 @@ exports.ArcCard = _ArcCard3.default;
 exports.Card = _Card3.default;
 exports.Header = _Header3.default;
 exports.AutoComplete = _AutoComplete3.default;
+exports.Input = _AutoComplete3.default;
 exports.Avatar = _Avatar3.default;
 exports.Chip = _Chip3.default;
 exports.Curtain = _Curtain3.default;
