@@ -189,9 +189,9 @@ class Button extends React.Component {
             <span className="color-hover-response" />
             { this.renderClickReponse() }
             <span className="content-word" style={this.contentWordStyle}>
-              <i className={iconClassBefore} />
+              <i className={`${iconClassBefore} ${content !== '' ? 'icon-margin-right' : ''}`} />
               {content}
-              <i className={iconClassAfter} />
+              <i className={`${iconClassAfter} ${content !== '' ? 'icon-margin-left' : ''}`} />
             </span>
           </div>
         </button>

@@ -288,9 +288,9 @@ var Button = function (_React$Component) {
             _react2.default.createElement(
               'span',
               { className: 'content-word', style: this.contentWordStyle },
-              _react2.default.createElement('i', { className: iconClassBefore }),
+              _react2.default.createElement('i', { className: iconClassBefore + ' ' + (content !== '' ? 'icon-margin-right' : '') }),
               content,
-              _react2.default.createElement('i', { className: iconClassAfter })
+              _react2.default.createElement('i', { className: iconClassAfter + ' ' + (content !== '' ? 'icon-margin-left' : '') })
             )
           )
         )
