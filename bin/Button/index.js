@@ -248,6 +248,8 @@ var Button = function (_React$Component) {
           disable = _props$options$disabl === undefined ? 'true' : _props$options$disabl,
           _props$options$boxSha = _props$options.boxShadow,
           boxShadow = _props$options$boxSha === undefined ? false : _props$options$boxSha,
+          _props$options$size = _props$options.size,
+          size = _props$options$size === undefined ? '' : _props$options$size,
           _props$options$onClic = _props$options.onClickFunc,
           onClickFunc = _props$options$onClic === undefined ? function () {} : _props$options$onClic;
       var clickResponseArray = this.state.clickResponseArray;
@@ -259,7 +261,7 @@ var Button = function (_React$Component) {
         _react2.default.createElement(
           'button',
           {
-            className: col ? 'col-12 ' + boxShadowClass : '' + boxShadowClass,
+            className: col ? 'col-12 ' + boxShadowClass + ' ' + size : boxShadowClass + ' ' + size,
             ref: function ref(button) {
               _this3.button = button;
             },

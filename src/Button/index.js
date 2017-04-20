@@ -165,13 +165,13 @@ class Button extends React.Component {
   }
 
   render() {
-    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = 'true', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = 'true', boxShadow = false, size = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
       <div id={id} className={`gum gmu-button ${stateClass} ${col} ${offset} ${classNames} ${disable === true ? 'disable' : ''}`}>
         <button
-          className={col ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
+          className={col ? `col-12 ${boxShadowClass} ${size}` : `${boxShadowClass} ${size}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
