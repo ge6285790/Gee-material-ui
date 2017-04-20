@@ -44,8 +44,10 @@ class Button extends React.Component {
   componentDidMount() {
     const { componentDidMountFunc = () => {} } = this.props.options;
     console.log('this.button', this.button);
-    this.range = this.button.offsetWidth >= this.button.offsetHeight ?
-                  this.button.offsetWidth : this.button.offsetHeight;
+    // this.range = this.button.offsetWidth >= this.button.offsetHeight ?
+    //               this.button.offsetWidth : this.button.offsetHeight;
+    this.range = Math.sqrt((this.button.offsetWidth * this.button.offsetWidth) + (this.button.offsetHeight * this.button.offsetHeight));
+
     try {
       componentDidMountFunc();
     } catch (e) {
@@ -129,6 +131,7 @@ class Button extends React.Component {
     const state = {
       active: 'true',
       style: {
+        // transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
         transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
         // left: e.pageX - this.button.offsetLeft,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
