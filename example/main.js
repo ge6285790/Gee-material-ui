@@ -60,6 +60,8 @@ const buttonOption = {
 };
 
 const isometricButtonOption = {
+  id: '',
+  classNames: '',
   style: {
     clickResponseColor: '',
     color: '',
@@ -75,6 +77,8 @@ const isometricButtonOption = {
     // overflow: 'hidden',
     // whiteSpace: 'nowrap',
   },
+  col: '',
+  offset: '',
   iconClassBefore: '',
   iconClassAfter: '',
   boxShadow: true,
