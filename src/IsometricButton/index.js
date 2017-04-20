@@ -58,8 +58,7 @@ class IsometricButton extends React.Component {
 
   componentDidMount() {
     const { componentDidMountFunc = () => {} } = this.props.options;
-    this.range = this.button.offsetWidth >= this.button.offsetHeight ?
-                  this.button.offsetWidth : this.button.offsetHeight;
+    this.range = this.button.offsetWidth;
     componentDidMountFunc();
   }
 
@@ -148,10 +147,11 @@ class IsometricButton extends React.Component {
 
   fireClickResponse(e) {
     const { clickResponseArray } = this.state;
+    this.range = this.button.offsetWidth;
     const state = {
       active: 'true',
       style: {
-        transform: `scale(${(this.range / 21) * 2.5})`,
+        transform: `scale(${(this.range * 2) / 21})`,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
         top: e.pageY - this.button.getBoundingClientRect().top - window.scrollY,
         ...this.clickResponseStyle,
@@ -185,13 +185,13 @@ class IsometricButton extends React.Component {
   }
 
   render() {
-    const { stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
+    const { id = '', classNames, stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', col = '', boxShadow = false, shapeClass = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-isometric-button ${stateClass} ${widthClass} ${shapeClass}`}>
+      <div id={id} className={`gum gmu-isometric-button ${stateClass} ${col} ${shapeClass} ${classNames}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass} ${size}` : `${boxShadowClass} ${size}`}
+          className={col ? `col-12 ${boxShadowClass} ${size}` : `${boxShadowClass} ${size}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
@@ -202,7 +202,7 @@ class IsometricButton extends React.Component {
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>
-            <span className="color-hover-response" style={this.hoverResponseStyle}/>
+            <span className="color-hover-response" style={this.hoverResponseStyle} />
             { this.renderClickReponse() }
             <span className="content-word" style={this.contentWordStyle}>
               <i className={iconClassBefore} />

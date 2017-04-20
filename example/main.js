@@ -967,7 +967,7 @@ class Test1 extends React.Component {
       <ArcCard options={ArcCardOption} />,
       <Grid options={this.state.girdOptions} />,
       <ScaleButton options={this.state.scaleButtonControlListOption} />,
-      // <Chip options={chipOption} />,
+      <Chip options={chipOption} />,
       <AutoComplete options={autoCompleteOption} />,
       // <Button options={buttonOption} />,
       // <Curtain options={curtainOption} />,
