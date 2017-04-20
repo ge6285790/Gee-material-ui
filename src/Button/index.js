@@ -128,11 +128,12 @@ class Button extends React.Component {
 
   fireClickResponse(e) {
     const { clickResponseArray } = this.state;
+    this.range = Math.sqrt((this.button.offsetWidth * this.button.offsetWidth) + (this.button.offsetHeight * this.button.offsetHeight));
     const state = {
       active: 'true',
       style: {
         // transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
-        transform: `scale3d(${(this.range * 2) / 21}, ${(this.range * 2) / 21}, 1)`,
+        transform: `scale3d(${(this.range * 2.5) / 21}, ${(this.range * 2.5) / 21}, 1)`,
         // left: e.pageX - this.button.offsetLeft,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
         // top: e.pageY - this.button.offsetTop,
