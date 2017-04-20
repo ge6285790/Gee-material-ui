@@ -68,7 +68,7 @@ class ScaleButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', nextProps);
+    // console.log('componentWillReceiveProps', nextProps);
     const defaultStyle = { ...nextProps.options.style };
     this.clickResponseStyle = {
       background: defaultStyle.clickResponseColor,
@@ -123,7 +123,7 @@ class ScaleButton extends React.Component {
     const { clickResponseArray, clickDownClass, clickUpClass, clickHidden, active } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
 
-    console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
+    // console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
     return (
       <div id={id} className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass} ${classNames}`}>
         <button

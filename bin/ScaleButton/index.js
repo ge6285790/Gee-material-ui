@@ -107,7 +107,7 @@ var ScaleButton = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      console.log('componentWillReceiveProps', nextProps);
+      // console.log('componentWillReceiveProps', nextProps);
       var defaultStyle = _extends({}, nextProps.options.style);
       this.clickResponseStyle = {
         background: defaultStyle.clickResponseColor
@@ -195,7 +195,7 @@ var ScaleButton = function (_React$Component) {
 
       var boxShadowClass = boxShadow ? 'box-shadow' : '';
 
-      console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
+      // console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
       return _react2.default.createElement(
         'div',
         { id: id, className: 'gum gmu-scale-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass + ' ' + classNames },

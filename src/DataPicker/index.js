@@ -73,9 +73,6 @@ class DataPicker extends React.Component {
         opacity: { $set: 0 },
       },
     }));
-    setTimeout(() => {
-      console.log('this.state', this.state);
-    }, 500);
     return this.state.dataPicker.inputValue;
   }
 
