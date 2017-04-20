@@ -259,7 +259,7 @@ var Button = function (_React$Component) {
         _react2.default.createElement(
           'button',
           {
-            className: col ? col + ' ' + boxShadowClass : '' + boxShadowClass,
+            className: col ? 'col-12 ' + boxShadowClass : '' + boxShadowClass,
             ref: function ref(button) {
               _this3.button = button;
             },

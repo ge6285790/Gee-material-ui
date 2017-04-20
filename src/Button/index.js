@@ -171,7 +171,7 @@ class Button extends React.Component {
     return (
       <div id={id} className={`gum gmu-button ${stateClass} ${col} ${offset} ${classNames} ${disable === true ? 'disable' : ''}`}>
         <button
-          className={col ? `${col} ${boxShadowClass}` : `${boxShadowClass}`}
+          className={col ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
