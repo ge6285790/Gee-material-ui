@@ -41,12 +41,15 @@ const buttonOption = {
     // overflow: 'hidden',
     // whiteSpace: 'nowrap',
   },
+  id: '',
+  classNames: '',
   iconClassBefore: '',
   iconClassAfter: '',
   boxShadow: true,
   content: 'textButton',
   stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-  widthClass: 'col-6', // col-1 ~ col-12
+  col: 'col-6', // col-1 ~ col-12,
+  offset: '',
   size: 'middle', // x-large / large / middle / small
   componentDidMountFunc: () => {
     console.log('done!');
@@ -115,6 +118,8 @@ const headerContainerOption = {
 };
 
 const autoCompleteOption = {
+  id: '',
+  classNames: '',
   title: 'test',
   size: 'small', // small / middle / large / x-large
   theme: 'malibu',
@@ -129,6 +134,8 @@ const autoCompleteOption = {
 };
 
 const avatarOptions = {
+  id: '',
+  classNames: '',
   size: 'small', // defalut is middle  / small / middle / large
   customSize: 50,
   // boxShadow: true,
@@ -458,7 +465,8 @@ class Test1 extends React.Component {
         boxShadow: true,
         content: 'call drawer',
         stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-        widthClass: 'col-6', // col-1 ~ col-12
+        col: 'col-6', // col-1 ~ col-12
+        offset: '',
         size: 'middle', // x-large / large / middle / small
         componentDidMountFunc: () => {
           console.log('done!');
@@ -510,7 +518,8 @@ class Test1 extends React.Component {
         boxShadow: true,
         content: 'call menu',
         stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-        widthClass: 'col-6', // col-1 ~ col-12
+        col: 'col-6', // col-1 ~ col-12
+        offset: '',
         size: 'middle', // x-large / large / middle / small
         componentDidMountFunc: () => {
           console.log('done!');

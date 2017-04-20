@@ -165,7 +165,7 @@ var Button = function (_React$Component) {
       newArray.push({
         active: 'false',
         style: {
-          transform: 'scale(0)',
+          transform: 'scale3d(0, 0, 1)',
           left: 0,
           top: 0
         }
@@ -182,7 +182,7 @@ var Button = function (_React$Component) {
       var state = {
         active: 'true',
         style: _extends({
-          transform: 'scale(' + this.range / 21 * 2.5 + ')',
+          transform: 'scale3d(' + this.range / 21 * 2.5 + ', ' + this.range / 21 * 2.5 + ', 1)',
           // left: e.pageX - this.button.offsetLeft,
           left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
           // top: e.pageY - this.button.offsetTop,
@@ -229,6 +229,10 @@ var Button = function (_React$Component) {
       var _this3 = this;
 
       var _props$options = this.props.options,
+          _props$options$id = _props$options.id,
+          id = _props$options$id === undefined ? '' : _props$options$id,
+          _props$options$classN = _props$options.classNames,
+          classNames = _props$options$classN === undefined ? '' : _props$options$classN,
           stateClass = _props$options.stateClass,
           _props$options$conten = _props$options.content,
           content = _props$options$conten === undefined ? '' : _props$options$conten,
@@ -236,8 +240,10 @@ var Button = function (_React$Component) {
           iconClassBefore = _props$options$iconCl === undefined ? '' : _props$options$iconCl,
           _props$options$iconCl2 = _props$options.iconClassAfter,
           iconClassAfter = _props$options$iconCl2 === undefined ? '' : _props$options$iconCl2,
-          _props$options$widthC = _props$options.widthClass,
-          widthClass = _props$options$widthC === undefined ? '' : _props$options$widthC,
+          _props$options$col = _props$options.col,
+          col = _props$options$col === undefined ? '' : _props$options$col,
+          _props$options$offset = _props$options.offset,
+          offset = _props$options$offset === undefined ? '' : _props$options$offset,
           _props$options$disabl = _props$options.disable,
           disable = _props$options$disabl === undefined ? 'true' : _props$options$disabl,
           _props$options$boxSha = _props$options.boxShadow,
@@ -249,11 +255,11 @@ var Button = function (_React$Component) {
       var boxShadowClass = boxShadow ? 'box-shadow' : '';
       return _react2.default.createElement(
         'div',
-        { className: 'gum gmu-button ' + stateClass + ' ' + widthClass + ' ' + (disable === true ? 'disable' : '') },
+        { id: id, className: 'gum gmu-button ' + stateClass + ' ' + col + ' ' + offset + ' ' + classNames + ' ' + (disable === true ? 'disable' : '') },
         _react2.default.createElement(
           'button',
           {
-            className: widthClass ? 'col-12 ' + boxShadowClass : '' + boxShadowClass,
+            className: col ? col + ' ' + boxShadowClass : '' + boxShadowClass,
             ref: function ref(button) {
               _this3.button = button;
             },

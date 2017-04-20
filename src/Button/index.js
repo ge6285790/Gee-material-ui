@@ -114,7 +114,7 @@ class Button extends React.Component {
     newArray.push({
       active: 'false',
       style: {
-        transform: 'scale(0)',
+        transform: 'scale3d(0, 0, 1)',
         left: 0,
         top: 0,
       },
@@ -129,7 +129,7 @@ class Button extends React.Component {
     const state = {
       active: 'true',
       style: {
-        transform: `scale(${(this.range / 21) * 2.5})`,
+        transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
         // left: e.pageX - this.button.offsetLeft,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
         // top: e.pageY - this.button.offsetTop,
@@ -165,13 +165,13 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', disable = 'true', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = 'true', boxShadow = false, onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-button ${stateClass} ${widthClass} ${disable === true ? 'disable' : ''}`}>
+      <div id={id} className={`gum gmu-button ${stateClass} ${col} ${offset} ${classNames} ${disable === true ? 'disable' : ''}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
+          className={col ? `${col} ${boxShadowClass}` : `${boxShadowClass}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
