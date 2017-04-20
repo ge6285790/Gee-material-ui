@@ -1,7 +1,10 @@
 .gmu-button {
   text-align: center;
   display: inline-block;
-
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+  }
   button {
     background: transparent;
     padding: 0;
