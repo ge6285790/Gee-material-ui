@@ -132,7 +132,7 @@ class Button extends React.Component {
       active: 'true',
       style: {
         // transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
-        transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
+        transform: `scale3d(${(this.range * 2) / 21}, ${(this.range * 2) / 21}, 1)`,
         // left: e.pageX - this.button.offsetLeft,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
         // top: e.pageY - this.button.offsetTop,
