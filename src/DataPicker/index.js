@@ -63,7 +63,7 @@ class DataPicker extends React.Component {
     }
     this.setState(update(this.state, {
       dataPicker: {
-        inputValue: { $set: date },
+        updateValue: { $set: date },
       },
       calendar: {
         show: { $set: 'false' },
@@ -73,6 +73,9 @@ class DataPicker extends React.Component {
         opacity: { $set: 0 },
       },
     }));
+    setTimeout(() => {
+      console.log('this.state', this.state);
+    }, 500);
     return this.state.dataPicker.inputValue;
   }
 

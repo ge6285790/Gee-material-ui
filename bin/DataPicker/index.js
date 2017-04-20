@@ -94,6 +94,8 @@ var DataPicker = function (_React$Component) {
   _createClass(DataPicker, [{
     key: 'getSelectDay',
     value: function getSelectDay(date) {
+      var _this2 = this;
+
       if (!date) {
         this.setState((0, _reactAddonsUpdate2.default)(this.state, {
           calendar: {
@@ -108,7 +110,7 @@ var DataPicker = function (_React$Component) {
       }
       this.setState((0, _reactAddonsUpdate2.default)(this.state, {
         dataPicker: {
-          inputValue: { $set: date }
+          updateValue: { $set: date }
         },
         calendar: {
           show: { $set: 'false' }
@@ -118,12 +120,15 @@ var DataPicker = function (_React$Component) {
           opacity: { $set: 0 }
         }
       }));
+      setTimeout(function () {
+        console.log('this.state', _this2.state);
+      }, 500);
       return this.state.dataPicker.inputValue;
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _props$options = this.props.options,
           options = _props$options === undefined ? {} : _props$options;
@@ -139,7 +144,7 @@ var DataPicker = function (_React$Component) {
           'div',
           {
             onClick: function onClick(e) {
-              _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
+              _this3.setState((0, _reactAddonsUpdate2.default)(_this3.state, {
                 curtain: {
                   show: { $set: 'true' },
                   opacity: { $set: options.curtain.opacity }
