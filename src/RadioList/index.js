@@ -23,14 +23,14 @@ class RadioList extends React.Component {
   }
 
   renderRadioContainer() {
-    const { direction, selectOptions } = this.props.options;
+    const { id: eid = '', classNames = '', direction, selectOptions } = this.props.options;
     const directionClass = direction === 'vertical' ? 'radio-list-vertical' : 'radio-list-horizontal';
     return selectOptions.map((item, i) => {
       console.log('renderRadioContainer', item);
       const { checkStyle = {}, uncheckStyle = {}, title = '', size = '', radioOption, active, onClickFunc, containerStyle = {} } = item;
       const id = `r${new Date().getTime()}${Math.ceil(Math.random() * 100000)}${i}`;
       return (
-        <div className={`gmu-radio-list-container ${directionClass} ${id}`} key={`${title}${i}`} style={containerStyle}>
+        <div id={eid} className={`gmu-radio-list-container ${directionClass} ${id} ${classNames}`} key={`${title}${i}`} style={containerStyle}>
           <style>
             {`.${id} .fill-radio:after{
               border: ${checkStyle.border};

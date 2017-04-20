@@ -74,6 +74,10 @@ var RadioList = function (_React$Component) {
       var _this2 = this;
 
       var _props$options = this.props.options,
+          _props$options$id = _props$options.id,
+          eid = _props$options$id === undefined ? '' : _props$options$id,
+          _props$options$classN = _props$options.classNames,
+          classNames = _props$options$classN === undefined ? '' : _props$options$classN,
           direction = _props$options.direction,
           selectOptions = _props$options.selectOptions;
 
@@ -97,7 +101,7 @@ var RadioList = function (_React$Component) {
         var id = 'r' + new Date().getTime() + Math.ceil(Math.random() * 100000) + i;
         return _react2.default.createElement(
           'div',
-          { className: 'gmu-radio-list-container ' + directionClass + ' ' + id, key: '' + title + i, style: containerStyle },
+          { id: eid, className: 'gmu-radio-list-container ' + directionClass + ' ' + id + ' ' + classNames, key: '' + title + i, style: containerStyle },
           _react2.default.createElement(
             'style',
             null,

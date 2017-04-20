@@ -161,6 +161,10 @@ var ScaleButton = function (_React$Component) {
       var _this2 = this;
 
       var _props$options = this.props.options,
+          _props$options$id = _props$options.id,
+          id = _props$options$id === undefined ? '' : _props$options$id,
+          _props$options$classN = _props$options.classNames,
+          classNames = _props$options$classN === undefined ? '' : _props$options$classN,
           stateClass = _props$options.stateClass,
           _props$options$size = _props$options.size,
           size = _props$options$size === undefined ? '' : _props$options$size,
@@ -194,7 +198,7 @@ var ScaleButton = function (_React$Component) {
       console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
       return _react2.default.createElement(
         'div',
-        { className: 'gum gmu-scale-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass },
+        { id: id, className: 'gum gmu-scale-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass + ' ' + classNames },
         _react2.default.createElement(
           'button',
           {

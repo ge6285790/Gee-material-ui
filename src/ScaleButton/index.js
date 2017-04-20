@@ -119,13 +119,13 @@ class ScaleButton extends React.Component {
   }
 
   render() {
-    const { stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {}, onMouseUpFunc = () => {}, onMouseDownFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {}, onMouseUpFunc = () => {}, onMouseDownFunc = () => {} } = this.props.options;
     const { clickResponseArray, clickDownClass, clickUpClass, clickHidden, active } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
 
     console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
     return (
-      <div className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass}`}>
+      <div id={id} className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass} ${classNames}`}>
         <button
           className={widthClass ? `col-12 ${boxShadowClass} ${size} ${clickDownClass} ${clickUpClass}` : `${boxShadowClass} ${size} ${clickDownClass} ${clickUpClass}`}
           ref={(button) => { this.button = button; }}
