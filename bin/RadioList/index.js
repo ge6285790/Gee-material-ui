@@ -74,16 +74,12 @@ var RadioList = function (_React$Component) {
       var _this2 = this;
 
       var _props$options = this.props.options,
-          _props$options$id = _props$options.id,
-          eid = _props$options$id === undefined ? '' : _props$options$id,
-          _props$options$classN = _props$options.classNames,
-          classNames = _props$options$classN === undefined ? '' : _props$options$classN,
           direction = _props$options.direction,
           selectOptions = _props$options.selectOptions;
 
       var directionClass = direction === 'vertical' ? 'radio-list-vertical' : 'radio-list-horizontal';
       return selectOptions.map(function (item, i) {
-        console.log('renderRadioContainer', item);
+        // console.log('renderRadioContainer', item);
         var _item$checkStyle = item.checkStyle,
             checkStyle = _item$checkStyle === undefined ? {} : _item$checkStyle,
             _item$uncheckStyle = item.uncheckStyle,
@@ -101,7 +97,7 @@ var RadioList = function (_React$Component) {
         var id = 'r' + new Date().getTime() + Math.ceil(Math.random() * 100000) + i;
         return _react2.default.createElement(
           'div',
-          { id: eid, className: 'gmu-radio-list-container ' + directionClass + ' ' + id + ' ' + classNames, key: '' + title + i, style: containerStyle },
+          { className: 'gmu-radio-list-container ' + directionClass + ' ' + id, key: '' + title + i, style: containerStyle },
           _react2.default.createElement(
             'style',
             null,
@@ -119,7 +115,12 @@ var RadioList = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      console.log(this.props);
+      var _props$options2 = this.props.options,
+          _props$options2$id = _props$options2.id,
+          id = _props$options2$id === undefined ? '' : _props$options2$id,
+          _props$options2$class = _props$options2.classNames,
+          classNames = _props$options2$class === undefined ? '' : _props$options2$class;
+      // console.log(this.props);
       // var addRule = (function(style){
       //     var sheet = document.head.appendChild(style).sheet;
       //     return function(selector, css){
@@ -137,9 +138,10 @@ var RadioList = function (_React$Component) {
       //   "border-radius": "50%",
       //   content: "''"
       // });
+
       return _react2.default.createElement(
         'div',
-        { className: 'gmu-radio-list' },
+        { id: id, className: 'gmu-radio-list ' + classNames },
         this.renderRadioContainer()
       );
     }
