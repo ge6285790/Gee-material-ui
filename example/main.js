@@ -212,9 +212,9 @@ const dataPickerOption = {
     },
     underLineColor: 'false', // color rgba / hex
     inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
-    onFocusFuncCallback: () => {},
-    onBlurFuncCallback: () => {},
-    onChangeFuncCallback: () => {},
+    onFocusFunc: () => {},
+    onBlurFunc: () => {},
+    onChangeFunc: () => {},
   }
 };
 
