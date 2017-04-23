@@ -511,6 +511,10 @@ class Grid extends React.Component {
 
   handleClickOutside(e) {
     const domNode = ReactDOM.findDOMNode(this);
+    console.log('this.tempIndex', this.tempIndex);
+    if (!this.tempIndex) {
+      return;
+    }
     if ((!domNode || !domNode.contains(e.target))) {
       //
       this.setState(update(this.state, {

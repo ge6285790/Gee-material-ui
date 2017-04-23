@@ -127,6 +127,10 @@ var Grid = function (_React$Component) {
       var _this2 = this;
 
       var domNode = _reactDom2.default.findDOMNode(this);
+      console.log('this.tempIndex', this.tempIndex);
+      if (!this.tempIndex) {
+        return;
+      }
       if (!domNode || !domNode.contains(e.target)) {
         //
         this.setState((0, _reactAddonsUpdate2.default)(this.state, {
