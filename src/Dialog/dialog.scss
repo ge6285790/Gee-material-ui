@@ -1,4 +1,6 @@
 .gmu-dialog {
+  z-index: 11;
+  position: relative;
   .gmu-card {
     position: fixed;
     top: 10%;
