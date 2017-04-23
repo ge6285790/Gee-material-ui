@@ -33,7 +33,6 @@ class ArcCard extends React.Component {
         onClickFunc(e);
       };
     }
-    console.log('render')
     return (
       <div
         id={id}
