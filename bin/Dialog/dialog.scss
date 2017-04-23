@@ -3,8 +3,8 @@
   .gmu-curatin{
     z-index: 11;
   }
-  > .gmu-card{
-    z-index: 11;
+  > .gmu-card.fadeIn[data-active="true"]{
+    z-index: 11 !important;
   }
   .gmu-card {
     position: fixed;
