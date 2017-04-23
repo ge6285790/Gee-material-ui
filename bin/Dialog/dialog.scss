@@ -1,6 +1,11 @@
 .gmu-dialog {
-  z-index: 11;
   position: relative;
+  .gmu-curatin{
+    z-index: 11;
+  }
+  > .gmu-card{
+    z-index: 11;
+  }
   .gmu-card {
     position: fixed;
     top: 10%;
