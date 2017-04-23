@@ -278,6 +278,14 @@ var Button = function (_React$Component) {
               onClickFunc(e);
               _this3.setTimeoutToClear();
             },
+            onTouchStart: function onTouchStart(e) {
+              _this3.appendClickResponse();_this3.setTimeoutStop();
+            },
+            onTouchEnd: function onTouchEnd(e) {
+              _this3.fireClickResponse(e);
+              onClickFunc(e);
+              _this3.setTimeoutToClear();
+            },
             style: this.buttonStyle
           },
           _react2.default.createElement(
