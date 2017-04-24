@@ -236,38 +236,38 @@ var ScaleButton = function (_React$Component) {
                   clickDownClass: { $set: '' }
                 }));
               }, 600);
-            },
-            onTouchStart: function onTouchStart(e) {
-              _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
-                clickDownClass: { $set: 'click-down' }
-              }));
-              onMouseDownFunc(e);
-            },
-            onTouchEnd: function onTouchEnd(e) {
-              _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
-                clickUpClass: { $set: 'click-up' }
-              }));
-              onMouseUpFunc(e);
-              onClickFunc(e);
-              if (clickHidden) {
-                setTimeout(function () {
-                  _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
-                    active: { $set: 'true' },
-                    clickUpClass: { $set: '' },
-                    clickDownClass: { $set: '' }
-                  }));
-                }, 220);
-                return;
-              }
-              setTimeout(function () {
-                _this2.setState((0, _reactAddonsUpdate2.default)(_this2.state, {
-                  // hide: { $set: 'true' }
-                  clickUpClass: { $set: '' },
-                  clickDownClass: { $set: '' }
-                }));
-              }, 600);
-            },
-            style: this.buttonStyle
+            }
+            // onTouchStart={(e) => {
+            //   this.setState(update(this.state, {
+            //     clickDownClass: { $set: 'click-down' },
+            //   }));
+            //   onMouseDownFunc(e);
+            // }}
+            // onTouchEnd={(e) => {
+            //   this.setState(update(this.state, {
+            //     clickUpClass: { $set: 'click-up' },
+            //   }));
+            //   onMouseUpFunc(e);
+            //   onClickFunc(e);
+            //   if (clickHidden) {
+            //     setTimeout(() => {
+            //       this.setState(update(this.state, {
+            //         active: { $set: 'true' },
+            //         clickUpClass: { $set: '' },
+            //         clickDownClass: { $set: '' },
+            //       }));
+            //     }, 220);
+            //     return;
+            //   }
+            //   setTimeout(() => {
+            //     this.setState(update(this.state, {
+            //       // hide: { $set: 'true' }
+            //       clickUpClass: { $set: '' },
+            //       clickDownClass: { $set: '' },
+            //     }));
+            //   }, 600);
+            // }}
+            , style: this.buttonStyle
           },
           _react2.default.createElement(
             'div',

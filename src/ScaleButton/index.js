@@ -160,36 +160,36 @@ class ScaleButton extends React.Component {
               }));
             }, 600);
           }}
-          onTouchStart={(e) => {
-            this.setState(update(this.state, {
-              clickDownClass: { $set: 'click-down' },
-            }));
-            onMouseDownFunc(e);
-          }}
-          onTouchEnd={(e) => {
-            this.setState(update(this.state, {
-              clickUpClass: { $set: 'click-up' },
-            }));
-            onMouseUpFunc(e);
-            onClickFunc(e);
-            if (clickHidden) {
-              setTimeout(() => {
-                this.setState(update(this.state, {
-                  active: { $set: 'true' },
-                  clickUpClass: { $set: '' },
-                  clickDownClass: { $set: '' },
-                }));
-              }, 220);
-              return;
-            }
-            setTimeout(() => {
-              this.setState(update(this.state, {
-                // hide: { $set: 'true' }
-                clickUpClass: { $set: '' },
-                clickDownClass: { $set: '' },
-              }));
-            }, 600);
-          }}
+          // onTouchStart={(e) => {
+          //   this.setState(update(this.state, {
+          //     clickDownClass: { $set: 'click-down' },
+          //   }));
+          //   onMouseDownFunc(e);
+          // }}
+          // onTouchEnd={(e) => {
+          //   this.setState(update(this.state, {
+          //     clickUpClass: { $set: 'click-up' },
+          //   }));
+          //   onMouseUpFunc(e);
+          //   onClickFunc(e);
+          //   if (clickHidden) {
+          //     setTimeout(() => {
+          //       this.setState(update(this.state, {
+          //         active: { $set: 'true' },
+          //         clickUpClass: { $set: '' },
+          //         clickDownClass: { $set: '' },
+          //       }));
+          //     }, 220);
+          //     return;
+          //   }
+          //   setTimeout(() => {
+          //     this.setState(update(this.state, {
+          //       // hide: { $set: 'true' }
+          //       clickUpClass: { $set: '' },
+          //       clickDownClass: { $set: '' },
+          //     }));
+          //   }, 600);
+          // }}
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>

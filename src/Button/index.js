@@ -183,12 +183,12 @@ class Button extends React.Component {
             onClickFunc(e);
             this.setTimeoutToClear();
           }}
-          onTouchStart={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
-          onTouchEnd={(e) => {
-            this.fireClickResponse(e);
-            onClickFunc(e);
-            this.setTimeoutToClear();
-          }}
+          // onTouchStart={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
+          // onTouchEnd={(e) => {
+          //   this.fireClickResponse(e);
+          //   onClickFunc(e);
+          //   this.setTimeoutToClear();
+          // }}
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>

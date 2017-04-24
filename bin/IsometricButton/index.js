@@ -286,16 +286,14 @@ var IsometricButton = function (_React$Component) {
               _this3.fireClickResponse(e);
               onClickFunc(e);
               _this3.setTimeoutToClear();
-            },
-            onTouchStart: function onTouchStart(e) {
-              _this3.appendClickResponse();_this3.setTimeoutStop();
-            },
-            onTouchEnd: function onTouchEnd(e) {
-              _this3.fireClickResponse(e);
-              onClickFunc(e);
-              _this3.setTimeoutToClear();
-            },
-            style: this.buttonStyle
+            }
+            // onTouchStart={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
+            // onTouchEnd={(e) => {
+            //   this.fireClickResponse(e);
+            //   onClickFunc(e);
+            //   this.setTimeoutToClear();
+            // }}
+            , style: this.buttonStyle
           },
           _react2.default.createElement(
             'div',
