@@ -9,6 +9,7 @@ npm install gee-material-ui --save
 ```
 
 <br/>
+
 ## Usage
 
 ```js
@@ -47,6 +48,7 @@ class Test extends React.Component {
 ```
 
 <br/>
+
 ## Components Options
 
 This is the options for component.
