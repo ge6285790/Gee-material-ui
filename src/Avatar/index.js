@@ -3,7 +3,7 @@ import css from './avatar.scss';
 
 const Avatar = (props) => {
   const { options = {} } = props;
-  const { id, classNames, size = 'middle', customSize = false, backgroundColor = false, color = false, boxShadow = false, animate = '', src = '', iconClass = false, onClickFunc = false } = options;
+  const { id = '', classNames = '', size = 'middle', customSize = false, boxShadow = false, animate = '', src = '', iconClass = false, onClickFunc = false } = options;
   let clickFunc = onClickFunc;
   let cursor = 'pointer';
   // let width = false;
