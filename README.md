@@ -50,8 +50,9 @@ class Test extends React.Component {
 This is the options for component.
 
 ### Avatar
-
+```js
 <Avatar options={{...}} /> or <Avatar options={{...}}>Word</Avatar>
+```
 
 options                   | parameters                                                          | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
@@ -59,10 +60,7 @@ id                        | Set custom element id for Avatar component. ex. id: 
 classNames                | Set custom element class for Avatar component. ex. className: 'customClass1 customClass2'   | String
 iconClass                 | The icon that Avatar want to show. ex. iconClass: 'fa fa-user-o'    | String
 src                       | If Avatar want to display image, src can set image url. ex. src: 'https://...' | String
-size                      | Avatar's size, there has three params: small / middle / large.<br/>
-                            small: 24x24 ex. size: 'small'<br/>
-                            middle: 36x36 ex. size: 'middle' (defalut is middle)<br/>
-                            large: 48x48 ex. size: 'large'<br/>                                 | String
+size                      | Avatar's size, there has three params: small / middle / large.<br/>small: 24x24 ex. size: 'small'<br/>middle: 36x36 ex. size: 'middle' (defalut is middle)<br/>large: 48x48 ex. size: 'large'                        | String
 customSize                | Give value and set Avatar size. ex. customSize: 50 // Avatar will be 50x50 | Number
 boxShadow                 | If Avatar has box-shadow or not. ex. boxShadow: true // Avatar will has box-shadow | Boolean
 animate                   | Hover animate, there has two animate: hover-to-scale / hover-to-square<br/>
