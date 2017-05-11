@@ -487,43 +487,36 @@ class Test extends React.Component {
 
 <br/>
 
-### Card
+### Curtain
 ```js
-<Card options={{...}}>
+<Curtain options={{...}}>
   <p>...
   <div>...
-</Card>
+</Curtain>
 ```
 
 options                   | parameters                                                          | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
-id                        | Set custom element id for Button component. ex. id: 'customId'      | String
-classNames                | Set custom element class for Button component. ex. className: 'customClass1 customClass2'   | String
-content                   | Set Button's value. ex. content: 'Button'   | String
-col                       | Component width. ex. col: 'col-4 col-991-6 col-768-9 col-600-10 col-480-12' | String
-offset                    | Component margin left. ex. offset: 'col-offset-6 col-offset-991-5 col-offset-768-4 col-offset-600-3 col-offset-480-1' | String
-animate                   | ex. animate: fadeIn / scale / radius-scale | String
-gmuCardStyle              | Set custom component first layer's style. ex. style: {background: '#ddd'}  | Object
-cardBoxStyle              | Set custom component card layer's style. ex. style: {background: '#ddd'}  | Object
+style                     | Custom css to Curtain. ex. style: {backgroundColor: '#f90', ...}    | Object
+opacity                   | Set Curtain's opacity. ex. opacity: 0.5   | number
+show                      | Show Curtain or not. ex.<br/>show: 'false' // Curtain will hidden<br/>show: 'true' // Curtain will show   | String
+onClickFunc               | Custom click event callback function. ex. onClickFunc: (e) => { alert('click'); } | Function
 
 **example:**
 ```js
-import { Card } from 'gee-material-ui';
+import { Curtain } from 'gee-material-ui';
 import update from 'react-addons-update';
 
 class Test extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      cardOption: {
-        // options for Button component
-        col: 'col-12', // 991 / 768 / 600 / 480
-        offset: 'col-offset-3 col-offset-768-0 col-offset-991-1', // 991 / 768 / 600 / 480
-        gmuCardStyle: {
-          background: '#ddd',
-        },
-        cardBoxStyle: {
-          color: '#333',
+      curtainOption: {
+        style: {},
+        opacity: 0.5,
+        show: 'false', // or 'true'
+        onClickFunc: (e) => {
+          console.log(e);
         },
       },
     };
@@ -531,7 +524,67 @@ class Test extends React.Component {
 
   render() {
     return (
-      <Card options={this.state.cardOption} />
+      <Curtain options={this.state.curtainOption} />
+    );
+  }
+}
+```
+
+<br/>
+
+### DataPicker
+```js
+<DataPicker options={{...}}>
+  <p>...
+  <div>...
+</DataPicker>
+```
+
+options                   | parameters                                                          | parameters type
+------------------------- | ------------------------------------------------------------------- | -------------------
+curtain                   | Set Curtain component option in DataPicker Component. More info look at Curtain options.     | Object
+dataPicker                | DataPicker's options. It include six option: title, size, theme, animation, underLineColor, inputValue.  | Object
+title (dataPicker's sub key) | Input's placeholder. ex. title: 'Click to choice date'  | String
+size (dataPicker's sub key)  | Input's size, there has four params: small / middle /  large / x-large.<br/>small: font-size: 16px. ex. size: 'small'<br/>middle: font-size: 20px. ex. size: 'middle' (defalut is middle)<br/>large: font-size: 28px. ex. size: 'large'<br/>x-large: font-size: 40px;. ex. size: 'x-large'                        | String
+theme (dataPicker's sub key) | Set Input's theme. It has six params: malibu, charade, shark, froly, fern, h-gold. ex. theme: 'malibu' | String
+animate (dataPicker's sub key)| Input Component onfocus's animate. ex. animate: { titleActive: 'default' // 'leftSmall' } | String
+underLineColor (dataPicker's sub key) | Set custom Input's underline color. Just use hex or rgba to set underline color, if use 'false' then color will set by theme, . ex. underLineColor: 'rgba(160, 160, 160,1)' // '#160 / false'  | String
+
+**example:**
+```js
+import { DataPicker } from 'gee-material-ui';
+import update from 'react-addons-update';
+
+class Test extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      dataPickerOption: {
+        curtain: {
+          style: {},
+          opacity: 0.5,
+          show: 'false', // true false
+          onClickFunc: (e) => {
+            console.log(e, 2);
+          },
+        },
+        dataPicker: {
+          title: 'Click to choice date',
+          size: 'small', // small / middle / large / x-large
+          theme: 'malibu',
+          animation: {
+            titleActive: 'leftSmall', // default / leftSmall /
+          },
+          underLineColor: 'false', // color rgba / hex
+          // inputValue: '', // 假如有要從 setState 傳 value 才需使用，default 是讓內部輸入
+        }
+      },
+    };
+  }
+
+  render() {
+    return (
+      <DataPicker options={this.state.dataPickerOption} />
     );
   }
 }
