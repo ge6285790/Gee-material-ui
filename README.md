@@ -2,6 +2,8 @@
 
 Use React to implement Google Material UI design.
 
+[Demo page](https://kyle-cheng-portfolio.herokuapp.com/portfolio/react-material-design)
+
 <br/>
 
 ## Installation
