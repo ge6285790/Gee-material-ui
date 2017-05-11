@@ -169,7 +169,7 @@ class Button extends React.Component {
   }
 
   render() {
-    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = 'true', boxShadow = false, size = '', onClickFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = false, boxShadow = false, size = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (

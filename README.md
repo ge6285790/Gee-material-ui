@@ -62,7 +62,7 @@ This is the options for component.
 <Avatar options={{...}} /> or <Avatar options={{...}}>Word</Avatar>
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 id                        | Set custom element id for Avatar component. ex. id: 'customId'      | String
 classNames                | Set custom element class for Avatar component. ex. className: 'customClass1 customClass2'   | String
@@ -127,87 +127,11 @@ class Test extends React.Component {
 <Button options={{...}} />
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 id                        | Set custom element id for Button component. ex. id: 'customId'      | String
 classNames                | Set custom element class for Button component. ex. className: 'customClass1 customClass2'   | String
-content                   | Set Button's value. ex. content: 'Button'   | String
-iconClassBefore           | The icon that Avatar want to show, it will show before content's word. ex. iconClass: 'fa fa-user-o'    | String
-iconClassAfter           | The icon that Avatar want to show, it will show before content's word. ex. iconClass: 'fa fa-user-o'    | String
-size                      | Button's size, there has four params: small / middle /  large / x-large.<br/>small: font-size: 12px. ex. size: 'small'<br/>middle: font-size: 16px. ex. size: 'middle' (defalut is middle)<br/>large: font-size: 20px. ex. size: 'large'<br/>x-large: font-size: 24px;. ex. size: 'x-large'                        | String
-col                       | Component width. ex. col: 'col-4 col-991-6 col-768-9 col-600-10 col-480-12' | String
-offset                    | Component margin left. ex. offset: 'col-offset-6 col-offset-991-5 col-offset-768-4 col-offset-600-3 col-offset-480-1' | String
-boxShadow                 | If Button has box-shadow or not. ex. boxShadow: true // Button will has box-shadow | Boolean
-style                     | Custom css to Buttom. ex. style: {backgroundColor: '#f90', borderRadius: 0, color: '#fff', fontSize: '12px', ...}<br/>There is a special key in style, it call clickResponseColor. It will set click response color. ex. style: {clickResponseColor: '#f90', borderRadius: 0, ...} | Object
-onClickFunc               | Custom click event callback function. ex. onClickFunc: (e) => { alert('click'); } | Function
-componentDidMountFunc     | Custom componentDidMount event callback function. ex. componentDidMountFunc: (e) => { alert('component did mount'); } | Function
-
-**example:**
-```js
-import { Avatar } from 'gee-material-ui';
-import update from 'react-addons-update';
-
-class Test extends React.Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      buttonOption: {
-        // options for Button component
-        id: '',
-        classNames: '',
-        style: {
-          clickResponseColor: '',
-          color: '',
-          background: '',
-          boxShadow: '',
-          border: '',
-          borderRadius: '',
-          padding: '',
-          margin: '',
-          fontSize: '', // custom button size
-          // maxWidth: 100,
-          // textOverflow: 'ellipsis',
-          // overflow: 'hidden',
-          // whiteSpace: 'nowrap',
-        },
-        iconClassBefore: '',
-        iconClassAfter: '',
-        boxShadow: false,
-        content: 'Button1',
-        stateClass: 'malibu',
-        // stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-        // col: 'col-6', // col-1 ~ col-12
-        offset: '',
-        size: 'small', // x-large / large / middle / small
-        componentDidMountFunc: () => {
-          console.log('done!');
-        },
-        onClickFunc: () => {
-          console.log('click!');
-        },
-      },
-    };
-  }
-
-  render() {
-    return (
-      <Button options={this.state.buttonOption} />
-    );
-  }
-}
-```
-
-<br/>
-
-### Button
-```js
-<Button options={{...}} />
-```
-
-options                   | parameters                                                          | parameters type
-------------------------- | ------------------------------------------------------------------- | -------------------
-id                        | Set custom element id for Button component. ex. id: 'customId'      | String
-classNames                | Set custom element class for Button component. ex. className: 'customClass1 customClass2'   | String
+disable                   | If Button could click or not. ex. disable: false // false could click, true is disable | Boolean
 content                   | Set Button's value. ex. content: 'Button'   | String
 iconClassBefore           | The icon that Avatar want to show, it will show before content's word. ex. iconClass: 'fa fa-user-o'    | String
 iconClassAfter           | The icon that Avatar want to show, it will show before content's word. ex. iconClass: 'fa fa-user-o'    | String
@@ -281,7 +205,7 @@ class Test extends React.Component {
 <IsometricButton options={{...}} />
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 id                        | Set custom element id for IsometricButton component. ex. id: 'customId'      | String
 classNames                | Set custom element class for IsometricButton component. ex. className: 'customClass1 customClass2'   | String
@@ -359,11 +283,11 @@ class Test extends React.Component {
 <ScaleButton options={{...}} />
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 id                        | Set custom element id for ScaleButton component. ex. id: 'customId'      | String
 classNames                | Set custom element class for ScaleButton component. ex. className: 'customClass1 customClass2'   | String
-active                    | Set component animate. ex. active: 'true' // will run animate | String
+active                    | Set component animate. ex. active: 'true' // run animate, 'false will show default status' | String
 clickHidden               | Set component response result. ex. clickHidden: true // will hide after click | String
 content                   | Set ScaleButton's value. ex. content: 'ScaleButton'   | String
 iconClassBefore           | The icon that Avatar want to show, it will show before content's word. ex. iconClass: 'fa fa-user-o'    | String
@@ -443,7 +367,7 @@ class Test extends React.Component {
 </Card>
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 id                        | Set custom element id for Button component. ex. id: 'customId'      | String
 classNames                | Set custom element class for Button component. ex. className: 'customClass1 customClass2'   | String
@@ -495,7 +419,7 @@ class Test extends React.Component {
 </Curtain>
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 style                     | Custom css to Curtain. ex. style: {backgroundColor: '#f90', ...}    | Object
 opacity                   | Set Curtain's opacity. ex. opacity: 0.5   | number
@@ -540,7 +464,7 @@ class Test extends React.Component {
 </DataPicker>
 ```
 
-options                   | parameters                                                          | parameters type
+options                   | introduction                                                        | parameters type
 ------------------------- | ------------------------------------------------------------------- | -------------------
 curtain                   | Set Curtain component option in DataPicker Component. More info look at Curtain options.     | Object
 dataPicker                | DataPicker's options. It include six option: title, size, theme, animation, underLineColor, inputValue.  | Object
@@ -585,6 +509,359 @@ class Test extends React.Component {
   render() {
     return (
       <DataPicker options={this.state.dataPickerOption} />
+    );
+  }
+}
+```
+
+<br/>
+
+### Dialog
+```js
+<Dialog options={{...}}>
+  <p>...
+  <div>...
+</Dialog>
+```
+
+options                   | introduction                                                        | parameters type
+------------------------- | ------------------------------------------------------------------- | -------------------
+dialog                    | dialog is options of button which could trigger popup modal, it same as Button's options, check Button options to get more information     | Object
+card                      | card is options of popup modal, it same as Card's options, check Card options to get more information.  | Object
+curtain                   | curtain is options of background cover, it same as Curtain's options, check Curtain options to get more information.  | String
+confirm                   | confirm is options of buttons in the popup modal. It has two params: submit, cancel which are options of submit button and options of cancel button. These options are same as Button's options, check Button options to get more information. | Object
+
+**example:**
+```js
+import { Dialog } from 'gee-material-ui';
+import update from 'react-addons-update';
+
+class Test extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      dialogOption: {
+        dialog: {
+          type: 'button', // text / button / icon / custom
+          size: 'middle', // small / middle / large / x-large
+          theme: 'malibu',
+          content: 'Click to show dialog',
+          iconClassBefore: '',
+          iconClassAfter: '',
+          style: {
+
+          },
+        },
+        card: {
+          col: 'col-6 col-768-12 col-991-10', // 991 / 768 / 600 / 480
+          offset: 'col-offset-3 col-offset-768-0 col-offset-991-1', // 991 / 768 / 600 / 480
+          gmuCardStyle: {
+            // background: '#ddd',
+          },
+          cardBoxStyle: {
+          },
+        },
+        curtain: {
+          style: {},
+          opacity: 0.5,
+          show: 'false', // true false
+          onClickFunc: (e) => {
+            alert('Click curtain to close dialog');
+          },
+        },
+        confirm: {
+          submit: {
+            disable: false,
+            size: 'small', // small / middle / large / x-large
+            theme: '',
+            content: 'confirm',
+            iconClassBefore: '',
+            iconClassAfter: '',
+            style: {
+
+            },
+            onClickFunc: (e) => {
+              alert('Click confirm');
+            }
+          },
+          cancel: {
+            disable: false,
+            size: 'small', // small / middle / large / x-large
+            theme: '',
+            content: 'cancel',
+            iconClassBefore: '',
+            iconClassAfter: '',
+            style: {
+
+            },
+            onClickFunc: (e) => {
+              alert('Click cancel');
+            }
+          }
+        }
+      },
+    };
+  }
+
+  render() {
+    return (
+      <Dialog options={this.state.dialogOption} />
+    );
+  }
+}
+```
+
+<br/>
+
+### Drawer
+```js
+<Drawer options={{...}}>
+  <p>...
+  <div>...
+</Drawer>
+```
+
+options                   | introduction                                                        | parameters type
+------------------------- | ------------------------------------------------------------------- | -------------------
+show                      | Show Drawer or not. ex. show: true // will show Drawer, false will hide Drawer    | Boolean
+position                  | Drawer's position. if use 'right', Drawer will display on right hand side, 'left' will display on left hand side. ex. position: 'right' | String
+cardOption                | cardOption is options of popup modal, it same as Card's options, check Card options to get more information.  | Object
+curtainOption             | curtain is options of background cover, it same as Curtain's options, check Curtain options to get more information.  | String
+
+
+**example:**
+```js
+import { Drawer, Button } from 'gee-material-ui';
+import update from 'react-addons-update';
+
+class Test extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      drawerOption: {
+        show: false,
+        position: 'right',
+        cardOption: {
+          col: 'col-3 col-768-6', // 991 / 768 / 600 / 480
+          offset: 'col-offset-0 col-offset-768-0', // 991 / 768 / 600 / 480
+          gmuCardStyle: {
+          },
+          cardBoxStyle: {
+          },
+        },
+        // curtainOption: false,
+        curtainOption: {
+          style: {},
+          opacity: 0.5,
+          show: 'false', // true false
+          onClickFunc: (e) => {
+            // click curtain to hide Drawer
+            this.setState(update(this.state, {
+              drawerOption: {
+                show: { $set: false },
+              },
+            }));
+          },
+        },
+      },
+      buttonControlDrawerOption: {
+        boxShadow: true,
+        content: 'call Drawer',
+        stateClass: 'h-gold',
+        col: 'col-3 col-768-6',
+        offset: '',
+        size: 'middle', // x-large / large / middle / small
+        onClickFunc: () => {
+          // click button to show Drawer
+          this.setState(update(this.state, {
+            drawerOption: {
+              show: { $set: true },
+            },
+          }));
+        },
+      },
+    };
+  }
+
+  render() {
+    return (
+      <Drawer options={this.state.drawerOption} />
+      <Button options={this.state.buttonControlDrawerOption}/>
+    );
+  }
+}
+```
+
+<br/>
+
+### Grid
+```js
+<Grid options={{...}}>
+  <p>...
+  <div>...
+</Grid>
+```
+
+options                   | introduction                                                        | parameters type
+------------------------- | ------------------------------------------------------------------- | -------------------
+haloColor                 | Click grid item will run halo animate, and this param could let user custom halo color. ex. haloColor: '#000' | String
+gridList                  | An array include all items data. Item data is an object, It include seven option: id, classNames, defaultStyle, resultStyle, imageSrc, children, onClickFunc | Array
+id (gridList's sub key)   | Set custom element id for Grid item component. ex. id: 'customId'      | String
+classNames (gridList's sub key) | Set custom element classNames for Grid item component. ex. classNames: 'customClassNames'      | String
+defaultStyle (gridList's sub key)| Set default style for Grid item component. ex. defaultStyle: {borderRadius: '16px', border: '2px solid #09f', ...}  | Object
+resultStyle (gridList's sub key)| Set clicked result style for Grid item component. ex. resultStyle: {borderRadius: '3px', border: '15px solid #09f', ...}  | Object
+imageSrc (gridList's sub key)| Set Grid item's image banner. ex. imageSrc: 'https://...'  | String
+children (gridList's sub key)| Children is jsx element tag, user can use any components or tag here. ex. children: <div>this is content</div>  | JSX
+onClickFunc (gridList's sub key)| Custom click event callback function. ex. onClickFunc: (e) => { alert('click'); } | Function
+
+
+**example:**
+```js
+import { Grid } from 'gee-material-ui';
+import update from 'react-addons-update';
+
+const testGridContent = {
+  id: '',
+  classNames: '',
+  defaultStyle: {},
+  resultStyle: {},
+  imageSrc: 'http://www.freeimageslive.com/galleries/workplace/office2/preview/office_celebrations.jpg',
+  onClickFunc: (e) => {
+
+  },
+}
+
+class Test extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      gridOption: {
+        haloColor: '#80CBC4',
+
+        gridList: [
+          {
+            id: '',
+            classNames: '',
+            active: 'false',
+            defaultStyle: {
+              boxShadow: '3px 3px 5px rgba(0,0,0,.5)',
+              border: '2px solid #f60'
+            },
+            resultStyle: {
+              boxShadow: '3px 3px 5px rgba(0,0,0,.0)',
+              border: '13px solid #f60',
+              background: '#09f'
+            },
+            imageSrc: 'http://www.freeimageslive.com/galleries/workplace/office2/preview/office_celebrations.jpg',
+            onClickFunc: (e) => {
+              alert('click!');
+            },
+            children: <div>1<br/>1<br/>1<br/>1<br/>1<br/>1</div>,
+          },
+          {
+            ...testGridContent,
+            children: <div>2<br/>2<br/>2<br/>2<br/>2<br/>2</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>3<br/>3<br/>3<br/>3<br/>3<br/>3</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>4<br/>4<br/>4<br/>4<br/>4<br/>4</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>5<br/>5<br/>5<br/>5<br/>5<br/>5</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>6<br/>6<br/>6<br/>6<br/>6<br/>6</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>7<br/>7<br/>7<br/>7<br/>7<br/>7</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>8<br/>8<br/>8<br/>8<br/>8<br/>8</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>9<br/>9<br/>9<br/>9<br/>9<br/>9</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>10<br/>10<br/>10<br/>10<br/>10<br/>10</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1<br/>1<br/>1<br/>1<br/>1<br/>1</div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+          {
+            ...testGridContent
+            children: <div>1aa<p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p><p>cccc</p></div>,
+          },
+        ],
+      },
+    };
+  }
+
+  render() {
+    return (
+      <Grid options={this.state.gridOption} />
     );
   }
 }
