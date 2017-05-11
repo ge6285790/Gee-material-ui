@@ -26,7 +26,7 @@ class RadioList extends React.Component {
     const { direction, selectOptions } = this.props.options;
     const directionClass = direction === 'vertical' ? 'radio-list-vertical' : 'radio-list-horizontal';
     return selectOptions.map((item, i) => {
-      console.log('renderRadioContainer', item);
+      // console.log('renderRadioContainer', item);
       const { checkStyle = {}, uncheckStyle = {}, title = '', size = '', radioOption, active, onClickFunc, containerStyle = {} } = item;
       const id = `r${new Date().getTime()}${Math.ceil(Math.random() * 100000)}${i}`;
       return (
@@ -50,7 +50,8 @@ class RadioList extends React.Component {
     })
   }
   render() {
-    console.log(this.props);
+    const { id = '', classNames = '' } = this.props.options;
+    // console.log(this.props);
     // var addRule = (function(style){
     //     var sheet = document.head.appendChild(style).sheet;
     //     return function(selector, css){
@@ -69,7 +70,7 @@ class RadioList extends React.Component {
     //   content: "''"
     // });
     return (
-      <div className="gmu-radio-list">
+      <div id={id} className={`gmu-radio-list ${classNames}`}>
         {this.renderRadioContainer()}
       </div>
     );

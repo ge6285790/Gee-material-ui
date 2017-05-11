@@ -5,11 +5,12 @@ import css from './card.scss';
 
 const Card = (props) => {
   const col = props.options.col;
+  const id = props.options.id;
   const offset = props.options.offset || '';
   const animate = props.options.animate || '';
   const classNames = props.options.classNames || '';
   return (
-    <div className={`gmu gmu-card ${col} ${offset} ${animate} ${classNames}`} style={props.options.gmuCardStyle} data-active={props.options.show || true} >
+    <div id={id} className={`gmu gmu-card ${col} ${offset} ${animate} ${classNames}`} style={props.options.gmuCardStyle} data-active={props.options.show || true} >
       <div className="card-box" style={props.options.cardBoxStyle}>
         {props.children}
       </div>

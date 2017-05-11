@@ -24,12 +24,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Card = function Card(props) {
   var col = props.options.col;
+  var id = props.options.id;
   var offset = props.options.offset || '';
   var animate = props.options.animate || '';
   var classNames = props.options.classNames || '';
   return _react2.default.createElement(
     'div',
-    { className: 'gmu gmu-card ' + col + ' ' + offset + ' ' + animate + ' ' + classNames, style: props.options.gmuCardStyle, 'data-active': props.options.show || true },
+    { id: id, className: 'gmu gmu-card ' + col + ' ' + offset + ' ' + animate + ' ' + classNames, style: props.options.gmuCardStyle, 'data-active': props.options.show || true },
     _react2.default.createElement(
       'div',
       { className: 'card-box', style: props.options.cardBoxStyle },

@@ -68,6 +68,7 @@ var Grid = function (_React$Component) {
       //
       // },
       data: _this.props.options.gridList
+
     };
     _this.gridLength = _this.state.data.length - 1;
     return _this;
@@ -127,6 +128,10 @@ var Grid = function (_React$Component) {
       var _this2 = this;
 
       var domNode = _reactDom2.default.findDOMNode(this);
+      // console.log('this.tempIndex', this.tempIndex);
+      if (!this.tempIndex) {
+        this.tempIndex = 0;
+      }
       if (!domNode || !domNode.contains(e.target)) {
         //
         this.setState((0, _reactAddonsUpdate2.default)(this.state, {
@@ -196,7 +201,7 @@ var Grid = function (_React$Component) {
     value: function clickGrid(e, index) {
       var _this4 = this;
 
-      var ele = document.querySelector('[data-index="' + index + '"]');
+      var ele = this.gmuGrid.querySelector('[data-index="' + index + '"]');
       // console.log(this.circleCover, ele.dataset.abTop, ele.dataset.abLeft, ele, ele.dataset);
 
       console.log(e.pageX, e.pageY, this.gmuGridTop, this.gmuGridLeft);

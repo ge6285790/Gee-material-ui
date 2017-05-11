@@ -90,7 +90,6 @@ var ArcCard = function (_React$Component) {
           onClickFunc(e);
         };
       }
-      console.log('render');
       return _react2.default.createElement(
         'div',
         {

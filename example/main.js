@@ -41,12 +41,15 @@ const buttonOption = {
     // overflow: 'hidden',
     // whiteSpace: 'nowrap',
   },
+  id: '',
+  classNames: '',
   iconClassBefore: '',
   iconClassAfter: '',
   boxShadow: true,
   content: 'textButton',
   stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-  widthClass: 'col-6', // col-1 ~ col-12
+  col: 'col-6', // col-1 ~ col-12,
+  offset: '',
   size: 'middle', // x-large / large / middle / small
   componentDidMountFunc: () => {
     console.log('done!');
@@ -57,6 +60,8 @@ const buttonOption = {
 };
 
 const isometricButtonOption = {
+  id: '',
+  classNames: '',
   style: {
     clickResponseColor: '',
     color: '',
@@ -72,6 +77,8 @@ const isometricButtonOption = {
     // overflow: 'hidden',
     // whiteSpace: 'nowrap',
   },
+  col: '',
+  offset: '',
   iconClassBefore: '',
   iconClassAfter: '',
   boxShadow: true,
@@ -115,6 +122,8 @@ const headerContainerOption = {
 };
 
 const autoCompleteOption = {
+  id: '',
+  classNames: '',
   title: 'test',
   size: 'small', // small / middle / large / x-large
   theme: 'malibu',
@@ -129,6 +138,8 @@ const autoCompleteOption = {
 };
 
 const avatarOptions = {
+  id: '',
+  classNames: '',
   size: 'small', // defalut is middle  / small / middle / large
   customSize: 50,
   // boxShadow: true,
@@ -201,9 +212,9 @@ const dataPickerOption = {
     },
     underLineColor: 'false', // color rgba / hex
     inputValue: '', // 假如有要從setState傳value才需使用，default是讓內部輸入
-    onFocusFuncCallback: () => {},
-    onBlurFuncCallback: () => {},
-    onChangeFuncCallback: () => {},
+    onFocusFunc: () => {},
+    onBlurFunc: () => {},
+    onChangeFunc: () => {},
   }
 };
 
@@ -458,7 +469,8 @@ class Test1 extends React.Component {
         boxShadow: true,
         content: 'call drawer',
         stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-        widthClass: 'col-6', // col-1 ~ col-12
+        col: 'col-6', // col-1 ~ col-12
+        offset: '',
         size: 'middle', // x-large / large / middle / small
         componentDidMountFunc: () => {
           console.log('done!');
@@ -510,7 +522,8 @@ class Test1 extends React.Component {
         boxShadow: true,
         content: 'call menu',
         stateClass: 'h-gold', // malibu / charade / shark / froly / fern
-        widthClass: 'col-6', // col-1 ~ col-12
+        col: 'col-6', // col-1 ~ col-12
+        offset: '',
         size: 'middle', // x-large / large / middle / small
         componentDidMountFunc: () => {
           console.log('done!');
@@ -956,7 +969,7 @@ class Test1 extends React.Component {
       // <Card options={{ col: 'col-5 col-768-12', offset: 'col-offset-1 col-offset-768-0' }} />,
       // <Card options={{ col: 'col-5', offset: 'col-offset-1' }} />,
       <ArcCard options={ArcCardOption} />,
-      <Grid options={this.state.girdOptions} />,
+      // <Grid options={this.state.girdOptions} />,
       <ScaleButton options={this.state.scaleButtonControlListOption} />,
       // <Chip options={chipOption} />,
       <AutoComplete options={autoCompleteOption} />,

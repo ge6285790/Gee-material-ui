@@ -68,7 +68,7 @@ class ScaleButton extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('componentWillReceiveProps', nextProps);
+    // console.log('componentWillReceiveProps', nextProps);
     const defaultStyle = { ...nextProps.options.style };
     this.clickResponseStyle = {
       background: defaultStyle.clickResponseColor,
@@ -119,13 +119,13 @@ class ScaleButton extends React.Component {
   }
 
   render() {
-    const { stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {}, onMouseUpFunc = () => {}, onMouseDownFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, size = '', content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', boxShadow = false, shapeClass = '', onClickFunc = () => {}, onMouseUpFunc = () => {}, onMouseDownFunc = () => {} } = this.props.options;
     const { clickResponseArray, clickDownClass, clickUpClass, clickHidden, active } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
 
-    console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
+    // console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
     return (
-      <div className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass}`}>
+      <div id={id} className={`gum gmu-scale-button ${stateClass} ${widthClass} ${shapeClass} ${classNames}`}>
         <button
           className={widthClass ? `col-12 ${boxShadowClass} ${size} ${clickDownClass} ${clickUpClass}` : `${boxShadowClass} ${size} ${clickDownClass} ${clickUpClass}`}
           ref={(button) => { this.button = button; }}
@@ -160,6 +160,36 @@ class ScaleButton extends React.Component {
               }));
             }, 600);
           }}
+          // onTouchStart={(e) => {
+          //   this.setState(update(this.state, {
+          //     clickDownClass: { $set: 'click-down' },
+          //   }));
+          //   onMouseDownFunc(e);
+          // }}
+          // onTouchEnd={(e) => {
+          //   this.setState(update(this.state, {
+          //     clickUpClass: { $set: 'click-up' },
+          //   }));
+          //   onMouseUpFunc(e);
+          //   onClickFunc(e);
+          //   if (clickHidden) {
+          //     setTimeout(() => {
+          //       this.setState(update(this.state, {
+          //         active: { $set: 'true' },
+          //         clickUpClass: { $set: '' },
+          //         clickDownClass: { $set: '' },
+          //       }));
+          //     }, 220);
+          //     return;
+          //   }
+          //   setTimeout(() => {
+          //     this.setState(update(this.state, {
+          //       // hide: { $set: 'true' }
+          //       clickUpClass: { $set: '' },
+          //       clickDownClass: { $set: '' },
+          //     }));
+          //   }, 600);
+          // }}
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>

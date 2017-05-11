@@ -7,6 +7,7 @@ export ArcCard from './ArcCard';
 export Card from './Card';
 export Header from './Header';
 export AutoComplete from './AutoComplete';
+export Input from './AutoComplete';
 export Avatar from './Avatar';
 export Chip from './Chip';
 export Curtain from './Curtain';

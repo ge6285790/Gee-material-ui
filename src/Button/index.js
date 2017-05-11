@@ -44,8 +44,10 @@ class Button extends React.Component {
   componentDidMount() {
     const { componentDidMountFunc = () => {} } = this.props.options;
     console.log('this.button', this.button);
-    this.range = this.button.offsetWidth >= this.button.offsetHeight ?
-                  this.button.offsetWidth : this.button.offsetHeight;
+    // this.range = this.button.offsetWidth >= this.button.offsetHeight ?
+    //               this.button.offsetWidth : this.button.offsetHeight;
+    this.range = Math.sqrt((this.button.offsetWidth * this.button.offsetWidth) + (this.button.offsetHeight * this.button.offsetHeight));
+
     try {
       componentDidMountFunc();
     } catch (e) {
@@ -114,7 +116,7 @@ class Button extends React.Component {
     newArray.push({
       active: 'false',
       style: {
-        transform: 'scale(0)',
+        transform: 'scale3d(0, 0, 1)',
         left: 0,
         top: 0,
       },
@@ -126,10 +128,12 @@ class Button extends React.Component {
 
   fireClickResponse(e) {
     const { clickResponseArray } = this.state;
+    this.range = Math.sqrt((this.button.offsetWidth * this.button.offsetWidth) + (this.button.offsetHeight * this.button.offsetHeight));
     const state = {
       active: 'true',
       style: {
-        transform: `scale(${(this.range / 21) * 2.5})`,
+        // transform: `scale3d(${(this.range / 21) * 2.5}, ${(this.range / 21) * 2.5}, 1)`,
+        transform: `scale3d(${(this.range * 2.5) / 21}, ${(this.range * 2.5) / 21}, 1)`,
         // left: e.pageX - this.button.offsetLeft,
         left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
         // top: e.pageY - this.button.offsetTop,
@@ -165,13 +169,13 @@ class Button extends React.Component {
   }
 
   render() {
-    const { stateClass, content = '', iconClassBefore = '', iconClassAfter = '', widthClass = '', disable = 'true', boxShadow = false, onClickFunc = () => {} } = this.props.options;
+    const { id = '', classNames = '', stateClass, content = '', iconClassBefore = '', iconClassAfter = '', col = '', offset = '', disable = false, boxShadow = false, size = '', onClickFunc = () => {} } = this.props.options;
     const { clickResponseArray } = this.state;
     const boxShadowClass = boxShadow ? 'box-shadow' : '';
     return (
-      <div className={`gum gmu-button ${stateClass} ${widthClass} ${disable === true ? 'disable' : ''}`}>
+      <div id={id} className={`gum gmu-button ${stateClass} ${col} ${offset} ${classNames} ${disable === true ? 'disable' : ''}`}>
         <button
-          className={widthClass ? `col-12 ${boxShadowClass}` : `${boxShadowClass}`}
+          className={col ? `col-12 ${boxShadowClass} ${size}` : `${boxShadowClass} ${size}`}
           ref={(button) => { this.button = button; }}
           onMouseDown={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
           onMouseUp={(e) => {
@@ -179,15 +183,21 @@ class Button extends React.Component {
             onClickFunc(e);
             this.setTimeoutToClear();
           }}
+          // onTouchStart={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
+          // onTouchEnd={(e) => {
+          //   this.fireClickResponse(e);
+          //   onClickFunc(e);
+          //   this.setTimeoutToClear();
+          // }}
           style={this.buttonStyle}
         >
           <div style={this.buttonDivStyle}>
             <span className="color-hover-response" />
             { this.renderClickReponse() }
             <span className="content-word" style={this.contentWordStyle}>
-              <i className={iconClassBefore} />
+              <i className={`${iconClassBefore} ${content !== '' ? 'icon-margin-right' : ''}`} />
               {content}
-              <i className={iconClassAfter} />
+              <i className={`${iconClassAfter} ${content !== '' ? 'icon-margin-left' : ''}`} />
             </span>
           </div>
         </button>

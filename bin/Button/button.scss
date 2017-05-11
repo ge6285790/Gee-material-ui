@@ -1,7 +1,10 @@
 .gmu-button {
   text-align: center;
   display: inline-block;
-
+  button::-moz-focus-inner {
+    padding: 0;
+    border: 0
+  }
   button {
     background: transparent;
     padding: 0;
@@ -171,5 +174,11 @@
         }
       }
     }
+  }
+  .icon-margin-right{
+    margin-right: 6px;
+  }
+  .icon-margin-left{
+    margin-left: 6px;
   }
 }

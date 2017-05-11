@@ -101,7 +101,7 @@ var IsometricButton = function (_React$Component) {
       var _props$options$compon = this.props.options.componentDidMountFunc,
           componentDidMountFunc = _props$options$compon === undefined ? function () {} : _props$options$compon;
 
-      this.range = this.button.offsetWidth >= this.button.offsetHeight ? this.button.offsetWidth : this.button.offsetHeight;
+      this.range = this.button.offsetWidth;
       componentDidMountFunc();
     }
   }, {
@@ -197,10 +197,11 @@ var IsometricButton = function (_React$Component) {
     value: function fireClickResponse(e) {
       var clickResponseArray = this.state.clickResponseArray;
 
+      this.range = this.button.offsetWidth;
       var state = {
         active: 'true',
         style: _extends({
-          transform: 'scale(' + this.range / 21 * 2.5 + ')',
+          transform: 'scale(' + this.range * 2 / 21 + ')',
           left: e.pageX - this.button.getBoundingClientRect().left - window.scrollX,
           top: e.pageY - this.button.getBoundingClientRect().top - window.scrollY
         }, this.clickResponseStyle)
@@ -245,6 +246,9 @@ var IsometricButton = function (_React$Component) {
       var _this3 = this;
 
       var _props$options = this.props.options,
+          _props$options$id = _props$options.id,
+          id = _props$options$id === undefined ? '' : _props$options$id,
+          classNames = _props$options.classNames,
           stateClass = _props$options.stateClass,
           _props$options$size = _props$options.size,
           size = _props$options$size === undefined ? '' : _props$options$size,
@@ -254,8 +258,8 @@ var IsometricButton = function (_React$Component) {
           iconClassBefore = _props$options$iconCl === undefined ? '' : _props$options$iconCl,
           _props$options$iconCl2 = _props$options.iconClassAfter,
           iconClassAfter = _props$options$iconCl2 === undefined ? '' : _props$options$iconCl2,
-          _props$options$widthC = _props$options.widthClass,
-          widthClass = _props$options$widthC === undefined ? '' : _props$options$widthC,
+          _props$options$col = _props$options.col,
+          col = _props$options$col === undefined ? '' : _props$options$col,
           _props$options$boxSha = _props$options.boxShadow,
           boxShadow = _props$options$boxSha === undefined ? false : _props$options$boxSha,
           _props$options$shapeC = _props$options.shapeClass,
@@ -267,11 +271,11 @@ var IsometricButton = function (_React$Component) {
       var boxShadowClass = boxShadow ? 'box-shadow' : '';
       return _react2.default.createElement(
         'div',
-        { className: 'gum gmu-isometric-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass },
+        { id: id, className: 'gum gmu-isometric-button ' + stateClass + ' ' + col + ' ' + shapeClass + ' ' + classNames },
         _react2.default.createElement(
           'button',
           {
-            className: widthClass ? 'col-12 ' + boxShadowClass + ' ' + size : boxShadowClass + ' ' + size,
+            className: col ? 'col-12 ' + boxShadowClass + ' ' + size : boxShadowClass + ' ' + size,
             ref: function ref(button) {
               _this3.button = button;
             },
@@ -282,8 +286,14 @@ var IsometricButton = function (_React$Component) {
               _this3.fireClickResponse(e);
               onClickFunc(e);
               _this3.setTimeoutToClear();
-            },
-            style: this.buttonStyle
+            }
+            // onTouchStart={(e) => { this.appendClickResponse(); this.setTimeoutStop(); }}
+            // onTouchEnd={(e) => {
+            //   this.fireClickResponse(e);
+            //   onClickFunc(e);
+            //   this.setTimeoutToClear();
+            // }}
+            , style: this.buttonStyle
           },
           _react2.default.createElement(
             'div',

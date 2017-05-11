@@ -107,7 +107,7 @@ var ScaleButton = function (_React$Component) {
   }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(nextProps) {
-      console.log('componentWillReceiveProps', nextProps);
+      // console.log('componentWillReceiveProps', nextProps);
       var defaultStyle = _extends({}, nextProps.options.style);
       this.clickResponseStyle = {
         background: defaultStyle.clickResponseColor
@@ -161,6 +161,10 @@ var ScaleButton = function (_React$Component) {
       var _this2 = this;
 
       var _props$options = this.props.options,
+          _props$options$id = _props$options.id,
+          id = _props$options$id === undefined ? '' : _props$options$id,
+          _props$options$classN = _props$options.classNames,
+          classNames = _props$options$classN === undefined ? '' : _props$options$classN,
           stateClass = _props$options.stateClass,
           _props$options$size = _props$options.size,
           size = _props$options$size === undefined ? '' : _props$options$size,
@@ -191,10 +195,10 @@ var ScaleButton = function (_React$Component) {
 
       var boxShadowClass = boxShadow ? 'box-shadow' : '';
 
-      console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
+      // console.log('clickDownClass, clickUpClass', clickDownClass, clickUpClass);
       return _react2.default.createElement(
         'div',
-        { className: 'gum gmu-scale-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass },
+        { id: id, className: 'gum gmu-scale-button ' + stateClass + ' ' + widthClass + ' ' + shapeClass + ' ' + classNames },
         _react2.default.createElement(
           'button',
           {
@@ -232,8 +236,38 @@ var ScaleButton = function (_React$Component) {
                   clickDownClass: { $set: '' }
                 }));
               }, 600);
-            },
-            style: this.buttonStyle
+            }
+            // onTouchStart={(e) => {
+            //   this.setState(update(this.state, {
+            //     clickDownClass: { $set: 'click-down' },
+            //   }));
+            //   onMouseDownFunc(e);
+            // }}
+            // onTouchEnd={(e) => {
+            //   this.setState(update(this.state, {
+            //     clickUpClass: { $set: 'click-up' },
+            //   }));
+            //   onMouseUpFunc(e);
+            //   onClickFunc(e);
+            //   if (clickHidden) {
+            //     setTimeout(() => {
+            //       this.setState(update(this.state, {
+            //         active: { $set: 'true' },
+            //         clickUpClass: { $set: '' },
+            //         clickDownClass: { $set: '' },
+            //       }));
+            //     }, 220);
+            //     return;
+            //   }
+            //   setTimeout(() => {
+            //     this.setState(update(this.state, {
+            //       // hide: { $set: 'true' }
+            //       clickUpClass: { $set: '' },
+            //       clickDownClass: { $set: '' },
+            //     }));
+            //   }, 600);
+            // }}
+            , style: this.buttonStyle
           },
           _react2.default.createElement(
             'div',

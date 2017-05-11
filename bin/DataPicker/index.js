@@ -108,7 +108,7 @@ var DataPicker = function (_React$Component) {
       }
       this.setState((0, _reactAddonsUpdate2.default)(this.state, {
         dataPicker: {
-          inputValue: { $set: date }
+          updateValue: { $set: date }
         },
         calendar: {
           show: { $set: 'false' }
